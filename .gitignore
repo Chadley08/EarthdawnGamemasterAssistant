@@ -3,3 +3,8 @@
 ################################################################################
 
 /Dice.Tests/bin/Debug
+/Dice.Tests/obj/Debug
+*.suo
+/earthdawn-tabletop-player/bin/Debug
+/earthdawn-tabletop-player/obj/Debug
+/packages
