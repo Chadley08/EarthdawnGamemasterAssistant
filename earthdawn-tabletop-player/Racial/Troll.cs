@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace earthdawn_tabletop_player
+namespace earthdawn_tabletop_player.Racial
 {
-    public class PlayerCharacter
+    public class Troll
     {
+        public Troll()
+        {
+            
+        }
     }
 }

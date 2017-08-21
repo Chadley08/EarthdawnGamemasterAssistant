@@ -46,9 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes.cs" />
+    <Compile Include="Character.cs" />
+    <Compile Include="Charisma.cs" />
+    <Compile Include="Dexterity.cs" />
     <Compile Include="Dice\Die.cs" />
     <Compile Include="Dice\StaticRandom.cs" />
     <Compile Include="Dice\StepTable.cs" />
+    <Compile Include="Discipline.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,9 +61,24 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Dice\KarmaDice.cs" />
-    <Compile Include="PlayerCharacter.cs" />
+    <Compile Include="Perception.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Racial\Dwarf.cs" />
+    <Compile Include="Racial\Elf.cs" />
+    <Compile Include="Racial\HeatSight.cs" />
+    <Compile Include="Racial\Human.cs" />
+    <Compile Include="Racial\Obsidiman.cs" />
+    <Compile Include="Racial\Ork.cs" />
+    <Compile Include="Racial\Race.cs" />
+    <Compile Include="Racial\RacialAbility.cs" />
+    <Compile Include="Racial\StrongBack.cs" />
+    <Compile Include="Racial\Troll.cs" />
+    <Compile Include="Racial\Tskrang.cs" />
+    <Compile Include="Racial\Windling.cs" />
+    <Compile Include="Strength.cs" />
+    <Compile Include="Toughness.cs" />
+    <Compile Include="Willpower.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
