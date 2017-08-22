@@ -1,12 +1,11 @@
 ﻿namespace earthdawn_tabletop_player
 {
-    public class Charisma
+    public class Charisma : Attribute
     {
-        public int Value { get; }
-
-        public Charisma(int value)
+        public Charisma(int value) : base(value)
         {
-            Value = value;
         }
+
+        public string Name => "Charisma";
     }
 }

@@ -8,5 +8,7 @@
         {
             Value = value;
         }
+
+        public string Name => "Dexterity";
     }
 }

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepNumberTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

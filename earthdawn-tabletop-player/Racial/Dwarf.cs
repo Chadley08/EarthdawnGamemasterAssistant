@@ -2,24 +2,29 @@
 
 namespace earthdawn_tabletop_player.Racial
 {
-    public class Dwarf
+    public class Dwarf : Race
     {
-        private Attributes StartingAttributes { get; }
         public int MovementRate { get; }
-        public int StartingMaxKarma { get; }
+        public int MaxKarma { get; }
         public List<RacialAbility> Racials { get; }
 
-        public Dwarf()
+        private Dwarf(Dexterity dex, Strength str, Toughness tou, Perception per, Willpower wil, Charisma chr, int maxKarma = 4) : base(dex, str, tou, per, wil, chr, maxKarma)
         {
-            StartingAttributes = new Attributes(
-                new Dexterity(9),
-                new Strength(10),
-                new Toughness(12),
-                new Perception(11),
-                new Willpower(11),
-                new Charisma(10));
             MovementRate = 10;
-            StartingMaxKarma = 4;
+            MaxKarma = maxKarma;
+
+            Racials.Add(new HeatSight());
+            Racials.Add(new StrongBack());
+        }
+
+        public static Dwarf CreateWithDefaultAttributes()
+        {
+            return new Dwarf(new Dexterity(9), new Strength(10), new Toughness(12), new Perception(11), new Willpower(11), new Charisma(10));
+        }
+
+        public static Dwarf CreateWithAttributes(int dex, int str, int tou, int per, int wil, int chr)
+        {
+            return new Dwarf(new Dexterity(dex), new Strength(str), new Toughness(tou), new Perception(per), new Willpower(wil), new Charisma(chr));
         }
     }
 }
