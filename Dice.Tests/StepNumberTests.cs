@@ -1,6 +1,7 @@
 ﻿using earthdawn_tabletop_player;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using earthdawn_tabletop_player.Attributes;
 
 namespace Dice.Tests
 {

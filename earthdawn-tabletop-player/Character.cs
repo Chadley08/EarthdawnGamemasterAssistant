@@ -1,4 +1,5 @@
-﻿using earthdawn_tabletop_player.Dice;
+﻿using earthdawn_tabletop_player.Attributes;
+using earthdawn_tabletop_player.Dice;
 using earthdawn_tabletop_player.Racial;
 using System;
 using System.Collections.Generic;
@@ -9,23 +10,42 @@ namespace earthdawn_tabletop_player
     public class Character
     {
         private List<Discipline> Disciplines { get; }
+
         public int AttributePoints { get; }
-        public int CarryingCapacity { get; }
 
-        public int PhysicalDefense => Convert.ToInt32(Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero));
-        public int SocialDefense => Convert.ToInt32(Math.Round(Convert.ToDouble(Chr.Value) / 2, MidpointRounding.AwayFromZero));
-        public int MysticDefense => Convert.ToInt32(Math.Round(Convert.ToDouble(Wil.Value) / 2, MidpointRounding.AwayFromZero));
+        public int CarryingCapacity => CharacteristicTables.GetCarryingCapacityFromAttributeValue(Str.Value);
 
-        public int UnconsciousnessRating => Tou.Value * 2 + GetHighestDurabilityRating() * _Durability.Rank;
+        public int LiftingCapacity => CarryingCapacity * 2;
 
-        public int DeathRating => UnconsciousnessRating + StepTable.GetStepFromValue(Tou.Value) + GetHighestCircle();
-        
-        public int WoundThreshold => Convert.ToInt32(Math.Round(Convert.ToDouble(Tou.Value) / 2 + 2, MidpointRounding.AwayFromZero));
-        public int RecoveryTests => Convert.ToInt32(Math.Round(Convert.ToDouble(Tou.Value) / 6, MidpointRounding.AwayFromZero));
+        public int PhysicalDefense => Convert.ToInt32(
+            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero));
+
+        public int SocialDefense => Convert.ToInt32(
+            Math.Round(Convert.ToDouble(Chr.Value) / 2, MidpointRounding.AwayFromZero));
+
+        public int MysticDefense => Convert.ToInt32(
+            Math.Round(Convert.ToDouble(Wil.Value) / 2, MidpointRounding.AwayFromZero));
+
+        public int DurabilityRank { get; }
+
+        public int UnconsciousnessRating => Tou.Value * 2 + GetHighestDurabilityRating() * DurabilityRank;
+
+        public int DeathRating => UnconsciousnessRating + CharacteristicTables.GetStepFromValue(Tou.Value) + GetHighestCircle();
+
+        public int WoundThreshold => Convert.ToInt32(
+            Math.Round(Convert.ToDouble(Tou.Value) / 2 + 2, MidpointRounding.AwayFromZero));
+
+        public int RecoveryTests => Convert.ToInt32(
+            Math.Round(Convert.ToDouble(Tou.Value) / 6, MidpointRounding.AwayFromZero));
+
         public int MysticArmor => Convert.ToInt32(Math.Floor(Convert.ToDouble(Wil.Value) / 6));
 
         public int TotalLegend { get; }
         public int AvailableLegend { get; }
+
+        public int MaxKarma { get; }
+        public int MovementRate => CharacteristicTables.GetMovementRateFromValue(Dex.Value);
+        public int CombatMovementRate => MovementRate / 2;
 
         public Dexterity Dex { get; }
         public Strength Str { get; }
@@ -34,21 +54,15 @@ namespace earthdawn_tabletop_player
         public Willpower Wil { get; }
         public Charisma Chr { get; }
 
-        public Durability _Durability { get; }
-
-        public int MaxKarma { get; }
-        public int MovementRate { get; }
         public List<RacialAbility> RacialAbilities { get; }
 
         private Character(
             List<Discipline> disciplines,
-            int movementRate,
             int maxKarma,
             List<RacialAbility> racialAbilities,
             int totalLegend,
             int availableLegend,
-            int carryingCapacity,
-            Durability durability,
+            int durabilityRank,
             Dexterity dex,
             Strength str,
             Toughness tou,
@@ -57,13 +71,11 @@ namespace earthdawn_tabletop_player
             Charisma chr)
         {
             Disciplines = disciplines;
-            MovementRate = movementRate;
             MaxKarma = maxKarma;
             RacialAbilities = racialAbilities;
             TotalLegend = totalLegend;
             AvailableLegend = availableLegend;
-            CarryingCapacity = carryingCapacity;
-            _Durability = durability;
+            DurabilityRank = durabilityRank;
             Dex = dex;
             Str = str;
             Tou = tou;
@@ -75,13 +87,11 @@ namespace earthdawn_tabletop_player
 
         public static Dwarf CreateDwarf(
             List<Discipline> disciplines,
-            int movementRate,
             int maxKarma,
             List<RacialAbility> racialAbilities,
             int totalLegend,
             int availableLegend,
-            int carryingCapacity,
-            Durability durability,
+            int durabilityRank,
             Dexterity dex,
             Strength str,
             Toughness tou,
@@ -92,13 +102,11 @@ namespace earthdawn_tabletop_player
             return new Dwarf(
                 new Character(
                     disciplines,
-                    movementRate,
                     maxKarma,
                     racialAbilities,
                     totalLegend,
                     availableLegend,
-                    carryingCapacity,
-                    durability,
+                    durabilityRank,
                     dex,
                     str,
                     tou,
@@ -111,6 +119,7 @@ namespace earthdawn_tabletop_player
         {
             return Disciplines.Max(discipline => discipline._Circle.Value);
         }
+
         private int GetHighestDurabilityRating()
         {
             return Disciplines.Max(discipline => discipline.DurabilityRating);

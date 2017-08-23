@@ -1,13 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace earthdawn_tabletop_player.Dice
+namespace earthdawn_tabletop_player
 {
-    public static class StepTable
+    public static class CharacteristicTables
     {
         private static readonly List<string> StepLookup = new List<string>();
+        private static readonly Dictionary<int, int> MovementRateLookup = new Dictionary<int, int>();
+        private static readonly Dictionary<int, int> CarryingCapacity = new Dictionary<int, int>();
 
-        static StepTable()
+        static CharacteristicTables()
+        {
+            CreateStepTableList();
+            CreateMovementRateDictionary();
+            CreateCarryingCapacityDictionary();
+        }
+
+        private static void CreateCarryingCapacityDictionary()
+        {
+            
+        }
+
+        private static void CreateMovementRateDictionary()
+        {
+            int nextValueIncrement = 1;
+            for (var i = 1; i < 25; i++)
+            {
+                if(i<6)
+                {
+                    MovementRateLookup.Add(i, i + 5);
+                }
+                if (i > 6 && i < 21)
+                {
+                    MovementRateLookup.Add(i, i*2);
+                }
+                if (i > 20 && i < 26)
+                {
+                    MovementRateLookup.Add(i, i * 2 + nextValueIncrement);
+                    nextValueIncrement++;
+                }
+            }
+        }
+
+        private static void CreateStepTableList()
         {
             StepLookup.Add("0d0");                  // Step Number  // Max possible on dice rolled (no explosion)   // Number of dice rolled
             StepLookup.Add("1d2");                  // 1    2       1
@@ -72,6 +107,20 @@ namespace earthdawn_tabletop_player.Dice
         public static int GetStepFromValue(int baseValue)
         {
             return Convert.ToInt32(Math.Round(Convert.ToDouble(baseValue) / 3 + 1, MidpointRounding.AwayFromZero));
+        }
+
+        public static int GetMovementRateFromValue(int baseValue)
+        {
+            if (baseValue > 1 && baseValue < 26)
+            {
+                return MovementRateLookup[baseValue];
+            }
+            throw new ArgumentException("Value is outside attribute range.");
+        }
+
+        public static int GetCarryingCapacityFromAttributeValue(int strValue)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace earthdawn_tabletop_player
+﻿namespace earthdawn_tabletop_player.Attributes
 {
     public class Perception
     {
