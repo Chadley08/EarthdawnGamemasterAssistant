@@ -17,8 +17,8 @@ namespace Dice.Tests
             var expectedStepForModPath = 9;
 
             // Act
-            //int calculatedStepForDivPath = charismaForDivPath.GetStepNumber();
-            //int calculatedStepForModPath = charismaForModPath.GetStepNumber();
+            //int calculatedStepForDivPath = charismaForDivPath.GetStepFromValue();
+            //int calculatedStepForModPath = charismaForModPath.GetStepFromValue();
 
             //// Assert
             //Assert.IsTrue(expectedStepForDivPath == calculatedStepForDivPath);

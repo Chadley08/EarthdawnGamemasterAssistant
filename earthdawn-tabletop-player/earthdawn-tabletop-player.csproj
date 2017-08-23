@@ -55,6 +55,7 @@
     <Compile Include="Dice\StaticRandom.cs" />
     <Compile Include="Dice\StepTable.cs" />
     <Compile Include="Discipline.cs" />
+    <Compile Include="Durability.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,13 +72,13 @@
     <Compile Include="Racial\Human.cs" />
     <Compile Include="Racial\Obsidiman.cs" />
     <Compile Include="Racial\Ork.cs" />
-    <Compile Include="Racial\Race.cs" />
     <Compile Include="Racial\RacialAbility.cs" />
     <Compile Include="Racial\StrongBack.cs" />
     <Compile Include="Racial\Troll.cs" />
     <Compile Include="Racial\Tskrang.cs" />
     <Compile Include="Racial\Windling.cs" />
     <Compile Include="Strength.cs" />
+    <Compile Include="Talent.cs" />
     <Compile Include="Toughness.cs" />
     <Compile Include="Willpower.cs" />
     <EmbeddedResource Include="FormMain.resx">

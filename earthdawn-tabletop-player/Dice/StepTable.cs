@@ -68,5 +68,10 @@ namespace earthdawn_tabletop_player.Dice
             }
             return actionDice;
         }
+
+        public static int GetStepFromValue(int baseValue)
+        {
+            return Convert.ToInt32(Math.Round(Convert.ToDouble(baseValue) / 3 + 1, MidpointRounding.AwayFromZero));
+        }
     }
 }

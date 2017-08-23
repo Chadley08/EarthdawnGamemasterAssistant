@@ -11,9 +11,9 @@
             Description = "Dwarf charaters have a +2 bonus to their Strength for the purposes of determining carrying capacity. Note that this is alread accounted for on your character sheet.";
         }
 
-        protected override void Apply()
+        protected override Character Apply(Character toCharacter)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

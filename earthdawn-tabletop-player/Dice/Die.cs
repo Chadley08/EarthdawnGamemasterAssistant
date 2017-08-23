@@ -46,5 +46,10 @@ namespace earthdawn_tabletop_player.Dice
             }
             return total;
         }
+
+        public static int GetSuccessLevels(int targetNumber)
+        {
+            return targetNumber / 5;
+        }
     }
 }

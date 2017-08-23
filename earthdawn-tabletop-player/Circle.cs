@@ -2,10 +2,10 @@
 {
     public class Circle
     {
-        private int _Circle { get; }
-        public Circle(int circle)
+        public int Value { get; }
+        public Circle(int value)
         {
-            _Circle = circle;
+            Value = value;
         }
     }
 }

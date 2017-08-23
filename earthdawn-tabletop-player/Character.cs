@@ -1,73 +1,119 @@
-﻿using earthdawn_tabletop_player.Racial;
+﻿using earthdawn_tabletop_player.Dice;
+using earthdawn_tabletop_player.Racial;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace earthdawn_tabletop_player
 {
     public class Character
     {
-        private Discipline _Discipline { get; }
-        private Race _Race { get; }
-        private Circle _Circle { get; }
+        private List<Discipline> Disciplines { get; }
         public int AttributePoints { get; }
+        public int CarryingCapacity { get; }
 
+        public int PhysicalDefense => Convert.ToInt32(Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero));
+        public int SocialDefense => Convert.ToInt32(Math.Round(Convert.ToDouble(Chr.Value) / 2, MidpointRounding.AwayFromZero));
+        public int MysticDefense => Convert.ToInt32(Math.Round(Convert.ToDouble(Wil.Value) / 2, MidpointRounding.AwayFromZero));
 
-        private Character(Circle circle, Discipline discipline, Race race, int attributePoints)
+        public int UnconsciousnessRating => Tou.Value * 2 + GetHighestDurabilityRating() * _Durability.Rank;
+
+        public int DeathRating => UnconsciousnessRating + StepTable.GetStepFromValue(Tou.Value) + GetHighestCircle();
+        
+        public int WoundThreshold => Convert.ToInt32(Math.Round(Convert.ToDouble(Tou.Value) / 2 + 2, MidpointRounding.AwayFromZero));
+        public int RecoveryTests => Convert.ToInt32(Math.Round(Convert.ToDouble(Tou.Value) / 6, MidpointRounding.AwayFromZero));
+        public int MysticArmor => Convert.ToInt32(Math.Floor(Convert.ToDouble(Wil.Value) / 6));
+
+        public int TotalLegend { get; }
+        public int AvailableLegend { get; }
+
+        public Dexterity Dex { get; }
+        public Strength Str { get; }
+        public Toughness Tou { get; }
+        public Perception Per { get; }
+        public Willpower Wil { get; }
+        public Charisma Chr { get; }
+
+        public Durability _Durability { get; }
+
+        public int MaxKarma { get; }
+        public int MovementRate { get; }
+        public List<RacialAbility> RacialAbilities { get; }
+
+        private Character(
+            List<Discipline> disciplines,
+            int movementRate,
+            int maxKarma,
+            List<RacialAbility> racialAbilities,
+            int totalLegend,
+            int availableLegend,
+            int carryingCapacity,
+            Durability durability,
+            Dexterity dex,
+            Strength str,
+            Toughness tou,
+            Perception per,
+            Willpower wil,
+            Charisma chr)
         {
-            _Circle = circle;
-            _Discipline = discipline;
-            _Race = race;
-            AttributePoints = attributePoints;
+            Disciplines = disciplines;
+            MovementRate = movementRate;
+            MaxKarma = maxKarma;
+            RacialAbilities = racialAbilities;
+            TotalLegend = totalLegend;
+            AvailableLegend = availableLegend;
+            CarryingCapacity = carryingCapacity;
+            _Durability = durability;
+            Dex = dex;
+            Str = str;
+            Tou = tou;
+            Per = per;
+            Wil = wil;
+            Chr = chr;
+            AttributePoints = 25;
         }
 
-        public static Character CreateCharacter(Circle circle, Discipline discipline, Race race)
+        public static Dwarf CreateDwarf(
+            List<Discipline> disciplines,
+            int movementRate,
+            int maxKarma,
+            List<RacialAbility> racialAbilities,
+            int totalLegend,
+            int availableLegend,
+            int carryingCapacity,
+            Durability durability,
+            Dexterity dex,
+            Strength str,
+            Toughness tou,
+            Perception per,
+            Willpower wil,
+            Charisma chr)
         {
-            return new Character(circle, discipline, race, 25);
+            return new Dwarf(
+                new Character(
+                    disciplines,
+                    movementRate,
+                    maxKarma,
+                    racialAbilities,
+                    totalLegend,
+                    availableLegend,
+                    carryingCapacity,
+                    durability,
+                    dex,
+                    str,
+                    tou,
+                    per,
+                    wil,
+                    chr));
         }
 
-        public Character ModifyCharacterAttribute(Attribute toModify, int amount)
+        private int GetHighestCircle()
         {
-            var cost = 0;
-            switch(amount)
-            {
-                case -2:
-                    cost = -2;
-                    break;
-                case -1:
-                    cost = -1;
-                    break;
-                case 0:
-                    break;
-                case 1:
-                    cost = 1;
-                    break;
-                case 2:
-                    cost = 2;
-                    break;
-                case 3:
-                    cost = 3;
-                    break;
-                case 4:
-                    cost = 5;
-                    break;
-                case 5:
-                    cost = 7;
-                    break;
-                case 6:
-                    cost = 9;
-                    break;
-                case 7:
-                    cost = 12;
-                    break;
-                case 8:
-                    cost = 15;
-                    break;
-                default:
-                    throw new Exception("Cannot modify an attribute value by reducing it more than 2 or increasing it more than 8.");
-            }
-            var availableAttributePoints = AttributePoints - cost;
-            var race = new Race()
-            return new Character(_Circle, _Discipline, _Race, AttributePoints - cost);                        
+            return Disciplines.Max(discipline => discipline._Circle.Value);
+        }
+        private int GetHighestDurabilityRating()
+        {
+            return Disciplines.Max(discipline => discipline.DurabilityRating);
         }
     }
 }
