@@ -1,5 +1,4 @@
 ﻿using earthdawn_tabletop_player.Attributes;
-using earthdawn_tabletop_player.Dice;
 using earthdawn_tabletop_player.Racial;
 using System;
 using System.Collections.Generic;

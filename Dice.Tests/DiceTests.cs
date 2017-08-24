@@ -1,6 +1,7 @@
 ﻿using earthdawn_tabletop_player.Dice;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using earthdawn_tabletop_player;
 
 namespace Dice.Tests
 {
@@ -42,7 +43,7 @@ namespace Dice.Tests
             // Act
             for (int i = 0; i < 41; i++)
             {
-                test.Add(StepTable.ParseActionDice(i));
+                test.Add(CharacteristicTables.ParseActionDice(i));
             }
         }
     }

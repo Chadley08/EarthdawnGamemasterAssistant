@@ -18,7 +18,42 @@ namespace earthdawn_tabletop_player
 
         private static void CreateCarryingCapacityDictionary()
         {
-            
+            var carryingCapacity = 10;
+            for (var i = 1; i <= 5; i++)
+            {
+                CarryingCapacity.Add(i, carryingCapacity);
+                carryingCapacity = 10 + 5 * i;
+            }
+            carryingCapacity = 40;
+            for (var i = 1; i <= 5; i++)
+            {
+                CarryingCapacity.Add(i, carryingCapacity);
+                carryingCapacity = 40 + 10 * i;
+            }
+            carryingCapacity = 95;
+            for (var i = 1; i <= 5; i++)
+            {
+                CarryingCapacity.Add(i, carryingCapacity);
+                carryingCapacity = 95 + 15 * i;
+            }
+            carryingCapacity = 175;
+            for (var i = 1; i <= 5; i++)
+            {
+                CarryingCapacity.Add(i, carryingCapacity);
+                carryingCapacity = 175 + 20 * i;
+            }
+            carryingCapacity = 280;
+            for (var i = 1; i <= 5; i++)
+            {
+                CarryingCapacity.Add(i, carryingCapacity);
+                carryingCapacity = 280 + 25 * i;
+            }
+            carryingCapacity = 410;
+            for (var i = 1; i <= 5; i++)
+            {
+                CarryingCapacity.Add(i, carryingCapacity);
+                carryingCapacity = 410 + 30 * i;
+            }
         }
 
         private static void CreateMovementRateDictionary()
@@ -30,7 +65,7 @@ namespace earthdawn_tabletop_player
                 {
                     MovementRateLookup.Add(i, i + 5);
                 }
-                if (i > 6 && i < 21)
+                if (i > 5 && i < 21)
                 {
                     MovementRateLookup.Add(i, i*2);
                 }
@@ -106,21 +141,27 @@ namespace earthdawn_tabletop_player
 
         public static int GetStepFromValue(int baseValue)
         {
+            if(baseValue >= 0 && baseValue <= 40)
+            { }
             return Convert.ToInt32(Math.Round(Convert.ToDouble(baseValue) / 3 + 1, MidpointRounding.AwayFromZero));
         }
 
         public static int GetMovementRateFromValue(int baseValue)
         {
-            if (baseValue > 1 && baseValue < 26)
+            if (baseValue >= 1 && baseValue <= 25)
             {
                 return MovementRateLookup[baseValue];
             }
             throw new ArgumentException("Value is outside attribute range.");
         }
 
-        public static int GetCarryingCapacityFromAttributeValue(int strValue)
+        public static int GetCarryingCapacityFromAttributeValue(int baseValue)
         {
-            throw new NotImplementedException();
+            if (baseValue >= 1 && baseValue <= 25)
+            {
+                return CarryingCapacity[baseValue];
+            }
+            throw new ArgumentException("Value is outside attribute range.");
         }
     }
 }

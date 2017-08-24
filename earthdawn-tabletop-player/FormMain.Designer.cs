@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1396, 686);
             this.Name = "FormMain";
-            this.Text = "Combat Tracker";
+            this.Text = "Earthdawn Game Master Assistant";
             this.ResumeLayout(false);
 
         }
