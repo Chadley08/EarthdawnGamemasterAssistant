@@ -1,7 +1,7 @@
-﻿using earthdawn_tabletop_player.Dice;
+﻿using EarthdawnGamemasterAssistant;
+using EarthdawnGamemasterAssistant.Dice;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using earthdawn_tabletop_player;
 
 namespace Dice.Tests
 {
