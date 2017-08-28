@@ -13,7 +13,7 @@ namespace EarthdawnGamemasterAssistant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCharacter());
+            Application.Run(new FormMain());
         }
     }
 }

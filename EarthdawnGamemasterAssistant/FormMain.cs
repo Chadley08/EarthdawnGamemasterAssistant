@@ -8,5 +8,11 @@ namespace EarthdawnGamemasterAssistant
         {
             InitializeComponent();
         }
+
+        private void newToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            var formCharacter = new FormCharacter();
+            formCharacter.Show();
+        }
     }
 }
