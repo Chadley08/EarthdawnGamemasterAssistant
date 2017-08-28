@@ -8,5 +8,10 @@ namespace EarthdawnGamemasterAssistant
         {
             InitializeComponent();
         }
+
+        private void metroLabel53_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
