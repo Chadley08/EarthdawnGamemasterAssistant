@@ -5,6 +5,11 @@
 /Dice.Tests/bin/Debug
 /Dice.Tests/obj/Debug
 *.suo
+/.vs/
 /earthdawn-tabletop-player/bin/Debug
 /earthdawn-tabletop-player/obj/Debug
 /packages
+/Character.Creation.Tests/bin/Debug
+/Character.Creation.Tests/obj/Debug
+/EarthdawnGamemasterAssistant/bin/Debug
+/EarthdawnGamemasterAssistant/obj/Debug

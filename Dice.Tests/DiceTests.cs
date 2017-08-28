@@ -1,4 +1,5 @@
-﻿using earthdawn_tabletop_player.Dice;
+﻿using EarthdawnGamemasterAssistant;
+using EarthdawnGamemasterAssistant.Dice;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -42,7 +43,7 @@ namespace Dice.Tests
             // Act
             for (int i = 0; i < 41; i++)
             {
-                test.Add(StepTable.ParseActionDice(i));
+                test.Add(CharacteristicTables.ParseActionDice(i));
             }
         }
     }
