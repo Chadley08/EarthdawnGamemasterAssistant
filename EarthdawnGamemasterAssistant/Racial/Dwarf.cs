@@ -1,25 +1,30 @@
-﻿using System.Collections.Generic;
-using EarthdawnGamemasterAssistant.Attributes;
+﻿using EarthdawnGamemasterAssistant.Attributes;
+using System.Collections.Generic;
 
 namespace EarthdawnGamemasterAssistant.Racial
 {
-    public class Dwarf
+    public class Dwarf : IRace
     {
-        public Character ToCreate { get; }
+        private Character ToCreate;
+
+        public Dwarf()
+        {
+            
+        }
 
         public Dwarf(Character toCreate)
         {
             ToCreate = toCreate;
         }
 
-        public static Dwarf CreateUsingDefaults()
+        public Character CreateDefault()
         {
             var racials = new List<RacialAbility>()
             {
                 new HeatSight(),
                 new StrongBack()
             };
-            return Character.CreateDwarf(
+            ToCreate = new Character(
                 new List<Discipline>(),
                 4,
                 racials,
@@ -34,6 +39,7 @@ namespace EarthdawnGamemasterAssistant.Racial
                 new Perception(11),
                 new Willpower(11),
                 new Charisma(10));
+            return ToCreate;
         }
     }
 }

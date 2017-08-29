@@ -86,6 +86,7 @@
     <Compile Include="Racial\Human.cs" />
     <Compile Include="Racial\Obsidiman.cs" />
     <Compile Include="Racial\Ork.cs" />
+    <Compile Include="Racial\IRace.cs" />
     <Compile Include="Racial\RacialAbility.cs" />
     <Compile Include="Racial\StrongBack.cs" />
     <Compile Include="Racial\Troll.cs" />

@@ -57,7 +57,7 @@ namespace EarthdawnGamemasterAssistant
 
         public List<RacialAbility> RacialAbilities { get; }
 
-        private Character(
+        public Character(
             List<Discipline> disciplines,
             int maxKarma,
             List<RacialAbility> racialAbilities,
@@ -90,48 +90,14 @@ namespace EarthdawnGamemasterAssistant
             AttributePoints = 25;
         }
 
-        public static Dwarf CreateDwarf(
-            List<Discipline> disciplines,
-            int maxKarma,
-            List<RacialAbility> racialAbilities,
-            int totalLegend,
-            int availableLegend,
-            int durabilityRank,
-            string name,
-            string description,
-            Dexterity dex,
-            Strength str,
-            Toughness tou,
-            Perception per,
-            Willpower wil,
-            Charisma chr)
-        {
-            return new Dwarf(
-                new Character(
-                    disciplines,
-                    maxKarma,
-                    racialAbilities,
-                    totalLegend,
-                    availableLegend,
-                    durabilityRank,
-                    name,
-                    description,
-                    dex,
-                    str,
-                    tou,
-                    per,
-                    wil,
-                    chr));
-        }
-
         private int GetHighestCircle()
         {
-            return Disciplines.Max(discipline => discipline._Circle.Value);
+            return Disciplines.Count > 0 ? Disciplines.Max(discipline => discipline._Circle.Value) : 1;
         }
 
         private int GetHighestDurabilityRating()
         {
-            return Disciplines.Max(discipline => discipline.DurabilityRating);
+            return Disciplines.Count > 0 ? Disciplines.Max(discipline => discipline.DurabilityRating) : 0;
         }
     }
 }

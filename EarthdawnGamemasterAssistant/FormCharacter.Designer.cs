@@ -1312,6 +1312,9 @@
             // 
             // domainUpDownCircleChr
             // 
+            this.domainUpDownCircleChr.Items.Add("1");
+            this.domainUpDownCircleChr.Items.Add("2");
+            this.domainUpDownCircleChr.Items.Add("3");
             this.domainUpDownCircleChr.Location = new System.Drawing.Point(149, 237);
             this.domainUpDownCircleChr.Name = "domainUpDownCircleChr";
             this.domainUpDownCircleChr.Size = new System.Drawing.Size(40, 20);
@@ -1319,6 +1322,9 @@
             // 
             // domainUpDownCircleWil
             // 
+            this.domainUpDownCircleWil.Items.Add("1");
+            this.domainUpDownCircleWil.Items.Add("2");
+            this.domainUpDownCircleWil.Items.Add("3");
             this.domainUpDownCircleWil.Location = new System.Drawing.Point(149, 204);
             this.domainUpDownCircleWil.Name = "domainUpDownCircleWil";
             this.domainUpDownCircleWil.Size = new System.Drawing.Size(40, 20);
@@ -1326,6 +1332,9 @@
             // 
             // domainUpDownCirclePer
             // 
+            this.domainUpDownCirclePer.Items.Add("1");
+            this.domainUpDownCirclePer.Items.Add("2");
+            this.domainUpDownCirclePer.Items.Add("3");
             this.domainUpDownCirclePer.Location = new System.Drawing.Point(149, 171);
             this.domainUpDownCirclePer.Name = "domainUpDownCirclePer";
             this.domainUpDownCirclePer.Size = new System.Drawing.Size(40, 20);
@@ -1333,6 +1342,9 @@
             // 
             // domainUpDownCircleTou
             // 
+            this.domainUpDownCircleTou.Items.Add("1");
+            this.domainUpDownCircleTou.Items.Add("2");
+            this.domainUpDownCircleTou.Items.Add("3");
             this.domainUpDownCircleTou.Location = new System.Drawing.Point(149, 138);
             this.domainUpDownCircleTou.Name = "domainUpDownCircleTou";
             this.domainUpDownCircleTou.Size = new System.Drawing.Size(40, 20);
@@ -1340,6 +1352,9 @@
             // 
             // domainUpDownCircleStr
             // 
+            this.domainUpDownCircleStr.Items.Add("1");
+            this.domainUpDownCircleStr.Items.Add("2");
+            this.domainUpDownCircleStr.Items.Add("3");
             this.domainUpDownCircleStr.Location = new System.Drawing.Point(149, 105);
             this.domainUpDownCircleStr.Name = "domainUpDownCircleStr";
             this.domainUpDownCircleStr.Size = new System.Drawing.Size(40, 20);
@@ -1347,6 +1362,9 @@
             // 
             // domainUpDownCircleDex
             // 
+            this.domainUpDownCircleDex.Items.Add("1");
+            this.domainUpDownCircleDex.Items.Add("2");
+            this.domainUpDownCircleDex.Items.Add("3");
             this.domainUpDownCircleDex.Location = new System.Drawing.Point(151, 72);
             this.domainUpDownCircleDex.Name = "domainUpDownCircleDex";
             this.domainUpDownCircleDex.Size = new System.Drawing.Size(40, 20);
@@ -1414,6 +1432,31 @@
             // 
             // domainUpDownChr
             // 
+            this.domainUpDownChr.Items.Add("1");
+            this.domainUpDownChr.Items.Add("2");
+            this.domainUpDownChr.Items.Add("3");
+            this.domainUpDownChr.Items.Add("4");
+            this.domainUpDownChr.Items.Add("5");
+            this.domainUpDownChr.Items.Add("6");
+            this.domainUpDownChr.Items.Add("7");
+            this.domainUpDownChr.Items.Add("8");
+            this.domainUpDownChr.Items.Add("9");
+            this.domainUpDownChr.Items.Add("10");
+            this.domainUpDownChr.Items.Add("11");
+            this.domainUpDownChr.Items.Add("12");
+            this.domainUpDownChr.Items.Add("13");
+            this.domainUpDownChr.Items.Add("14");
+            this.domainUpDownChr.Items.Add("15");
+            this.domainUpDownChr.Items.Add("16");
+            this.domainUpDownChr.Items.Add("17");
+            this.domainUpDownChr.Items.Add("18");
+            this.domainUpDownChr.Items.Add("19");
+            this.domainUpDownChr.Items.Add("20");
+            this.domainUpDownChr.Items.Add("21");
+            this.domainUpDownChr.Items.Add("22");
+            this.domainUpDownChr.Items.Add("23");
+            this.domainUpDownChr.Items.Add("24");
+            this.domainUpDownChr.Items.Add("25");
             this.domainUpDownChr.Location = new System.Drawing.Point(76, 237);
             this.domainUpDownChr.Name = "domainUpDownChr";
             this.domainUpDownChr.Size = new System.Drawing.Size(40, 20);
@@ -1421,6 +1464,31 @@
             // 
             // domainUpDownWil
             // 
+            this.domainUpDownWil.Items.Add("1");
+            this.domainUpDownWil.Items.Add("2");
+            this.domainUpDownWil.Items.Add("3");
+            this.domainUpDownWil.Items.Add("4");
+            this.domainUpDownWil.Items.Add("5");
+            this.domainUpDownWil.Items.Add("6");
+            this.domainUpDownWil.Items.Add("7");
+            this.domainUpDownWil.Items.Add("8");
+            this.domainUpDownWil.Items.Add("9");
+            this.domainUpDownWil.Items.Add("10");
+            this.domainUpDownWil.Items.Add("11");
+            this.domainUpDownWil.Items.Add("12");
+            this.domainUpDownWil.Items.Add("13");
+            this.domainUpDownWil.Items.Add("14");
+            this.domainUpDownWil.Items.Add("15");
+            this.domainUpDownWil.Items.Add("16");
+            this.domainUpDownWil.Items.Add("17");
+            this.domainUpDownWil.Items.Add("18");
+            this.domainUpDownWil.Items.Add("19");
+            this.domainUpDownWil.Items.Add("20");
+            this.domainUpDownWil.Items.Add("21");
+            this.domainUpDownWil.Items.Add("22");
+            this.domainUpDownWil.Items.Add("23");
+            this.domainUpDownWil.Items.Add("24");
+            this.domainUpDownWil.Items.Add("25");
             this.domainUpDownWil.Location = new System.Drawing.Point(76, 204);
             this.domainUpDownWil.Name = "domainUpDownWil";
             this.domainUpDownWil.Size = new System.Drawing.Size(40, 20);
@@ -1428,6 +1496,31 @@
             // 
             // domainUpDownPer
             // 
+            this.domainUpDownPer.Items.Add("1");
+            this.domainUpDownPer.Items.Add("2");
+            this.domainUpDownPer.Items.Add("3");
+            this.domainUpDownPer.Items.Add("4");
+            this.domainUpDownPer.Items.Add("5");
+            this.domainUpDownPer.Items.Add("6");
+            this.domainUpDownPer.Items.Add("7");
+            this.domainUpDownPer.Items.Add("8");
+            this.domainUpDownPer.Items.Add("9");
+            this.domainUpDownPer.Items.Add("10");
+            this.domainUpDownPer.Items.Add("11");
+            this.domainUpDownPer.Items.Add("12");
+            this.domainUpDownPer.Items.Add("13");
+            this.domainUpDownPer.Items.Add("14");
+            this.domainUpDownPer.Items.Add("15");
+            this.domainUpDownPer.Items.Add("16");
+            this.domainUpDownPer.Items.Add("17");
+            this.domainUpDownPer.Items.Add("18");
+            this.domainUpDownPer.Items.Add("19");
+            this.domainUpDownPer.Items.Add("20");
+            this.domainUpDownPer.Items.Add("21");
+            this.domainUpDownPer.Items.Add("22");
+            this.domainUpDownPer.Items.Add("23");
+            this.domainUpDownPer.Items.Add("24");
+            this.domainUpDownPer.Items.Add("25");
             this.domainUpDownPer.Location = new System.Drawing.Point(76, 171);
             this.domainUpDownPer.Name = "domainUpDownPer";
             this.domainUpDownPer.Size = new System.Drawing.Size(40, 20);
@@ -1435,6 +1528,31 @@
             // 
             // domainUpDownTou
             // 
+            this.domainUpDownTou.Items.Add("1");
+            this.domainUpDownTou.Items.Add("2");
+            this.domainUpDownTou.Items.Add("3");
+            this.domainUpDownTou.Items.Add("4");
+            this.domainUpDownTou.Items.Add("5");
+            this.domainUpDownTou.Items.Add("6");
+            this.domainUpDownTou.Items.Add("7");
+            this.domainUpDownTou.Items.Add("8");
+            this.domainUpDownTou.Items.Add("9");
+            this.domainUpDownTou.Items.Add("10");
+            this.domainUpDownTou.Items.Add("11");
+            this.domainUpDownTou.Items.Add("12");
+            this.domainUpDownTou.Items.Add("13");
+            this.domainUpDownTou.Items.Add("14");
+            this.domainUpDownTou.Items.Add("15");
+            this.domainUpDownTou.Items.Add("16");
+            this.domainUpDownTou.Items.Add("17");
+            this.domainUpDownTou.Items.Add("18");
+            this.domainUpDownTou.Items.Add("19");
+            this.domainUpDownTou.Items.Add("20");
+            this.domainUpDownTou.Items.Add("21");
+            this.domainUpDownTou.Items.Add("22");
+            this.domainUpDownTou.Items.Add("23");
+            this.domainUpDownTou.Items.Add("24");
+            this.domainUpDownTou.Items.Add("25");
             this.domainUpDownTou.Location = new System.Drawing.Point(76, 138);
             this.domainUpDownTou.Name = "domainUpDownTou";
             this.domainUpDownTou.Size = new System.Drawing.Size(40, 20);
@@ -1442,6 +1560,31 @@
             // 
             // domainUpDownStr
             // 
+            this.domainUpDownStr.Items.Add("1");
+            this.domainUpDownStr.Items.Add("2");
+            this.domainUpDownStr.Items.Add("3");
+            this.domainUpDownStr.Items.Add("4");
+            this.domainUpDownStr.Items.Add("5");
+            this.domainUpDownStr.Items.Add("6");
+            this.domainUpDownStr.Items.Add("7");
+            this.domainUpDownStr.Items.Add("8");
+            this.domainUpDownStr.Items.Add("9");
+            this.domainUpDownStr.Items.Add("10");
+            this.domainUpDownStr.Items.Add("11");
+            this.domainUpDownStr.Items.Add("12");
+            this.domainUpDownStr.Items.Add("13");
+            this.domainUpDownStr.Items.Add("14");
+            this.domainUpDownStr.Items.Add("15");
+            this.domainUpDownStr.Items.Add("16");
+            this.domainUpDownStr.Items.Add("17");
+            this.domainUpDownStr.Items.Add("18");
+            this.domainUpDownStr.Items.Add("19");
+            this.domainUpDownStr.Items.Add("20");
+            this.domainUpDownStr.Items.Add("21");
+            this.domainUpDownStr.Items.Add("22");
+            this.domainUpDownStr.Items.Add("23");
+            this.domainUpDownStr.Items.Add("24");
+            this.domainUpDownStr.Items.Add("25");
             this.domainUpDownStr.Location = new System.Drawing.Point(76, 105);
             this.domainUpDownStr.Name = "domainUpDownStr";
             this.domainUpDownStr.Size = new System.Drawing.Size(40, 20);
@@ -1449,9 +1592,35 @@
             // 
             // domainUpDownDex
             // 
+            this.domainUpDownDex.Items.Add("1");
+            this.domainUpDownDex.Items.Add("10");
+            this.domainUpDownDex.Items.Add("11");
+            this.domainUpDownDex.Items.Add("12");
+            this.domainUpDownDex.Items.Add("13");
+            this.domainUpDownDex.Items.Add("14");
+            this.domainUpDownDex.Items.Add("15");
+            this.domainUpDownDex.Items.Add("16");
+            this.domainUpDownDex.Items.Add("17");
+            this.domainUpDownDex.Items.Add("18");
+            this.domainUpDownDex.Items.Add("19");
+            this.domainUpDownDex.Items.Add("2");
+            this.domainUpDownDex.Items.Add("20");
+            this.domainUpDownDex.Items.Add("21");
+            this.domainUpDownDex.Items.Add("22");
+            this.domainUpDownDex.Items.Add("23");
+            this.domainUpDownDex.Items.Add("24");
+            this.domainUpDownDex.Items.Add("25");
+            this.domainUpDownDex.Items.Add("3");
+            this.domainUpDownDex.Items.Add("4");
+            this.domainUpDownDex.Items.Add("5");
+            this.domainUpDownDex.Items.Add("6");
+            this.domainUpDownDex.Items.Add("7");
+            this.domainUpDownDex.Items.Add("8");
+            this.domainUpDownDex.Items.Add("9");
             this.domainUpDownDex.Location = new System.Drawing.Point(76, 72);
             this.domainUpDownDex.Name = "domainUpDownDex";
             this.domainUpDownDex.Size = new System.Drawing.Size(40, 20);
+            this.domainUpDownDex.Sorted = true;
             this.domainUpDownDex.TabIndex = 9;
             // 
             // metroLabelCha
