@@ -149,6 +149,11 @@ namespace EarthdawnGamemasterAssistant
             return actionDice;
         }
 
+        public static string GetStepDice(int stepNumber)
+        {
+            return StepLookup[stepNumber];
+        }
+
         public static int GetStepFromValue(int baseValue)
         {
             if (baseValue >= 0 && baseValue <= 40)
