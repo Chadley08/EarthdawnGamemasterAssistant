@@ -1,14 +1,9 @@
 ﻿namespace EarthdawnGamemasterAssistant.Attributes
 {
-    public class Dexterity
+    public class Dexterity : Attribute
     {
-        public int Value { get; }
-
-        public Dexterity(int value)
+        public Dexterity(int value) : base(value)
         {
-            Value = value;
         }
-
-        public string Name => "Dexterity";
     }
 }

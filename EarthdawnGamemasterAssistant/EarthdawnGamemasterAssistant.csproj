@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{50F63D8B-05C5-4CB5-AC40-BBFA2CC81BE5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>earthdawn_tabletop_player</RootNamespace>
-    <AssemblyName>earthdawn-tabletop-player</AssemblyName>
+    <RootNamespace>EarthdawnGamemasterAssistant</RootNamespace>
+    <AssemblyName>EarthdawnGamemasterAssistant</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -58,6 +58,7 @@
     <Compile Include="Attributes\Attribute.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Attributes\Charisma.cs" />
+    <Compile Include="CharacterInfo.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="Attributes\Dexterity.cs" />
     <Compile Include="Dice\Die.cs" />
@@ -76,9 +77,9 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dice\KarmaDice.cs" />
     <Compile Include="Attributes\Perception.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racial\Dwarf.cs" />
     <Compile Include="Racial\Elf.cs" />

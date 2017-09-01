@@ -1,103 +1,72 @@
 ﻿using EarthdawnGamemasterAssistant.Attributes;
-using EarthdawnGamemasterAssistant.Racial;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using EarthdawnGamemasterAssistant.Racial;
 
 namespace EarthdawnGamemasterAssistant
 {
     public class Character
     {
-        private List<Discipline> Disciplines { get; }
+        public CharacterInfo Info { get; }
 
-        public int AttributePoints { get; }
-
-        public int CarryingCapacity => CharacteristicTables.GetCarryingCapacityFromAttributeValue(Str.Value);
-
-        public int LiftingCapacity => CarryingCapacity * 2;
-
-        public int PhysicalDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero));
-
-        public int SocialDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Chr.Value) / 2, MidpointRounding.AwayFromZero));
-
-        public int MysticDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Wil.Value) / 2, MidpointRounding.AwayFromZero));
-
-        public int DurabilityRank { get; }
-        public string Name { get; }
-        public string Description { get; }
-
-        public int UnconsciousnessRating => Tou.Value * 2 + GetHighestDurabilityRating() * DurabilityRank;
-
-        public int DeathRating => UnconsciousnessRating + CharacteristicTables.GetStepFromValue(Tou.Value) + GetHighestCircle();
-
-        public int WoundThreshold => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Tou.Value) / 2 + 2, MidpointRounding.AwayFromZero));
-
-        public int RecoveryTests => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Tou.Value) / 6, MidpointRounding.AwayFromZero));
-
-        public int MysticArmor => Convert.ToInt32(Math.Floor(Convert.ToDouble(Wil.Value) / 6));
-
-        public int TotalLegend { get; }
-        public int AvailableLegend { get; }
-
-        public int MaxKarma { get; }
-        public int MovementRate => CharacteristicTables.GetMovementRateFromValue(Dex.Value);
-        public int CombatMovementRate => MovementRate / 2;
-
-        public Dexterity Dex { get; }
-        public Strength Str { get; }
-        public Toughness Tou { get; }
-        public Perception Per { get; }
-        public Willpower Wil { get; }
-        public Charisma Chr { get; }
-
-        public List<RacialAbility> RacialAbilities { get; }
-
-        public Character(
-            List<Discipline> disciplines,
-            int maxKarma,
-            List<RacialAbility> racialAbilities,
-            int totalLegend,
-            int availableLegend,
-            int durabilityRank,
-            string name,
-            string description,
-            Dexterity dex,
-            Strength str,
-            Toughness tou,
-            Perception per,
-            Willpower wil,
-            Charisma chr)
+        public Character(CharacterInfo info)
         {
-            Disciplines = disciplines;
-            MaxKarma = maxKarma;
-            RacialAbilities = racialAbilities;
-            TotalLegend = totalLegend;
-            AvailableLegend = availableLegend;
-            DurabilityRank = durabilityRank;
-            Name = name;
-            Description = description;
-            Dex = dex;
-            Str = str;
-            Tou = tou;
-            Per = per;
-            Wil = wil;
-            Chr = chr;
-            AttributePoints = 25;
+            Info = info;
         }
 
-        private int GetHighestCircle()
-        {
-            return Disciplines.Count > 0 ? Disciplines.Max(discipline => discipline._Circle.Value) : 1;
-        }
+        //public int CanModifyAttribute(int baseValue, int currentValue, int availableAttributePoints)
+        //{
+        //    var amountAlteredFromBaseValue = currentValue - baseValue;
+        //    int cost;
+        //    switch (amountAlteredFromBaseValue)
+        //    {
+        //        case -2:
+        //            cost = -2;
+        //            break;
+        //        case -1:
+        //            cost = -1;
+        //            break;
+        //        case 0:
+        //            return;
+        //        case 1:
+        //            cost = 1;
+        //            break;
+        //        case 2:
+        //            cost = 2;
+        //            break;
+        //        case 3:
+        //            cost = 3;
+        //            break;
+        //        case 4:
+        //            cost = 5;
+        //            break;
+        //        case 5:
+        //            cost = 7;
+        //            break;
+        //        case 6:
+        //            cost = 9;
+        //            break;
+        //        case 7:
+        //            cost = 12;
+        //            break;
+        //        case 8:
+        //            cost = 15;
+        //            break;
+        //        default:
+        //            Debug.WriteLine("Cannot increase an attribute by more than 8 when creating a character");
+        //            return;
+        //    }
+        //    if (availableAttributePoints - cost > 0)
+        //    {
+        //        availableAttributePoints -= cost;
+        //    }
+        //    AvailableAttributePoints = availableAttributePoints;
+        //}
 
-        private int GetHighestDurabilityRating()
-        {
-            return Disciplines.Count > 0 ? Disciplines.Max(discipline => discipline.DurabilityRating) : 0;
-        }
+        //public void ApplyRacials(IRace toApply)
+        //{
+        //    RacialAbilities = toApply.GetRacialAbilities();
+        //}
     }
 }

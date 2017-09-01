@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows.Forms;
-using EarthdawnGamemasterAssistant.Racial;
+﻿using System.Windows.Forms;
 
 namespace EarthdawnGamemasterAssistant
 {

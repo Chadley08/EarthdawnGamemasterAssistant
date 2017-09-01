@@ -169,7 +169,7 @@ namespace EarthdawnGamemasterAssistant
             {
                 return MovementRateLookup[baseValue];
             }
-            throw new ArgumentException("Value is outside attribute range.");
+            throw new ArgumentException("BaseValue is outside attribute range.");
         }
 
         public static int GetCarryingCapacityFromAttributeValue(int baseValue)
@@ -178,7 +178,7 @@ namespace EarthdawnGamemasterAssistant
             {
                 return CarryingCapacity[baseValue];
             }
-            throw new ArgumentException("Value is outside attribute range.");
+            throw new ArgumentException("BaseValue is outside attribute range.");
         }
     }
 }

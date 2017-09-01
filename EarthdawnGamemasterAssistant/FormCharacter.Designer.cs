@@ -42,9 +42,23 @@
             this.metroTextBoxDescription = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBoxName = new MetroFramework.Controls.MetroTextBox();
             this.metroTabPageAttributes = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownChr = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownWil = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownPer = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownTou = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownStr = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownDex = new System.Windows.Forms.NumericUpDown();
+            this.metroLabel40 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel70 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
-            this.domainUpDownMaxKarma = new System.Windows.Forms.DomainUpDown();
+            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
             this.metroLabel71 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel72 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelPurchasedKarma = new MetroFramework.Controls.MetroLabel();
@@ -64,9 +78,6 @@
             this.metroLabel64 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelMovementLand = new MetroFramework.Controls.MetroLabel();
             this.metroLabelMovementFlight = new MetroFramework.Controls.MetroLabel();
-            this.metroLabelCircleAttributePointsAvailable = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel57 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabelCircleAttributePointsUsed = new MetroFramework.Controls.MetroLabel();
             this.metroLabelAttributePointsMax = new MetroFramework.Controls.MetroLabel();
             this.metroLabel53 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelAttributesPointsUsed = new MetroFramework.Controls.MetroLabel();
@@ -111,18 +122,6 @@
             this.metroLabelStep = new MetroFramework.Controls.MetroLabel();
             this.metroLabelCircle = new MetroFramework.Controls.MetroLabel();
             this.metroLabelBase = new MetroFramework.Controls.MetroLabel();
-            this.domainUpDownCircleChr = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownCircleWil = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownCirclePer = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownCircleTou = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownCircleStr = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownCircleDex = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownChr = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownWil = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownPer = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownTou = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownStr = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownDex = new System.Windows.Forms.DomainUpDown();
             this.metroLabelCha = new MetroFramework.Controls.MetroLabel();
             this.metroLabelWil = new MetroFramework.Controls.MetroLabel();
             this.metroLabelPer = new MetroFramework.Controls.MetroLabel();
@@ -130,11 +129,27 @@
             this.metroLabelStr = new MetroFramework.Controls.MetroLabel();
             this.metroLabelDex = new MetroFramework.Controls.MetroLabel();
             this.metroComboBoxRace = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel40 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelLandCombatMovementRate = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelFlightCombatMovementRate = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroTabControl.SuspendLayout();
             this.metroTabPageCharacter.SuspendLayout();
             this.metroTabPageAttributes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownChr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTou)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDex)).BeginInit();
             this.metroPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
             this.metroPanel6.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             this.metroPanel4.SuspendLayout();
@@ -424,6 +439,19 @@
             // 
             // metroTabPageAttributes
             // 
+            this.metroTabPageAttributes.Controls.Add(this.metroLabel4);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDown12);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDown11);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDown10);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDown9);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDown8);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDown7);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownChr);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownWil);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownPer);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownTou);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownStr);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownDex);
             this.metroTabPageAttributes.Controls.Add(this.metroLabel40);
             this.metroTabPageAttributes.Controls.Add(this.metroLabel70);
             this.metroTabPageAttributes.Controls.Add(this.metroPanel7);
@@ -433,9 +461,6 @@
             this.metroTabPageAttributes.Controls.Add(this.metroPanel6);
             this.metroTabPageAttributes.Controls.Add(this.metroLabel61);
             this.metroTabPageAttributes.Controls.Add(this.metroPanel5);
-            this.metroTabPageAttributes.Controls.Add(this.metroLabelCircleAttributePointsAvailable);
-            this.metroTabPageAttributes.Controls.Add(this.metroLabel57);
-            this.metroTabPageAttributes.Controls.Add(this.metroLabelCircleAttributePointsUsed);
             this.metroTabPageAttributes.Controls.Add(this.metroLabelAttributePointsMax);
             this.metroTabPageAttributes.Controls.Add(this.metroLabel53);
             this.metroTabPageAttributes.Controls.Add(this.metroLabelAttributesPointsUsed);
@@ -461,18 +486,6 @@
             this.metroTabPageAttributes.Controls.Add(this.metroLabelStep);
             this.metroTabPageAttributes.Controls.Add(this.metroLabelCircle);
             this.metroTabPageAttributes.Controls.Add(this.metroLabelBase);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownCircleChr);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownCircleWil);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownCirclePer);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownCircleTou);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownCircleStr);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownCircleDex);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownChr);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownWil);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownPer);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownTou);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownStr);
-            this.metroTabPageAttributes.Controls.Add(this.domainUpDownDex);
             this.metroTabPageAttributes.Controls.Add(this.metroLabelCha);
             this.metroTabPageAttributes.Controls.Add(this.metroLabelWil);
             this.metroTabPageAttributes.Controls.Add(this.metroLabelPer);
@@ -492,6 +505,175 @@
             this.metroTabPageAttributes.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPageAttributes.VerticalScrollbarSize = 10;
             // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(8, 274);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(98, 19);
+            this.metroLabel4.TabIndex = 113;
+            this.metroLabel4.Text = "Attribute Points";
+            // 
+            // numericUpDown12
+            // 
+            this.numericUpDown12.Location = new System.Drawing.Point(127, 240);
+            this.numericUpDown12.Name = "numericUpDown12";
+            this.numericUpDown12.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDown12.TabIndex = 112;
+            // 
+            // numericUpDown11
+            // 
+            this.numericUpDown11.Location = new System.Drawing.Point(127, 207);
+            this.numericUpDown11.Name = "numericUpDown11";
+            this.numericUpDown11.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDown11.TabIndex = 111;
+            // 
+            // numericUpDown10
+            // 
+            this.numericUpDown10.Location = new System.Drawing.Point(127, 176);
+            this.numericUpDown10.Name = "numericUpDown10";
+            this.numericUpDown10.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDown10.TabIndex = 110;
+            // 
+            // numericUpDown9
+            // 
+            this.numericUpDown9.Location = new System.Drawing.Point(127, 144);
+            this.numericUpDown9.Name = "numericUpDown9";
+            this.numericUpDown9.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDown9.TabIndex = 109;
+            // 
+            // numericUpDown8
+            // 
+            this.numericUpDown8.Location = new System.Drawing.Point(127, 110);
+            this.numericUpDown8.Name = "numericUpDown8";
+            this.numericUpDown8.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDown8.TabIndex = 108;
+            // 
+            // numericUpDown7
+            // 
+            this.numericUpDown7.Location = new System.Drawing.Point(127, 75);
+            this.numericUpDown7.Name = "numericUpDown7";
+            this.numericUpDown7.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDown7.TabIndex = 107;
+            // 
+            // numericUpDownChr
+            // 
+            this.numericUpDownChr.Location = new System.Drawing.Point(76, 240);
+            this.numericUpDownChr.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownChr.Name = "numericUpDownChr";
+            this.numericUpDownChr.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownChr.TabIndex = 106;
+            this.numericUpDownChr.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownChr.ValueChanged += new System.EventHandler(this.numericUpDownChr_ValueChanged);
+            // 
+            // numericUpDownWil
+            // 
+            this.numericUpDownWil.Location = new System.Drawing.Point(76, 207);
+            this.numericUpDownWil.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownWil.Name = "numericUpDownWil";
+            this.numericUpDownWil.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownWil.TabIndex = 105;
+            this.numericUpDownWil.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownWil.ValueChanged += new System.EventHandler(this.numericUpDownWil_ValueChanged);
+            // 
+            // numericUpDownPer
+            // 
+            this.numericUpDownPer.Location = new System.Drawing.Point(76, 176);
+            this.numericUpDownPer.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownPer.Name = "numericUpDownPer";
+            this.numericUpDownPer.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownPer.TabIndex = 104;
+            this.numericUpDownPer.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownPer.ValueChanged += new System.EventHandler(this.numericUpDownPer_ValueChanged);
+            // 
+            // numericUpDownTou
+            // 
+            this.numericUpDownTou.Location = new System.Drawing.Point(76, 144);
+            this.numericUpDownTou.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownTou.Name = "numericUpDownTou";
+            this.numericUpDownTou.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownTou.TabIndex = 103;
+            this.numericUpDownTou.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownTou.ValueChanged += new System.EventHandler(this.numericUpDownTou_ValueChanged);
+            // 
+            // numericUpDownStr
+            // 
+            this.numericUpDownStr.Location = new System.Drawing.Point(76, 110);
+            this.numericUpDownStr.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownStr.Name = "numericUpDownStr";
+            this.numericUpDownStr.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownStr.TabIndex = 102;
+            this.numericUpDownStr.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownStr.ValueChanged += new System.EventHandler(this.numericUpDownStr_ValueChanged);
+            // 
+            // numericUpDownDex
+            // 
+            this.numericUpDownDex.Location = new System.Drawing.Point(76, 75);
+            this.numericUpDownDex.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownDex.Name = "numericUpDownDex";
+            this.numericUpDownDex.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownDex.TabIndex = 101;
+            this.numericUpDownDex.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownDex.ValueChanged += new System.EventHandler(this.numericUpDownDex_ValueChanged);
+            // 
+            // metroLabel40
+            // 
+            this.metroLabel40.AutoSize = true;
+            this.metroLabel40.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel40.Location = new System.Drawing.Point(398, 0);
+            this.metroLabel40.Name = "metroLabel40";
+            this.metroLabel40.Size = new System.Drawing.Size(60, 19);
+            this.metroLabel40.TabIndex = 83;
+            this.metroLabel40.Text = "Damage";
+            // 
             // metroLabel70
             // 
             this.metroLabel70.AutoSize = true;
@@ -504,7 +686,7 @@
             // metroPanel7
             // 
             this.metroPanel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel7.Controls.Add(this.domainUpDownMaxKarma);
+            this.metroPanel7.Controls.Add(this.numericUpDown13);
             this.metroPanel7.Controls.Add(this.metroLabel71);
             this.metroPanel7.Controls.Add(this.metroLabel72);
             this.metroPanel7.Controls.Add(this.metroLabelPurchasedKarma);
@@ -519,12 +701,12 @@
             this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel7.VerticalScrollbarSize = 10;
             // 
-            // domainUpDownMaxKarma
+            // numericUpDown13
             // 
-            this.domainUpDownMaxKarma.Location = new System.Drawing.Point(70, 8);
-            this.domainUpDownMaxKarma.Name = "domainUpDownMaxKarma";
-            this.domainUpDownMaxKarma.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownMaxKarma.TabIndex = 101;
+            this.numericUpDown13.Location = new System.Drawing.Point(73, 9);
+            this.numericUpDown13.Name = "numericUpDown13";
+            this.numericUpDown13.Size = new System.Drawing.Size(36, 20);
+            this.numericUpDown13.TabIndex = 102;
             // 
             // metroLabel71
             // 
@@ -670,6 +852,10 @@
             // metroPanel5
             // 
             this.metroPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel5.Controls.Add(this.metroLabel8);
+            this.metroPanel5.Controls.Add(this.metroLabel7);
+            this.metroPanel5.Controls.Add(this.metroLabelFlightCombatMovementRate);
+            this.metroPanel5.Controls.Add(this.metroLabelLandCombatMovementRate);
             this.metroPanel5.Controls.Add(this.metroLabel62);
             this.metroPanel5.Controls.Add(this.metroLabel64);
             this.metroPanel5.Controls.Add(this.metroLabelMovementLand);
@@ -709,7 +895,7 @@
             // 
             this.metroLabelMovementLand.AutoSize = true;
             this.metroLabelMovementLand.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelMovementLand.Location = new System.Drawing.Point(73, 12);
+            this.metroLabelMovementLand.Location = new System.Drawing.Point(63, 11);
             this.metroLabelMovementLand.Name = "metroLabelMovementLand";
             this.metroLabelMovementLand.Size = new System.Drawing.Size(13, 15);
             this.metroLabelMovementLand.TabIndex = 60;
@@ -719,71 +905,38 @@
             // 
             this.metroLabelMovementFlight.AutoSize = true;
             this.metroLabelMovementFlight.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelMovementFlight.Location = new System.Drawing.Point(73, 27);
+            this.metroLabelMovementFlight.Location = new System.Drawing.Point(63, 27);
             this.metroLabelMovementFlight.Name = "metroLabelMovementFlight";
             this.metroLabelMovementFlight.Size = new System.Drawing.Size(13, 15);
             this.metroLabelMovementFlight.TabIndex = 62;
             this.metroLabelMovementFlight.Text = "0";
             // 
-            // metroLabelCircleAttributePointsAvailable
-            // 
-            this.metroLabelCircleAttributePointsAvailable.AutoSize = true;
-            this.metroLabelCircleAttributePointsAvailable.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelCircleAttributePointsAvailable.Location = new System.Drawing.Point(143, 270);
-            this.metroLabelCircleAttributePointsAvailable.Name = "metroLabelCircleAttributePointsAvailable";
-            this.metroLabelCircleAttributePointsAvailable.Size = new System.Drawing.Size(13, 15);
-            this.metroLabelCircleAttributePointsAvailable.TabIndex = 90;
-            this.metroLabelCircleAttributePointsAvailable.Text = "0";
-            // 
-            // metroLabel57
-            // 
-            this.metroLabel57.AutoSize = true;
-            this.metroLabel57.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel57.Location = new System.Drawing.Point(136, 270);
-            this.metroLabel57.Name = "metroLabel57";
-            this.metroLabel57.Size = new System.Drawing.Size(11, 15);
-            this.metroLabel57.TabIndex = 89;
-            this.metroLabel57.Text = "/";
-            // 
-            // metroLabelCircleAttributePointsUsed
-            // 
-            this.metroLabelCircleAttributePointsUsed.AutoSize = true;
-            this.metroLabelCircleAttributePointsUsed.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelCircleAttributePointsUsed.Location = new System.Drawing.Point(127, 270);
-            this.metroLabelCircleAttributePointsUsed.Name = "metroLabelCircleAttributePointsUsed";
-            this.metroLabelCircleAttributePointsUsed.Size = new System.Drawing.Size(13, 15);
-            this.metroLabelCircleAttributePointsUsed.TabIndex = 88;
-            this.metroLabelCircleAttributePointsUsed.Text = "0";
-            // 
             // metroLabelAttributePointsMax
             // 
             this.metroLabelAttributePointsMax.AutoSize = true;
-            this.metroLabelAttributePointsMax.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelAttributePointsMax.Location = new System.Drawing.Point(92, 270);
+            this.metroLabelAttributePointsMax.Location = new System.Drawing.Point(134, 274);
             this.metroLabelAttributePointsMax.Name = "metroLabelAttributePointsMax";
-            this.metroLabelAttributePointsMax.Size = new System.Drawing.Size(19, 15);
+            this.metroLabelAttributePointsMax.Size = new System.Drawing.Size(23, 19);
             this.metroLabelAttributePointsMax.TabIndex = 87;
             this.metroLabelAttributePointsMax.Text = "25";
             // 
             // metroLabel53
             // 
             this.metroLabel53.AutoSize = true;
-            this.metroLabel53.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel53.Location = new System.Drawing.Point(85, 270);
+            this.metroLabel53.Location = new System.Drawing.Point(124, 274);
             this.metroLabel53.Name = "metroLabel53";
-            this.metroLabel53.Size = new System.Drawing.Size(11, 15);
+            this.metroLabel53.Size = new System.Drawing.Size(14, 19);
             this.metroLabel53.TabIndex = 86;
             this.metroLabel53.Text = "/";
             // 
             // metroLabelAttributesPointsUsed
             // 
             this.metroLabelAttributesPointsUsed.AutoSize = true;
-            this.metroLabelAttributesPointsUsed.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelAttributesPointsUsed.Location = new System.Drawing.Point(76, 270);
+            this.metroLabelAttributesPointsUsed.Location = new System.Drawing.Point(106, 274);
             this.metroLabelAttributesPointsUsed.Name = "metroLabelAttributesPointsUsed";
-            this.metroLabelAttributesPointsUsed.Size = new System.Drawing.Size(13, 15);
+            this.metroLabelAttributesPointsUsed.Size = new System.Drawing.Size(23, 19);
             this.metroLabelAttributesPointsUsed.TabIndex = 85;
-            this.metroLabelAttributesPointsUsed.Text = "0";
+            this.metroLabelAttributesPointsUsed.Text = "25";
             // 
             // metroPanel4
             // 
@@ -810,7 +963,7 @@
             // metroLabel50
             // 
             this.metroLabel50.AutoSize = true;
-            this.metroLabel50.Location = new System.Drawing.Point(9, 23);
+            this.metroLabel50.Location = new System.Drawing.Point(9, 16);
             this.metroLabel50.Name = "metroLabel50";
             this.metroLabel50.Size = new System.Drawing.Size(84, 19);
             this.metroLabel50.TabIndex = 67;
@@ -819,7 +972,7 @@
             // metroLabel46
             // 
             this.metroLabel46.AutoSize = true;
-            this.metroLabel46.Location = new System.Drawing.Point(9, 155);
+            this.metroLabel46.Location = new System.Drawing.Point(9, 148);
             this.metroLabel46.Name = "metroLabel46";
             this.metroLabel46.Size = new System.Drawing.Size(93, 19);
             this.metroLabel46.TabIndex = 63;
@@ -828,7 +981,7 @@
             // metroLabel48
             // 
             this.metroLabel48.AutoSize = true;
-            this.metroLabel48.Location = new System.Drawing.Point(9, 111);
+            this.metroLabel48.Location = new System.Drawing.Point(9, 104);
             this.metroLabel48.Name = "metroLabel48";
             this.metroLabel48.Size = new System.Drawing.Size(112, 19);
             this.metroLabel48.TabIndex = 65;
@@ -836,7 +989,7 @@
             // 
             // metroLabel49
             // 
-            this.metroLabel49.Location = new System.Drawing.Point(9, 60);
+            this.metroLabel49.Location = new System.Drawing.Point(9, 53);
             this.metroLabel49.Name = "metroLabel49";
             this.metroLabel49.Size = new System.Drawing.Size(129, 45);
             this.metroLabel49.TabIndex = 66;
@@ -845,7 +998,7 @@
             // metroLabelRecoveryTests
             // 
             this.metroLabelRecoveryTests.AutoSize = true;
-            this.metroLabelRecoveryTests.Location = new System.Drawing.Point(183, 155);
+            this.metroLabelRecoveryTests.Location = new System.Drawing.Point(183, 148);
             this.metroLabelRecoveryTests.Name = "metroLabelRecoveryTests";
             this.metroLabelRecoveryTests.Size = new System.Drawing.Size(16, 19);
             this.metroLabelRecoveryTests.TabIndex = 68;
@@ -854,7 +1007,7 @@
             // metroLabelUnconsciousnessRating
             // 
             this.metroLabelUnconsciousnessRating.AutoSize = true;
-            this.metroLabelUnconsciousnessRating.Location = new System.Drawing.Point(183, 67);
+            this.metroLabelUnconsciousnessRating.Location = new System.Drawing.Point(183, 60);
             this.metroLabelUnconsciousnessRating.Name = "metroLabelUnconsciousnessRating";
             this.metroLabelUnconsciousnessRating.Size = new System.Drawing.Size(16, 19);
             this.metroLabelUnconsciousnessRating.TabIndex = 71;
@@ -863,7 +1016,7 @@
             // metroLabelDeathRating
             // 
             this.metroLabelDeathRating.AutoSize = true;
-            this.metroLabelDeathRating.Location = new System.Drawing.Point(183, 23);
+            this.metroLabelDeathRating.Location = new System.Drawing.Point(183, 16);
             this.metroLabelDeathRating.Name = "metroLabelDeathRating";
             this.metroLabelDeathRating.Size = new System.Drawing.Size(16, 19);
             this.metroLabelDeathRating.TabIndex = 72;
@@ -872,7 +1025,7 @@
             // metroLabelWoundThreshold
             // 
             this.metroLabelWoundThreshold.AutoSize = true;
-            this.metroLabelWoundThreshold.Location = new System.Drawing.Point(183, 111);
+            this.metroLabelWoundThreshold.Location = new System.Drawing.Point(183, 104);
             this.metroLabelWoundThreshold.Name = "metroLabelWoundThreshold";
             this.metroLabelWoundThreshold.Size = new System.Drawing.Size(16, 19);
             this.metroLabelWoundThreshold.TabIndex = 76;
@@ -881,7 +1034,7 @@
             // metroLabel33
             // 
             this.metroLabel33.AutoSize = true;
-            this.metroLabel33.Location = new System.Drawing.Point(269, 132);
+            this.metroLabel33.Location = new System.Drawing.Point(269, 134);
             this.metroLabel33.Name = "metroLabel33";
             this.metroLabel33.Size = new System.Drawing.Size(48, 19);
             this.metroLabel33.TabIndex = 81;
@@ -897,7 +1050,7 @@
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(260, 142);
+            this.metroPanel3.Location = new System.Drawing.Point(260, 144);
             this.metroPanel3.Name = "metroPanel3";
             this.metroPanel3.Size = new System.Drawing.Size(122, 51);
             this.metroPanel3.TabIndex = 82;
@@ -948,7 +1101,7 @@
             // metroLabel52
             // 
             this.metroLabel52.AutoSize = true;
-            this.metroLabel52.Location = new System.Drawing.Point(269, 46);
+            this.metroLabel52.Location = new System.Drawing.Point(269, 48);
             this.metroLabel52.Name = "metroLabel52";
             this.metroLabel52.Size = new System.Drawing.Size(60, 19);
             this.metroLabel52.TabIndex = 79;
@@ -966,7 +1119,7 @@
             this.metroPanel2.HorizontalScrollbarBarColor = true;
             this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel2.HorizontalScrollbarSize = 10;
-            this.metroPanel2.Location = new System.Drawing.Point(260, 56);
+            this.metroPanel2.Location = new System.Drawing.Point(260, 58);
             this.metroPanel2.Name = "metroPanel2";
             this.metroPanel2.Size = new System.Drawing.Size(122, 67);
             this.metroPanel2.TabIndex = 80;
@@ -1037,7 +1190,7 @@
             // metroLabel31
             // 
             this.metroLabel31.AutoSize = true;
-            this.metroLabel31.Location = new System.Drawing.Point(269, 0);
+            this.metroLabel31.Location = new System.Drawing.Point(269, 2);
             this.metroLabel31.Name = "metroLabel31";
             this.metroLabel31.Size = new System.Drawing.Size(56, 19);
             this.metroLabel31.TabIndex = 48;
@@ -1050,7 +1203,7 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(260, 10);
+            this.metroPanel1.Location = new System.Drawing.Point(260, 12);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(122, 31);
             this.metroPanel1.TabIndex = 78;
@@ -1215,270 +1368,6 @@
             this.metroLabelBase.TabIndex = 27;
             this.metroLabelBase.Text = "Base";
             // 
-            // domainUpDownCircleChr
-            // 
-            this.domainUpDownCircleChr.Items.Add("3");
-            this.domainUpDownCircleChr.Items.Add("2");
-            this.domainUpDownCircleChr.Items.Add("1");
-            this.domainUpDownCircleChr.Items.Add("0");
-            this.domainUpDownCircleChr.Location = new System.Drawing.Point(125, 237);
-            this.domainUpDownCircleChr.Name = "domainUpDownCircleChr";
-            this.domainUpDownCircleChr.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownCircleChr.TabIndex = 26;
-            this.domainUpDownCircleChr.Text = "0";
-            // 
-            // domainUpDownCircleWil
-            // 
-            this.domainUpDownCircleWil.Items.Add("3");
-            this.domainUpDownCircleWil.Items.Add("2");
-            this.domainUpDownCircleWil.Items.Add("1");
-            this.domainUpDownCircleWil.Items.Add("0");
-            this.domainUpDownCircleWil.Location = new System.Drawing.Point(125, 204);
-            this.domainUpDownCircleWil.Name = "domainUpDownCircleWil";
-            this.domainUpDownCircleWil.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownCircleWil.TabIndex = 25;
-            this.domainUpDownCircleWil.Text = "0";
-            // 
-            // domainUpDownCirclePer
-            // 
-            this.domainUpDownCirclePer.Items.Add("3");
-            this.domainUpDownCirclePer.Items.Add("2");
-            this.domainUpDownCirclePer.Items.Add("1");
-            this.domainUpDownCirclePer.Items.Add("0");
-            this.domainUpDownCirclePer.Location = new System.Drawing.Point(125, 171);
-            this.domainUpDownCirclePer.Name = "domainUpDownCirclePer";
-            this.domainUpDownCirclePer.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownCirclePer.TabIndex = 24;
-            this.domainUpDownCirclePer.Text = "0";
-            // 
-            // domainUpDownCircleTou
-            // 
-            this.domainUpDownCircleTou.Items.Add("3");
-            this.domainUpDownCircleTou.Items.Add("2");
-            this.domainUpDownCircleTou.Items.Add("1");
-            this.domainUpDownCircleTou.Items.Add("0");
-            this.domainUpDownCircleTou.Location = new System.Drawing.Point(125, 138);
-            this.domainUpDownCircleTou.Name = "domainUpDownCircleTou";
-            this.domainUpDownCircleTou.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownCircleTou.TabIndex = 23;
-            this.domainUpDownCircleTou.Text = "0";
-            // 
-            // domainUpDownCircleStr
-            // 
-            this.domainUpDownCircleStr.Items.Add("3");
-            this.domainUpDownCircleStr.Items.Add("2");
-            this.domainUpDownCircleStr.Items.Add("1");
-            this.domainUpDownCircleStr.Items.Add("0");
-            this.domainUpDownCircleStr.Location = new System.Drawing.Point(125, 105);
-            this.domainUpDownCircleStr.Name = "domainUpDownCircleStr";
-            this.domainUpDownCircleStr.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownCircleStr.TabIndex = 22;
-            this.domainUpDownCircleStr.Text = "0";
-            // 
-            // domainUpDownCircleDex
-            // 
-            this.domainUpDownCircleDex.Items.Add("3");
-            this.domainUpDownCircleDex.Items.Add("2");
-            this.domainUpDownCircleDex.Items.Add("1");
-            this.domainUpDownCircleDex.Items.Add("0");
-            this.domainUpDownCircleDex.Location = new System.Drawing.Point(127, 72);
-            this.domainUpDownCircleDex.Name = "domainUpDownCircleDex";
-            this.domainUpDownCircleDex.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownCircleDex.TabIndex = 21;
-            this.domainUpDownCircleDex.Text = "0";
-            // 
-            // domainUpDownChr
-            // 
-            this.domainUpDownChr.Items.Add("25");
-            this.domainUpDownChr.Items.Add("24");
-            this.domainUpDownChr.Items.Add("23");
-            this.domainUpDownChr.Items.Add("22");
-            this.domainUpDownChr.Items.Add("21");
-            this.domainUpDownChr.Items.Add("20");
-            this.domainUpDownChr.Items.Add("19");
-            this.domainUpDownChr.Items.Add("18");
-            this.domainUpDownChr.Items.Add("17");
-            this.domainUpDownChr.Items.Add("16");
-            this.domainUpDownChr.Items.Add("15");
-            this.domainUpDownChr.Items.Add("14");
-            this.domainUpDownChr.Items.Add("13");
-            this.domainUpDownChr.Items.Add("12");
-            this.domainUpDownChr.Items.Add("11");
-            this.domainUpDownChr.Items.Add("10");
-            this.domainUpDownChr.Items.Add("9");
-            this.domainUpDownChr.Items.Add("8");
-            this.domainUpDownChr.Items.Add("7");
-            this.domainUpDownChr.Items.Add("6");
-            this.domainUpDownChr.Items.Add("5");
-            this.domainUpDownChr.Items.Add("4");
-            this.domainUpDownChr.Items.Add("3");
-            this.domainUpDownChr.Items.Add("2");
-            this.domainUpDownChr.Items.Add("1");
-            this.domainUpDownChr.Location = new System.Drawing.Point(76, 237);
-            this.domainUpDownChr.Name = "domainUpDownChr";
-            this.domainUpDownChr.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownChr.TabIndex = 14;
-            // 
-            // domainUpDownWil
-            // 
-            this.domainUpDownWil.Items.Add("25");
-            this.domainUpDownWil.Items.Add("24");
-            this.domainUpDownWil.Items.Add("23");
-            this.domainUpDownWil.Items.Add("22");
-            this.domainUpDownWil.Items.Add("21");
-            this.domainUpDownWil.Items.Add("20");
-            this.domainUpDownWil.Items.Add("19");
-            this.domainUpDownWil.Items.Add("18");
-            this.domainUpDownWil.Items.Add("17");
-            this.domainUpDownWil.Items.Add("16");
-            this.domainUpDownWil.Items.Add("15");
-            this.domainUpDownWil.Items.Add("14");
-            this.domainUpDownWil.Items.Add("13");
-            this.domainUpDownWil.Items.Add("12");
-            this.domainUpDownWil.Items.Add("11");
-            this.domainUpDownWil.Items.Add("10");
-            this.domainUpDownWil.Items.Add("9");
-            this.domainUpDownWil.Items.Add("8");
-            this.domainUpDownWil.Items.Add("7");
-            this.domainUpDownWil.Items.Add("6");
-            this.domainUpDownWil.Items.Add("5");
-            this.domainUpDownWil.Items.Add("4");
-            this.domainUpDownWil.Items.Add("3");
-            this.domainUpDownWil.Items.Add("2");
-            this.domainUpDownWil.Items.Add("1");
-            this.domainUpDownWil.Location = new System.Drawing.Point(76, 204);
-            this.domainUpDownWil.Name = "domainUpDownWil";
-            this.domainUpDownWil.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownWil.TabIndex = 13;
-            // 
-            // domainUpDownPer
-            // 
-            this.domainUpDownPer.Items.Add("25");
-            this.domainUpDownPer.Items.Add("24");
-            this.domainUpDownPer.Items.Add("23");
-            this.domainUpDownPer.Items.Add("22");
-            this.domainUpDownPer.Items.Add("21");
-            this.domainUpDownPer.Items.Add("20");
-            this.domainUpDownPer.Items.Add("19");
-            this.domainUpDownPer.Items.Add("18");
-            this.domainUpDownPer.Items.Add("17");
-            this.domainUpDownPer.Items.Add("16");
-            this.domainUpDownPer.Items.Add("15");
-            this.domainUpDownPer.Items.Add("14");
-            this.domainUpDownPer.Items.Add("13");
-            this.domainUpDownPer.Items.Add("12");
-            this.domainUpDownPer.Items.Add("11");
-            this.domainUpDownPer.Items.Add("10");
-            this.domainUpDownPer.Items.Add("9");
-            this.domainUpDownPer.Items.Add("8");
-            this.domainUpDownPer.Items.Add("7");
-            this.domainUpDownPer.Items.Add("6");
-            this.domainUpDownPer.Items.Add("5");
-            this.domainUpDownPer.Items.Add("4");
-            this.domainUpDownPer.Items.Add("3");
-            this.domainUpDownPer.Items.Add("2");
-            this.domainUpDownPer.Items.Add("1");
-            this.domainUpDownPer.Location = new System.Drawing.Point(76, 171);
-            this.domainUpDownPer.Name = "domainUpDownPer";
-            this.domainUpDownPer.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownPer.TabIndex = 12;
-            // 
-            // domainUpDownTou
-            // 
-            this.domainUpDownTou.Items.Add("25");
-            this.domainUpDownTou.Items.Add("24");
-            this.domainUpDownTou.Items.Add("23");
-            this.domainUpDownTou.Items.Add("22");
-            this.domainUpDownTou.Items.Add("21");
-            this.domainUpDownTou.Items.Add("20");
-            this.domainUpDownTou.Items.Add("19");
-            this.domainUpDownTou.Items.Add("18");
-            this.domainUpDownTou.Items.Add("17");
-            this.domainUpDownTou.Items.Add("16");
-            this.domainUpDownTou.Items.Add("15");
-            this.domainUpDownTou.Items.Add("14");
-            this.domainUpDownTou.Items.Add("13");
-            this.domainUpDownTou.Items.Add("12");
-            this.domainUpDownTou.Items.Add("11");
-            this.domainUpDownTou.Items.Add("10");
-            this.domainUpDownTou.Items.Add("9");
-            this.domainUpDownTou.Items.Add("8");
-            this.domainUpDownTou.Items.Add("7");
-            this.domainUpDownTou.Items.Add("6");
-            this.domainUpDownTou.Items.Add("5");
-            this.domainUpDownTou.Items.Add("4");
-            this.domainUpDownTou.Items.Add("3");
-            this.domainUpDownTou.Items.Add("2");
-            this.domainUpDownTou.Items.Add("1");
-            this.domainUpDownTou.Location = new System.Drawing.Point(76, 138);
-            this.domainUpDownTou.Name = "domainUpDownTou";
-            this.domainUpDownTou.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownTou.TabIndex = 11;
-            // 
-            // domainUpDownStr
-            // 
-            this.domainUpDownStr.Items.Add("25");
-            this.domainUpDownStr.Items.Add("24");
-            this.domainUpDownStr.Items.Add("23");
-            this.domainUpDownStr.Items.Add("22");
-            this.domainUpDownStr.Items.Add("21");
-            this.domainUpDownStr.Items.Add("20");
-            this.domainUpDownStr.Items.Add("19");
-            this.domainUpDownStr.Items.Add("18");
-            this.domainUpDownStr.Items.Add("17");
-            this.domainUpDownStr.Items.Add("16");
-            this.domainUpDownStr.Items.Add("15");
-            this.domainUpDownStr.Items.Add("14");
-            this.domainUpDownStr.Items.Add("13");
-            this.domainUpDownStr.Items.Add("12");
-            this.domainUpDownStr.Items.Add("11");
-            this.domainUpDownStr.Items.Add("10");
-            this.domainUpDownStr.Items.Add("9");
-            this.domainUpDownStr.Items.Add("8");
-            this.domainUpDownStr.Items.Add("7");
-            this.domainUpDownStr.Items.Add("6");
-            this.domainUpDownStr.Items.Add("5");
-            this.domainUpDownStr.Items.Add("4");
-            this.domainUpDownStr.Items.Add("3");
-            this.domainUpDownStr.Items.Add("2");
-            this.domainUpDownStr.Items.Add("1");
-            this.domainUpDownStr.Location = new System.Drawing.Point(76, 105);
-            this.domainUpDownStr.Name = "domainUpDownStr";
-            this.domainUpDownStr.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownStr.TabIndex = 10;
-            // 
-            // domainUpDownDex
-            // 
-            this.domainUpDownDex.Items.Add("25");
-            this.domainUpDownDex.Items.Add("24");
-            this.domainUpDownDex.Items.Add("23");
-            this.domainUpDownDex.Items.Add("22");
-            this.domainUpDownDex.Items.Add("21");
-            this.domainUpDownDex.Items.Add("20");
-            this.domainUpDownDex.Items.Add("19");
-            this.domainUpDownDex.Items.Add("18");
-            this.domainUpDownDex.Items.Add("17");
-            this.domainUpDownDex.Items.Add("16");
-            this.domainUpDownDex.Items.Add("15");
-            this.domainUpDownDex.Items.Add("14");
-            this.domainUpDownDex.Items.Add("13");
-            this.domainUpDownDex.Items.Add("12");
-            this.domainUpDownDex.Items.Add("11");
-            this.domainUpDownDex.Items.Add("10");
-            this.domainUpDownDex.Items.Add("9");
-            this.domainUpDownDex.Items.Add("8");
-            this.domainUpDownDex.Items.Add("7");
-            this.domainUpDownDex.Items.Add("6");
-            this.domainUpDownDex.Items.Add("5");
-            this.domainUpDownDex.Items.Add("4");
-            this.domainUpDownDex.Items.Add("3");
-            this.domainUpDownDex.Items.Add("2");
-            this.domainUpDownDex.Items.Add("1");
-            this.domainUpDownDex.Location = new System.Drawing.Point(76, 72);
-            this.domainUpDownDex.Name = "domainUpDownDex";
-            this.domainUpDownDex.Size = new System.Drawing.Size(40, 20);
-            this.domainUpDownDex.TabIndex = 9;
-            // 
             // metroLabelCha
             // 
             this.metroLabelCha.AutoSize = true;
@@ -1559,15 +1448,45 @@
             this.metroComboBoxRace.UseSelectable = true;
             this.metroComboBoxRace.SelectedIndexChanged += new System.EventHandler(this.metroComboBoxRace_SelectedIndexChanged);
             // 
-            // metroLabel40
+            // metroLabelLandCombatMovementRate
             // 
-            this.metroLabel40.AutoSize = true;
-            this.metroLabel40.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel40.Location = new System.Drawing.Point(398, 0);
-            this.metroLabel40.Name = "metroLabel40";
-            this.metroLabel40.Size = new System.Drawing.Size(60, 19);
-            this.metroLabel40.TabIndex = 83;
-            this.metroLabel40.Text = "Damage";
+            this.metroLabelLandCombatMovementRate.AutoSize = true;
+            this.metroLabelLandCombatMovementRate.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabelLandCombatMovementRate.Location = new System.Drawing.Point(90, 11);
+            this.metroLabelLandCombatMovementRate.Name = "metroLabelLandCombatMovementRate";
+            this.metroLabelLandCombatMovementRate.Size = new System.Drawing.Size(13, 15);
+            this.metroLabelLandCombatMovementRate.TabIndex = 63;
+            this.metroLabelLandCombatMovementRate.Text = "0";
+            // 
+            // metroLabelFlightCombatMovementRate
+            // 
+            this.metroLabelFlightCombatMovementRate.AutoSize = true;
+            this.metroLabelFlightCombatMovementRate.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabelFlightCombatMovementRate.Location = new System.Drawing.Point(90, 26);
+            this.metroLabelFlightCombatMovementRate.Name = "metroLabelFlightCombatMovementRate";
+            this.metroLabelFlightCombatMovementRate.Size = new System.Drawing.Size(13, 15);
+            this.metroLabelFlightCombatMovementRate.TabIndex = 64;
+            this.metroLabelFlightCombatMovementRate.Text = "0";
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel7.Location = new System.Drawing.Point(77, 11);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(11, 15);
+            this.metroLabel7.TabIndex = 114;
+            this.metroLabel7.Text = "/";
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel8.Location = new System.Drawing.Point(77, 27);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(11, 15);
+            this.metroLabel8.TabIndex = 115;
+            this.metroLabel8.Text = "/";
             // 
             // FormCharacter
             // 
@@ -1583,8 +1502,21 @@
             this.metroTabPageCharacter.PerformLayout();
             this.metroTabPageAttributes.ResumeLayout(false);
             this.metroTabPageAttributes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownChr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTou)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDex)).EndInit();
             this.metroPanel7.ResumeLayout(false);
             this.metroPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
             this.metroPanel6.ResumeLayout(false);
             this.metroPanel6.PerformLayout();
             this.metroPanel5.ResumeLayout(false);
@@ -1617,7 +1549,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private System.Windows.Forms.DomainUpDown domainUpDownDex;
         private MetroFramework.Controls.MetroLabel metroLabelCha;
         private MetroFramework.Controls.MetroLabel metroLabelWil;
         private MetroFramework.Controls.MetroLabel metroLabelPer;
@@ -1628,17 +1559,6 @@
         private MetroFramework.Controls.MetroLabel metroLabelStep;
         private MetroFramework.Controls.MetroLabel metroLabelCircle;
         private MetroFramework.Controls.MetroLabel metroLabelBase;
-        private System.Windows.Forms.DomainUpDown domainUpDownCircleChr;
-        private System.Windows.Forms.DomainUpDown domainUpDownCircleWil;
-        private System.Windows.Forms.DomainUpDown domainUpDownCirclePer;
-        private System.Windows.Forms.DomainUpDown domainUpDownCircleTou;
-        private System.Windows.Forms.DomainUpDown domainUpDownCircleStr;
-        private System.Windows.Forms.DomainUpDown domainUpDownCircleDex;
-        private System.Windows.Forms.DomainUpDown domainUpDownChr;
-        private System.Windows.Forms.DomainUpDown domainUpDownWil;
-        private System.Windows.Forms.DomainUpDown domainUpDownPer;
-        private System.Windows.Forms.DomainUpDown domainUpDownTou;
-        private System.Windows.Forms.DomainUpDown domainUpDownStr;
         private MetroFramework.Controls.MetroLabel metroLabelInitiativeDice;
         private MetroFramework.Controls.MetroLabel metroLabel31;
         private MetroFramework.Controls.MetroLabel metroLabelAttributeStepChr;
@@ -1687,9 +1607,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel64;
         private MetroFramework.Controls.MetroLabel metroLabelMovementLand;
         private MetroFramework.Controls.MetroLabel metroLabelMovementFlight;
-        private MetroFramework.Controls.MetroLabel metroLabelCircleAttributePointsAvailable;
-        private MetroFramework.Controls.MetroLabel metroLabel57;
-        private MetroFramework.Controls.MetroLabel metroLabelCircleAttributePointsUsed;
         private MetroFramework.Controls.MetroLabel metroLabel34;
         private MetroFramework.Controls.MetroLabel metroLabel35;
         private MetroFramework.Controls.MetroLabel metroLabel36;
@@ -1704,7 +1621,24 @@
         private MetroFramework.Controls.MetroLabel metroLabel71;
         private MetroFramework.Controls.MetroLabel metroLabel72;
         private MetroFramework.Controls.MetroLabel metroLabelPurchasedKarma;
-        private System.Windows.Forms.DomainUpDown domainUpDownMaxKarma;
         private MetroFramework.Controls.MetroLabel metroLabel40;
+        private System.Windows.Forms.NumericUpDown numericUpDown12;
+        private System.Windows.Forms.NumericUpDown numericUpDown11;
+        private System.Windows.Forms.NumericUpDown numericUpDown10;
+        private System.Windows.Forms.NumericUpDown numericUpDown9;
+        private System.Windows.Forms.NumericUpDown numericUpDown8;
+        private System.Windows.Forms.NumericUpDown numericUpDown7;
+        private System.Windows.Forms.NumericUpDown numericUpDownChr;
+        private System.Windows.Forms.NumericUpDown numericUpDownWil;
+        private System.Windows.Forms.NumericUpDown numericUpDownPer;
+        private System.Windows.Forms.NumericUpDown numericUpDownTou;
+        private System.Windows.Forms.NumericUpDown numericUpDownStr;
+        private System.Windows.Forms.NumericUpDown numericUpDownDex;
+        private System.Windows.Forms.NumericUpDown numericUpDown13;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroLabel metroLabelFlightCombatMovementRate;
+        private MetroFramework.Controls.MetroLabel metroLabelLandCombatMovementRate;
     }
 }

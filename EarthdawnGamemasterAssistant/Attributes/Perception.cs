@@ -1,12 +1,9 @@
 ﻿namespace EarthdawnGamemasterAssistant.Attributes
 {
-    public class Perception
+    public class Perception : Attribute
     {
-        public int Value { get; }
-
-        public Perception(int value)
+        public Perception(int value) : base(value)
         {
-            Value = value;
         }
     }
 }

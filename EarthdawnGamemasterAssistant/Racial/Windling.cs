@@ -1,4 +1,4 @@
-﻿namespace earthdawn_tabletop_player.Racial
+﻿namespace EarthdawnGamemasterAssistant.Racial
 {
     internal class Windling
     {

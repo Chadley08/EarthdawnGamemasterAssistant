@@ -1,12 +1,9 @@
 ﻿namespace EarthdawnGamemasterAssistant.Attributes
 {
-    public class Toughness
+    public class Toughness : Attribute
     {
-        public int Value { get; }
-
-        public Toughness(int value)
+        public Toughness(int value) : base(value)
         {
-            Value = value;
         }
     }
 }

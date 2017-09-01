@@ -1,12 +1,9 @@
 ﻿namespace EarthdawnGamemasterAssistant.Attributes
 {
-    public class Willpower
+    public class Willpower : Attribute
     {
-        public int Value { get; }
-
-        public Willpower(int value)
+        public Willpower(int value) : base(value)
         {
-            Value = value;
         }
     }
 }

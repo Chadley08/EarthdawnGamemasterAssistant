@@ -1,90 +1,72 @@
-﻿using System;
-using System.Linq;
+﻿using EarthdawnGamemasterAssistant.Attributes;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using EarthdawnGamemasterAssistant.Racial;
 
 namespace EarthdawnGamemasterAssistant
 {
     public partial class FormCharacter : Form
     {
-        private Character CurrentCharacter;
+        private static readonly CharacterInfo CurrentCharacterInfo = new CharacterInfo();
+        private static readonly List<Discipline> CurrentDisciplines = new List<Discipline>();
 
         public FormCharacter()
         {
             InitializeComponent();
-            InitializeFields();
         }
 
-        private void InitializeFields()
+        private void numericUpDownStr_ValueChanged(object sender, EventArgs e)
         {
-            domainUpDownCircleDex.Text = @"3";
-            domainUpDownCircleStr.Text = @"0";
-            domainUpDownCircleTou.Text = @"0";
-            domainUpDownCirclePer.Text = @"0";
-            domainUpDownCircleWil.Text = @"0";
-            domainUpDownCircleChr.Text = @"0";
+            CurrentCharacterInfo.Str = new Strength((int)numericUpDownStr.Value);
+            metroLabelLiftingCapacity.Text = CurrentCharacterInfo.LiftingCapacity.ToString();
+            metroLabelCarryingCapacity.Text = CurrentCharacterInfo.CarryingCapacity.ToString();
         }
 
-        private void metroComboBoxRace_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void numericUpDownDex_ValueChanged(object sender, EventArgs e)
+        {
+            CurrentCharacterInfo.Dex = new Dexterity((int)numericUpDownDex.Value);
+            metroLabelPhysicalDefense.Text = CurrentCharacterInfo.PhysicalDefense.ToString();
+            metroLabelMovementLand.Text = CurrentCharacterInfo.MovementRate.ToString();
+            metroLabelInitiativeDice.Text = CurrentCharacterInfo.InitiativeDice;
+            metroLabelLandCombatMovementRate.Text = CurrentCharacterInfo.CombatMovementRate.ToString();
+        }
+
+        private void numericUpDownTou_ValueChanged(object sender, EventArgs e)
+        {
+            CurrentCharacterInfo.Tou = new Toughness((int) numericUpDownTou.Value);
+            metroLabelDeathRating.Text = CurrentCharacterInfo.DeathRating.ToString();
+            metroLabelUnconsciousnessRating.Text = CurrentCharacterInfo.UnconsciousnessRating.ToString();
+            metroLabelWoundThreshold.Text = CurrentCharacterInfo.WoundThreshold.ToString();
+            metroLabelRecoveryTests.Text = CurrentCharacterInfo.RecoveryTests.ToString();
+        }
+
+        private void numericUpDownPer_ValueChanged(object sender, EventArgs e)
+        {
+            CurrentCharacterInfo.Per = new Perception((int)numericUpDownPer.Value);
+        }
+
+        private void numericUpDownWil_ValueChanged(object sender, EventArgs e)
+        {
+            CurrentCharacterInfo.Wil = new Willpower((int)numericUpDownWil.Value);
+            metroLabelMysticDefense.Text = CurrentCharacterInfo.MysticDefense.ToString();
+        }
+
+        private void numericUpDownChr_ValueChanged(object sender, EventArgs e)
+        {
+            CurrentCharacterInfo.Cha = new Charisma((int)numericUpDownChr.Value);
+            metroLabelSocialDefense.Text = CurrentCharacterInfo.SocialDefense.ToString();
+        }
+
+        private void metroComboBoxRace_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (metroComboBoxRace.Text)
             {
                 case "Dwarf":
-                    CurrentCharacter = Program.DefaultCharacters["Dwarf"];
+                    var selectedRace = new Dwarf(CurrentCharacterInfo);
                     break;
             }
-            domainUpDownDex.Text = CurrentCharacter.Dex.Value.ToString();
-            domainUpDownStr.Text = CurrentCharacter.Str.Value.ToString();
-            domainUpDownTou.Text = CurrentCharacter.Tou.Value.ToString();
-            domainUpDownPer.Text = CurrentCharacter.Per.Value.ToString();
-            domainUpDownWil.Text = CurrentCharacter.Wil.Value.ToString();
-            domainUpDownChr.Text = CurrentCharacter.Chr.Value.ToString();
 
-            UpdateTotalAttributeValues();
-            UpdateAttributeStepValues();
-            UpdateInitiative();
-            UpdateDefenses();
-            UpdateArmor();
-            UpdateDamage();
-            UpdateCapacity();
-            UpdateKarma();
-            UpdateMovement();
-        }
-
-        private void UpdateInitiative()
-        {
-            metroLabelInitiativeDice.Text =
-                CharacteristicTables.GetStepDice(Convert.ToInt32(CurrentCharacter.Dex.Value));
-        }
-
-        private void UpdateAttributeStepValues()
-        {
-            metroLabelAttributeStepDex.Text = CharacteristicTables.GetStepFromValue(Convert.ToInt32(metroLabelAttributeTotalDex.Text.Replace("(", "").Replace(")", ""))).ToString();
-            metroLabelAttributeStepStr.Text = CharacteristicTables.GetStepFromValue(Convert.ToInt32(metroLabelAttributeTotalStr.Text.Replace("(", "").Replace(")", ""))).ToString();
-            metroLabelAttributeStepTou.Text = CharacteristicTables.GetStepFromValue(Convert.ToInt32(metroLabelAttributeTotalTou.Text.Replace("(", "").Replace(")", ""))).ToString();
-            metroLabelAttributeStepPer.Text = CharacteristicTables.GetStepFromValue(Convert.ToInt32(metroLabelAttributeTotalPer.Text.Replace("(", "").Replace(")", ""))).ToString();
-            metroLabelAttributeStepWil.Text = CharacteristicTables.GetStepFromValue(Convert.ToInt32(metroLabelAttributeTotalWil.Text.Replace("(", "").Replace(")", ""))).ToString();
-            metroLabelAttributeStepChr.Text = CharacteristicTables.GetStepFromValue(Convert.ToInt32(metroLabelAttributeTotalChr.Text.Replace("(", "").Replace(")", ""))).ToString();
-        }
-
-        private void UpdateTotalAttributeValues()
-        {
-            var total = Convert.ToDouble(domainUpDownDex.Text) + Convert.ToDouble(domainUpDownCircleDex.Text);
-            metroLabelAttributeTotalDex.Text = @"(" + total + @")";
-
-            total = Convert.ToDouble(domainUpDownStr.Text) + Convert.ToDouble(domainUpDownCircleStr.Text);
-            metroLabelAttributeTotalStr.Text = @"(" + total + @")";
-
-            total = Convert.ToDouble(domainUpDownTou.Text) + Convert.ToDouble(domainUpDownCircleTou.Text);
-            metroLabelAttributeTotalTou.Text = @"(" + total + @")";
-
-            total = Convert.ToDouble(domainUpDownPer.Text) + Convert.ToDouble(domainUpDownCirclePer.Text);
-            metroLabelAttributeTotalPer.Text = @"(" + total + @")";
-
-            total = Convert.ToDouble(domainUpDownWil.Text) + Convert.ToDouble(domainUpDownCircleWil.Text);
-            metroLabelAttributeTotalWil.Text = @"(" + total + @")";
-
-            total = Convert.ToDouble(domainUpDownChr.Text) + Convert.ToDouble(domainUpDownCircleChr.Text);
-            metroLabelAttributeTotalChr.Text = @"(" + total + @")";
         }
     }
 }

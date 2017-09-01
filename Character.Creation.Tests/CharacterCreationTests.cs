@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using EarthdawnGamemasterAssistant;
-using EarthdawnGamemasterAssistant.Attributes;
-using EarthdawnGamemasterAssistant.Racial;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Creation.Tests
 {
@@ -13,7 +9,6 @@ namespace Creation.Tests
         public void create_a_character()
         {
             // Arrange
-            var testDwarf = Dwarf.CreateUsingDefaults();
 
             // Act
 
