@@ -43,12 +43,12 @@
             this.metroTextBoxName = new MetroFramework.Controls.MetroTextBox();
             this.metroTabPageAttributes = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCircleCha = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCircleWil = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCirclePer = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCircleTou = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCircleStr = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCircleDex = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownChr = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownWil = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownPer = new System.Windows.Forms.NumericUpDown();
@@ -58,7 +58,7 @@
             this.metroLabel40 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel70 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
-            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownMaxKarma = new System.Windows.Forms.NumericUpDown();
             this.metroLabel71 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel72 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelPurchasedKarma = new MetroFramework.Controls.MetroLabel();
@@ -74,13 +74,15 @@
             this.metroLabelCarryingCapacity = new MetroFramework.Controls.MetroLabel();
             this.metroLabel61 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelFlightCombatMovementRate = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelLandCombatMovementRate = new MetroFramework.Controls.MetroLabel();
             this.metroLabel62 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel64 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelMovementLand = new MetroFramework.Controls.MetroLabel();
             this.metroLabelMovementFlight = new MetroFramework.Controls.MetroLabel();
-            this.metroLabelAttributePointsMax = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel53 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabelAttributesPointsUsed = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelAttributesPointsAvailable = new MetroFramework.Controls.MetroLabel();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel50 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel46 = new MetroFramework.Controls.MetroLabel();
@@ -129,19 +131,15 @@
             this.metroLabelStr = new MetroFramework.Controls.MetroLabel();
             this.metroLabelDex = new MetroFramework.Controls.MetroLabel();
             this.metroComboBoxRace = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabelLandCombatMovementRate = new MetroFramework.Controls.MetroLabel();
-            this.metroLabelFlightCombatMovementRate = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroTabControl.SuspendLayout();
             this.metroTabPageCharacter.SuspendLayout();
             this.metroTabPageAttributes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleCha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleWil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCirclePer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleTou)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleStr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleDex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownChr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPer)).BeginInit();
@@ -149,7 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDex)).BeginInit();
             this.metroPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxKarma)).BeginInit();
             this.metroPanel6.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             this.metroPanel4.SuspendLayout();
@@ -440,12 +438,12 @@
             // metroTabPageAttributes
             // 
             this.metroTabPageAttributes.Controls.Add(this.metroLabel4);
-            this.metroTabPageAttributes.Controls.Add(this.numericUpDown12);
-            this.metroTabPageAttributes.Controls.Add(this.numericUpDown11);
-            this.metroTabPageAttributes.Controls.Add(this.numericUpDown10);
-            this.metroTabPageAttributes.Controls.Add(this.numericUpDown9);
-            this.metroTabPageAttributes.Controls.Add(this.numericUpDown8);
-            this.metroTabPageAttributes.Controls.Add(this.numericUpDown7);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownCircleCha);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownCircleWil);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownCirclePer);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownCircleTou);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownCircleStr);
+            this.metroTabPageAttributes.Controls.Add(this.numericUpDownCircleDex);
             this.metroTabPageAttributes.Controls.Add(this.numericUpDownChr);
             this.metroTabPageAttributes.Controls.Add(this.numericUpDownWil);
             this.metroTabPageAttributes.Controls.Add(this.numericUpDownPer);
@@ -461,9 +459,7 @@
             this.metroTabPageAttributes.Controls.Add(this.metroPanel6);
             this.metroTabPageAttributes.Controls.Add(this.metroLabel61);
             this.metroTabPageAttributes.Controls.Add(this.metroPanel5);
-            this.metroTabPageAttributes.Controls.Add(this.metroLabelAttributePointsMax);
-            this.metroTabPageAttributes.Controls.Add(this.metroLabel53);
-            this.metroTabPageAttributes.Controls.Add(this.metroLabelAttributesPointsUsed);
+            this.metroTabPageAttributes.Controls.Add(this.metroLabelAttributesPointsAvailable);
             this.metroTabPageAttributes.Controls.Add(this.metroPanel4);
             this.metroTabPageAttributes.Controls.Add(this.metroLabel33);
             this.metroTabPageAttributes.Controls.Add(this.metroPanel3);
@@ -514,47 +510,47 @@
             this.metroLabel4.TabIndex = 113;
             this.metroLabel4.Text = "Attribute Points";
             // 
-            // numericUpDown12
+            // numericUpDownCircleCha
             // 
-            this.numericUpDown12.Location = new System.Drawing.Point(127, 240);
-            this.numericUpDown12.Name = "numericUpDown12";
-            this.numericUpDown12.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDown12.TabIndex = 112;
+            this.numericUpDownCircleCha.Location = new System.Drawing.Point(127, 240);
+            this.numericUpDownCircleCha.Name = "numericUpDownCircleCha";
+            this.numericUpDownCircleCha.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownCircleCha.TabIndex = 112;
             // 
-            // numericUpDown11
+            // numericUpDownCircleWil
             // 
-            this.numericUpDown11.Location = new System.Drawing.Point(127, 207);
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDown11.TabIndex = 111;
+            this.numericUpDownCircleWil.Location = new System.Drawing.Point(127, 207);
+            this.numericUpDownCircleWil.Name = "numericUpDownCircleWil";
+            this.numericUpDownCircleWil.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownCircleWil.TabIndex = 111;
             // 
-            // numericUpDown10
+            // numericUpDownCirclePer
             // 
-            this.numericUpDown10.Location = new System.Drawing.Point(127, 176);
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDown10.TabIndex = 110;
+            this.numericUpDownCirclePer.Location = new System.Drawing.Point(127, 176);
+            this.numericUpDownCirclePer.Name = "numericUpDownCirclePer";
+            this.numericUpDownCirclePer.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownCirclePer.TabIndex = 110;
             // 
-            // numericUpDown9
+            // numericUpDownCircleTou
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(127, 144);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDown9.TabIndex = 109;
+            this.numericUpDownCircleTou.Location = new System.Drawing.Point(127, 144);
+            this.numericUpDownCircleTou.Name = "numericUpDownCircleTou";
+            this.numericUpDownCircleTou.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownCircleTou.TabIndex = 109;
             // 
-            // numericUpDown8
+            // numericUpDownCircleStr
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(127, 110);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDown8.TabIndex = 108;
+            this.numericUpDownCircleStr.Location = new System.Drawing.Point(127, 110);
+            this.numericUpDownCircleStr.Name = "numericUpDownCircleStr";
+            this.numericUpDownCircleStr.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownCircleStr.TabIndex = 108;
             // 
-            // numericUpDown7
+            // numericUpDownCircleDex
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(127, 75);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDown7.TabIndex = 107;
+            this.numericUpDownCircleDex.Location = new System.Drawing.Point(127, 75);
+            this.numericUpDownCircleDex.Name = "numericUpDownCircleDex";
+            this.numericUpDownCircleDex.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownCircleDex.TabIndex = 107;
             // 
             // numericUpDownChr
             // 
@@ -568,7 +564,7 @@
             this.numericUpDownChr.Size = new System.Drawing.Size(42, 20);
             this.numericUpDownChr.TabIndex = 106;
             this.numericUpDownChr.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -586,7 +582,7 @@
             this.numericUpDownWil.Size = new System.Drawing.Size(42, 20);
             this.numericUpDownWil.TabIndex = 105;
             this.numericUpDownWil.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -604,7 +600,7 @@
             this.numericUpDownPer.Size = new System.Drawing.Size(42, 20);
             this.numericUpDownPer.TabIndex = 104;
             this.numericUpDownPer.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -622,7 +618,7 @@
             this.numericUpDownTou.Size = new System.Drawing.Size(42, 20);
             this.numericUpDownTou.TabIndex = 103;
             this.numericUpDownTou.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -640,7 +636,7 @@
             this.numericUpDownStr.Size = new System.Drawing.Size(42, 20);
             this.numericUpDownStr.TabIndex = 102;
             this.numericUpDownStr.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -658,7 +654,7 @@
             this.numericUpDownDex.Size = new System.Drawing.Size(42, 20);
             this.numericUpDownDex.TabIndex = 101;
             this.numericUpDownDex.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -686,7 +682,7 @@
             // metroPanel7
             // 
             this.metroPanel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel7.Controls.Add(this.numericUpDown13);
+            this.metroPanel7.Controls.Add(this.numericUpDownMaxKarma);
             this.metroPanel7.Controls.Add(this.metroLabel71);
             this.metroPanel7.Controls.Add(this.metroLabel72);
             this.metroPanel7.Controls.Add(this.metroLabelPurchasedKarma);
@@ -701,12 +697,13 @@
             this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel7.VerticalScrollbarSize = 10;
             // 
-            // numericUpDown13
+            // numericUpDownMaxKarma
             // 
-            this.numericUpDown13.Location = new System.Drawing.Point(73, 9);
-            this.numericUpDown13.Name = "numericUpDown13";
-            this.numericUpDown13.Size = new System.Drawing.Size(36, 20);
-            this.numericUpDown13.TabIndex = 102;
+            this.numericUpDownMaxKarma.Location = new System.Drawing.Point(73, 9);
+            this.numericUpDownMaxKarma.Name = "numericUpDownMaxKarma";
+            this.numericUpDownMaxKarma.Size = new System.Drawing.Size(36, 20);
+            this.numericUpDownMaxKarma.TabIndex = 102;
+            this.numericUpDownMaxKarma.ValueChanged += new System.EventHandler(this.numericUpDownMaxKarma_ValueChanged);
             // 
             // metroLabel71
             // 
@@ -871,6 +868,46 @@
             this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel5.VerticalScrollbarSize = 10;
             // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel8.Location = new System.Drawing.Point(77, 27);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(11, 15);
+            this.metroLabel8.TabIndex = 115;
+            this.metroLabel8.Text = "/";
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel7.Location = new System.Drawing.Point(77, 11);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(11, 15);
+            this.metroLabel7.TabIndex = 114;
+            this.metroLabel7.Text = "/";
+            // 
+            // metroLabelFlightCombatMovementRate
+            // 
+            this.metroLabelFlightCombatMovementRate.AutoSize = true;
+            this.metroLabelFlightCombatMovementRate.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabelFlightCombatMovementRate.Location = new System.Drawing.Point(92, 26);
+            this.metroLabelFlightCombatMovementRate.Name = "metroLabelFlightCombatMovementRate";
+            this.metroLabelFlightCombatMovementRate.Size = new System.Drawing.Size(13, 15);
+            this.metroLabelFlightCombatMovementRate.TabIndex = 64;
+            this.metroLabelFlightCombatMovementRate.Text = "0";
+            // 
+            // metroLabelLandCombatMovementRate
+            // 
+            this.metroLabelLandCombatMovementRate.AutoSize = true;
+            this.metroLabelLandCombatMovementRate.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabelLandCombatMovementRate.Location = new System.Drawing.Point(92, 11);
+            this.metroLabelLandCombatMovementRate.Name = "metroLabelLandCombatMovementRate";
+            this.metroLabelLandCombatMovementRate.Size = new System.Drawing.Size(13, 15);
+            this.metroLabelLandCombatMovementRate.TabIndex = 63;
+            this.metroLabelLandCombatMovementRate.Text = "0";
+            // 
             // metroLabel62
             // 
             this.metroLabel62.AutoSize = true;
@@ -895,7 +932,7 @@
             // 
             this.metroLabelMovementLand.AutoSize = true;
             this.metroLabelMovementLand.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelMovementLand.Location = new System.Drawing.Point(63, 11);
+            this.metroLabelMovementLand.Location = new System.Drawing.Point(61, 11);
             this.metroLabelMovementLand.Name = "metroLabelMovementLand";
             this.metroLabelMovementLand.Size = new System.Drawing.Size(13, 15);
             this.metroLabelMovementLand.TabIndex = 60;
@@ -905,38 +942,20 @@
             // 
             this.metroLabelMovementFlight.AutoSize = true;
             this.metroLabelMovementFlight.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelMovementFlight.Location = new System.Drawing.Point(63, 27);
+            this.metroLabelMovementFlight.Location = new System.Drawing.Point(61, 27);
             this.metroLabelMovementFlight.Name = "metroLabelMovementFlight";
             this.metroLabelMovementFlight.Size = new System.Drawing.Size(13, 15);
             this.metroLabelMovementFlight.TabIndex = 62;
             this.metroLabelMovementFlight.Text = "0";
             // 
-            // metroLabelAttributePointsMax
+            // metroLabelAttributesPointsAvailable
             // 
-            this.metroLabelAttributePointsMax.AutoSize = true;
-            this.metroLabelAttributePointsMax.Location = new System.Drawing.Point(134, 274);
-            this.metroLabelAttributePointsMax.Name = "metroLabelAttributePointsMax";
-            this.metroLabelAttributePointsMax.Size = new System.Drawing.Size(23, 19);
-            this.metroLabelAttributePointsMax.TabIndex = 87;
-            this.metroLabelAttributePointsMax.Text = "25";
-            // 
-            // metroLabel53
-            // 
-            this.metroLabel53.AutoSize = true;
-            this.metroLabel53.Location = new System.Drawing.Point(124, 274);
-            this.metroLabel53.Name = "metroLabel53";
-            this.metroLabel53.Size = new System.Drawing.Size(14, 19);
-            this.metroLabel53.TabIndex = 86;
-            this.metroLabel53.Text = "/";
-            // 
-            // metroLabelAttributesPointsUsed
-            // 
-            this.metroLabelAttributesPointsUsed.AutoSize = true;
-            this.metroLabelAttributesPointsUsed.Location = new System.Drawing.Point(106, 274);
-            this.metroLabelAttributesPointsUsed.Name = "metroLabelAttributesPointsUsed";
-            this.metroLabelAttributesPointsUsed.Size = new System.Drawing.Size(23, 19);
-            this.metroLabelAttributesPointsUsed.TabIndex = 85;
-            this.metroLabelAttributesPointsUsed.Text = "25";
+            this.metroLabelAttributesPointsAvailable.AutoSize = true;
+            this.metroLabelAttributesPointsAvailable.Location = new System.Drawing.Point(124, 274);
+            this.metroLabelAttributesPointsAvailable.Name = "metroLabelAttributesPointsAvailable";
+            this.metroLabelAttributesPointsAvailable.Size = new System.Drawing.Size(23, 19);
+            this.metroLabelAttributesPointsAvailable.TabIndex = 85;
+            this.metroLabelAttributesPointsAvailable.Text = "25";
             // 
             // metroPanel4
             // 
@@ -1448,46 +1467,6 @@
             this.metroComboBoxRace.UseSelectable = true;
             this.metroComboBoxRace.SelectedIndexChanged += new System.EventHandler(this.metroComboBoxRace_SelectedIndexChanged);
             // 
-            // metroLabelLandCombatMovementRate
-            // 
-            this.metroLabelLandCombatMovementRate.AutoSize = true;
-            this.metroLabelLandCombatMovementRate.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelLandCombatMovementRate.Location = new System.Drawing.Point(90, 11);
-            this.metroLabelLandCombatMovementRate.Name = "metroLabelLandCombatMovementRate";
-            this.metroLabelLandCombatMovementRate.Size = new System.Drawing.Size(13, 15);
-            this.metroLabelLandCombatMovementRate.TabIndex = 63;
-            this.metroLabelLandCombatMovementRate.Text = "0";
-            // 
-            // metroLabelFlightCombatMovementRate
-            // 
-            this.metroLabelFlightCombatMovementRate.AutoSize = true;
-            this.metroLabelFlightCombatMovementRate.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelFlightCombatMovementRate.Location = new System.Drawing.Point(90, 26);
-            this.metroLabelFlightCombatMovementRate.Name = "metroLabelFlightCombatMovementRate";
-            this.metroLabelFlightCombatMovementRate.Size = new System.Drawing.Size(13, 15);
-            this.metroLabelFlightCombatMovementRate.TabIndex = 64;
-            this.metroLabelFlightCombatMovementRate.Text = "0";
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel7.Location = new System.Drawing.Point(77, 11);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(11, 15);
-            this.metroLabel7.TabIndex = 114;
-            this.metroLabel7.Text = "/";
-            // 
-            // metroLabel8
-            // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel8.Location = new System.Drawing.Point(77, 27);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(11, 15);
-            this.metroLabel8.TabIndex = 115;
-            this.metroLabel8.Text = "/";
-            // 
             // FormCharacter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1502,12 +1481,12 @@
             this.metroTabPageCharacter.PerformLayout();
             this.metroTabPageAttributes.ResumeLayout(false);
             this.metroTabPageAttributes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleCha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleWil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCirclePer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleTou)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleStr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleDex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownChr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPer)).EndInit();
@@ -1516,7 +1495,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDex)).EndInit();
             this.metroPanel7.ResumeLayout(false);
             this.metroPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxKarma)).EndInit();
             this.metroPanel6.ResumeLayout(false);
             this.metroPanel6.PerformLayout();
             this.metroPanel5.ResumeLayout(false);
@@ -1591,9 +1570,7 @@
         private MetroFramework.Controls.MetroPanel metroPanel3;
         private MetroFramework.Controls.MetroLabel metroLabel52;
         private MetroFramework.Controls.MetroPanel metroPanel2;
-        private MetroFramework.Controls.MetroLabel metroLabel53;
-        private MetroFramework.Controls.MetroLabel metroLabelAttributesPointsUsed;
-        private MetroFramework.Controls.MetroLabel metroLabelAttributePointsMax;
+        private MetroFramework.Controls.MetroLabel metroLabelAttributesPointsAvailable;
         private MetroFramework.Controls.MetroLabel metroLabel75;
         private MetroFramework.Controls.MetroLabel metroLabel47;
         private MetroFramework.Controls.MetroPanel metroPanel6;
@@ -1622,19 +1599,19 @@
         private MetroFramework.Controls.MetroLabel metroLabel72;
         private MetroFramework.Controls.MetroLabel metroLabelPurchasedKarma;
         private MetroFramework.Controls.MetroLabel metroLabel40;
-        private System.Windows.Forms.NumericUpDown numericUpDown12;
-        private System.Windows.Forms.NumericUpDown numericUpDown11;
-        private System.Windows.Forms.NumericUpDown numericUpDown10;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
+        private System.Windows.Forms.NumericUpDown numericUpDownCircleCha;
+        private System.Windows.Forms.NumericUpDown numericUpDownCircleWil;
+        private System.Windows.Forms.NumericUpDown numericUpDownCirclePer;
+        private System.Windows.Forms.NumericUpDown numericUpDownCircleTou;
+        private System.Windows.Forms.NumericUpDown numericUpDownCircleStr;
+        private System.Windows.Forms.NumericUpDown numericUpDownCircleDex;
         private System.Windows.Forms.NumericUpDown numericUpDownChr;
         private System.Windows.Forms.NumericUpDown numericUpDownWil;
         private System.Windows.Forms.NumericUpDown numericUpDownPer;
         private System.Windows.Forms.NumericUpDown numericUpDownTou;
         private System.Windows.Forms.NumericUpDown numericUpDownStr;
         private System.Windows.Forms.NumericUpDown numericUpDownDex;
-        private System.Windows.Forms.NumericUpDown numericUpDown13;
+        private System.Windows.Forms.NumericUpDown numericUpDownMaxKarma;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroLabel metroLabel7;

@@ -14,6 +14,8 @@ namespace EarthdawnGamemasterAssistant.Racial
         public  Perception BasePer => new Perception(11);
         public  Willpower BaseWil => new Willpower(11);
         public  Charisma BaseCha => new Charisma(10);
+        public int MovementRate => 10;
+        public int KarmaModifier => 4;
 
         public CharacterInfo _CharacterInfo { get; }
 
@@ -32,22 +34,5 @@ namespace EarthdawnGamemasterAssistant.Racial
         {
             return RacialAbilities;
         }
-
-        //var defaultDwarfCharacter = new CharacterInfo(
-        //    new Dwarf(),
-        //    new List<Discipline>(),
-        //    4,
-        //    0,
-        //    0,
-        //    0,
-        //    "",
-        //    "",
-        //    25,
-        //    new Dexterity(9),
-        //    new Strength(10),
-        //    new Toughness(12),
-        //    new Perception(11),
-        //    new Willpower(11),
-        //    new Charisma(10));
     }
 }

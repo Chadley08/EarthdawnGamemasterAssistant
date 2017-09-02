@@ -6,13 +6,11 @@ namespace EarthdawnGamemasterAssistant
     public static class CharacteristicTables
     {
         private static readonly List<string> StepLookup = new List<string>();
-        private static readonly Dictionary<int, int> MovementRateLookup = new Dictionary<int, int>();
         private static readonly Dictionary<int, int> CarryingCapacity = new Dictionary<int, int>();
 
         static CharacteristicTables()
         {
             CreateStepTableList();
-            CreateMovementRateDictionary();
             CreateCarryingCapacityDictionary();
         }
 
@@ -64,27 +62,6 @@ namespace EarthdawnGamemasterAssistant
             }
             // 460
             CarryingCapacity.Add(25, 460);
-        }
-
-        private static void CreateMovementRateDictionary()
-        {
-            int nextValueIncrement = 1;
-            for (var i = 1; i < 25; i++)
-            {
-                if (i < 6)
-                {
-                    MovementRateLookup.Add(i, i + 5);
-                }
-                if (i > 5 && i < 21)
-                {
-                    MovementRateLookup.Add(i, i * 2);
-                }
-                if (i > 20 && i < 26)
-                {
-                    MovementRateLookup.Add(i, i * 2 + nextValueIncrement);
-                    nextValueIncrement++;
-                }
-            }
         }
 
         private static void CreateStepTableList()
@@ -161,15 +138,6 @@ namespace EarthdawnGamemasterAssistant
                 return Convert.ToInt32(Math.Round(Convert.ToDouble(baseValue) / 3 + 1, MidpointRounding.AwayFromZero));
             }
             throw new ArgumentException("Step values must be between 0 and 40.");
-        }
-
-        public static int GetMovementRateFromValue(int baseValue)
-        {
-            if (baseValue >= 1 && baseValue <= 25)
-            {
-                return MovementRateLookup[baseValue];
-            }
-            throw new ArgumentException("BaseValue is outside attribute range.");
         }
 
         public static int GetCarryingCapacityFromAttributeValue(int baseValue)

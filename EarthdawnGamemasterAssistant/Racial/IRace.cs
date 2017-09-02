@@ -5,6 +5,8 @@ namespace EarthdawnGamemasterAssistant.Racial
 {
     public interface IRace
     {
+        int KarmaModifier { get; }
+        int MovementRate { get; }
         IReadOnlyList<RacialAbility> GetRacialAbilities();
         Dexterity BaseDex { get; }
         Strength BaseStr { get; }
