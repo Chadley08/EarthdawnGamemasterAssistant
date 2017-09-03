@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPageCharacter = new MetroFramework.Controls.MetroTabPage();
             this.metroLabelRequired = new MetroFramework.Controls.MetroLabel();
@@ -62,9 +64,6 @@
             this.metroLabel71 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel72 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelPurchasedKarma = new MetroFramework.Controls.MetroLabel();
-            this.metroListViewRacialAbilities = new MetroFramework.Controls.MetroListView();
-            this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.metroLabel75 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel47 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
@@ -131,6 +130,9 @@
             this.metroLabelStr = new MetroFramework.Controls.MetroLabel();
             this.metroLabelDex = new MetroFramework.Controls.MetroLabel();
             this.metroComboBoxRace = new MetroFramework.Controls.MetroComboBox();
+            this.dataGridViewRacialAbilities = new System.Windows.Forms.DataGridView();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl.SuspendLayout();
             this.metroTabPageCharacter.SuspendLayout();
             this.metroTabPageAttributes.SuspendLayout();
@@ -154,6 +156,7 @@
             this.metroPanel3.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacialAbilities)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl
@@ -437,6 +440,7 @@
             // 
             // metroTabPageAttributes
             // 
+            this.metroTabPageAttributes.Controls.Add(this.dataGridViewRacialAbilities);
             this.metroTabPageAttributes.Controls.Add(this.metroLabel4);
             this.metroTabPageAttributes.Controls.Add(this.numericUpDownCircleCha);
             this.metroTabPageAttributes.Controls.Add(this.numericUpDownCircleWil);
@@ -453,7 +457,6 @@
             this.metroTabPageAttributes.Controls.Add(this.metroLabel40);
             this.metroTabPageAttributes.Controls.Add(this.metroLabel70);
             this.metroTabPageAttributes.Controls.Add(this.metroPanel7);
-            this.metroTabPageAttributes.Controls.Add(this.metroListViewRacialAbilities);
             this.metroTabPageAttributes.Controls.Add(this.metroLabel75);
             this.metroTabPageAttributes.Controls.Add(this.metroLabel47);
             this.metroTabPageAttributes.Controls.Add(this.metroPanel6);
@@ -734,32 +737,6 @@
             this.metroLabelPurchasedKarma.Size = new System.Drawing.Size(13, 15);
             this.metroLabelPurchasedKarma.TabIndex = 62;
             this.metroLabelPurchasedKarma.Text = "0";
-            // 
-            // metroListViewRacialAbilities
-            // 
-            this.metroListViewRacialAbilities.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderName,
-            this.columnHeaderDescription});
-            this.metroListViewRacialAbilities.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.metroListViewRacialAbilities.FullRowSelect = true;
-            this.metroListViewRacialAbilities.Location = new System.Drawing.Point(260, 220);
-            this.metroListViewRacialAbilities.Name = "metroListViewRacialAbilities";
-            this.metroListViewRacialAbilities.OwnerDraw = true;
-            this.metroListViewRacialAbilities.Size = new System.Drawing.Size(477, 112);
-            this.metroListViewRacialAbilities.TabIndex = 98;
-            this.metroListViewRacialAbilities.UseCompatibleStateImageBehavior = false;
-            this.metroListViewRacialAbilities.UseSelectable = true;
-            this.metroListViewRacialAbilities.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeaderName
-            // 
-            this.columnHeaderName.Text = "Name";
-            this.columnHeaderName.Width = 77;
-            // 
-            // columnHeaderDescription
-            // 
-            this.columnHeaderDescription.Text = "Description";
-            this.columnHeaderDescription.Width = 336;
             // 
             // metroLabel75
             // 
@@ -1467,6 +1444,51 @@
             this.metroComboBoxRace.UseSelectable = true;
             this.metroComboBoxRace.SelectedIndexChanged += new System.EventHandler(this.metroComboBoxRace_SelectedIndexChanged);
             // 
+            // dataGridViewRacialAbilities
+            // 
+            this.dataGridViewRacialAbilities.AllowUserToAddRows = false;
+            this.dataGridViewRacialAbilities.AllowUserToDeleteRows = false;
+            this.dataGridViewRacialAbilities.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewRacialAbilities.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewRacialAbilities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRacialAbilities.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnName,
+            this.ColumnDescription});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRacialAbilities.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewRacialAbilities.Location = new System.Drawing.Point(260, 220);
+            this.dataGridViewRacialAbilities.MultiSelect = false;
+            this.dataGridViewRacialAbilities.Name = "dataGridViewRacialAbilities";
+            this.dataGridViewRacialAbilities.ReadOnly = true;
+            this.dataGridViewRacialAbilities.RowHeadersVisible = false;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRacialAbilities.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewRacialAbilities.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRacialAbilities.Size = new System.Drawing.Size(477, 117);
+            this.dataGridViewRacialAbilities.TabIndex = 114;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnName.HeaderText = "Name";
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
+            this.ColumnName.Width = 60;
+            // 
+            // ColumnDescription
+            // 
+            this.ColumnDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnDescription.HeaderText = "Description";
+            this.ColumnDescription.Name = "ColumnDescription";
+            this.ColumnDescription.ReadOnly = true;
+            this.ColumnDescription.Width = 85;
+            // 
             // FormCharacter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1508,6 +1530,7 @@
             this.metroPanel2.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacialAbilities)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1590,9 +1613,6 @@
         private MetroFramework.Controls.MetroLabel metroLabelPhysicalDefense;
         private MetroFramework.Controls.MetroLabel metroLabelMysticDefense;
         private MetroFramework.Controls.MetroLabel metroLabelSocialDefense;
-        private MetroFramework.Controls.MetroListView metroListViewRacialAbilities;
-        private System.Windows.Forms.ColumnHeader columnHeaderName;
-        private System.Windows.Forms.ColumnHeader columnHeaderDescription;
         private MetroFramework.Controls.MetroLabel metroLabel70;
         private MetroFramework.Controls.MetroPanel metroPanel7;
         private MetroFramework.Controls.MetroLabel metroLabel71;
@@ -1617,5 +1637,8 @@
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabelFlightCombatMovementRate;
         private MetroFramework.Controls.MetroLabel metroLabelLandCombatMovementRate;
+        private System.Windows.Forms.DataGridView dataGridViewRacialAbilities;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescription;
     }
 }

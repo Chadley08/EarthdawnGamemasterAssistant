@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace EarthdawnGamemasterAssistant
 {
@@ -62,6 +63,70 @@ namespace EarthdawnGamemasterAssistant
             }
             // 460
             CarryingCapacity.Add(25, 460);
+        }
+
+        public static int GetAttributePointCost(int difference)
+        {
+            var cost = -99999;
+            switch (difference)
+            {
+                case -2:
+                    cost = -2;
+                    break;
+
+                case -1:
+                    cost = -1;
+                    break;
+
+                case 0:
+                    cost = 0;
+                    break;
+
+                case 1:
+                    cost = 1;
+                    break;
+
+                case 2:
+                    cost = 2;
+                    break;
+
+                case 3:
+                    cost = 3;
+                    break;
+
+                case 4:
+                    cost = 5;
+                    break;
+
+                case 5:
+                    cost = 7;
+                    break;
+
+                case 6:
+                    cost = 9;
+                    break;
+
+                case 7:
+                    cost = 12;
+                    break;
+
+                case 8:
+                    cost = 15;
+                    break;
+
+                default:
+                    if (difference < -2)
+                    {
+                        cost = -2;
+                    }
+                    Debug.WriteLine("Attribute is outside expected normal value range.");
+                    if (difference > 8)
+                    {
+                        throw new Exception("Attribute value cannot be more than 8 of the race's base attribute value");
+                    }
+                    break;
+            }
+            return cost;
         }
 
         private static void CreateStepTableList()
