@@ -65,11 +65,11 @@
     <Compile Include="Dice\StaticRandom.cs" />
     <Compile Include="CharacteristicTables.cs" />
     <Compile Include="Discipline.cs" />
-    <Compile Include="FormCharacter.cs">
+    <Compile Include="FormCharacterCreator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCharacter.Designer.cs">
-      <DependentUpon>FormCharacter.cs</DependentUpon>
+    <Compile Include="FormCharacterCreator.Designer.cs">
+      <DependentUpon>FormCharacterCreator.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -97,8 +97,8 @@
     <Compile Include="Talents\Talent.cs" />
     <Compile Include="Attributes\Toughness.cs" />
     <Compile Include="Attributes\Willpower.cs" />
-    <EmbeddedResource Include="FormCharacter.resx">
-      <DependentUpon>FormCharacter.cs</DependentUpon>
+    <EmbeddedResource Include="FormCharacterCreator.resx">
+      <DependentUpon>FormCharacterCreator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

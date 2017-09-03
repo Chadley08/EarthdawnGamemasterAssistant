@@ -11,7 +11,7 @@ namespace EarthdawnGamemasterAssistant
 
         private void newToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            var formCharacter = new FormCharacter();
+            var formCharacter = new FormCharacterCreator();
             formCharacter.Show();
         }
     }

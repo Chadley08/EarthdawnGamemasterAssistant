@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace EarthdawnGamemasterAssistant.Attributes
+﻿namespace EarthdawnGamemasterAssistant.Attributes
 {
     public class Attribute
     {

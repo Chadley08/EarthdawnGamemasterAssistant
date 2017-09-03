@@ -1,10 +1,4 @@
-﻿using EarthdawnGamemasterAssistant.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using EarthdawnGamemasterAssistant.Racial;
-
-namespace EarthdawnGamemasterAssistant
+﻿namespace EarthdawnGamemasterAssistant
 {
     public class Character
     {

@@ -15,16 +15,15 @@ namespace EarthdawnGamemasterAssistant
 
         private Dexterity _dex;
 
+        private int _maxKarma;
         private Perception _per;
 
+        private IRace _race;
         private Strength _str;
 
         private Toughness _tou;
 
         private Willpower _wil;
-
-        private IRace _race;
-
         public CharacterInfo(
             IRace race,
             List<Discipline> disciplines,
@@ -57,7 +56,8 @@ namespace EarthdawnGamemasterAssistant
             AvailableAttributePoints = availableAttributePoints;
         }
 
-        public CharacterInfo(Dexterity dex,
+        public CharacterInfo(
+            Dexterity dex,
             Strength str,
             Toughness tou,
             Perception per,
@@ -123,8 +123,6 @@ namespace EarthdawnGamemasterAssistant
             CharacteristicTables.GetStepFromValue(Dex.Value - ArmorPenalty));
 
         public int LiftingCapacity => CarryingCapacity * 2;
-
-        private int _maxKarma;
         public int MaxKarma
         {
             get => _maxKarma;
@@ -168,6 +166,7 @@ namespace EarthdawnGamemasterAssistant
                 OnPropertyChanged();
             }
         }
+
         public int RecoveryTests => Convert.ToInt32(
             Math.Round(Convert.ToDouble(Tou.Value) / 6, MidpointRounding.AwayFromZero));
 
@@ -186,6 +185,7 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int TotalLegend { get; set; }
+
         public Toughness Tou
         {
             get => _tou;
@@ -196,6 +196,7 @@ namespace EarthdawnGamemasterAssistant
                 OnPropertyChanged();
             }
         }
+
         public int UnconsciousnessRating => Tou.Value * 2 + GetHighestDurabilityRating() * DurabilityRank;
 
         public Willpower Wil
@@ -208,6 +209,7 @@ namespace EarthdawnGamemasterAssistant
                 OnPropertyChanged();
             }
         }
+
         public int WoundThreshold => Convert.ToInt32(
             Math.Round(Convert.ToDouble(Tou.Value) / 2 + 2, MidpointRounding.AwayFromZero));
 
@@ -216,7 +218,7 @@ namespace EarthdawnGamemasterAssistant
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
+
         private int GetHighestCircle()
         {
             if (Disciplines != null)
