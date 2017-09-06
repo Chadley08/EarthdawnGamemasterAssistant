@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPageCharacter = new MetroFramework.Controls.MetroTabPage();
             this.metroLabelRequired = new MetroFramework.Controls.MetroLabel();
@@ -46,8 +46,15 @@
             this.metroTextBoxDescription = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBoxName = new MetroFramework.Controls.MetroTextBox();
             this.metroTabPageAttributes = new MetroFramework.Controls.MetroTabPage();
-            this.dataGridViewRacialAbilities = new System.Windows.Forms.DataGridView();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel8 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabelAttributesPointsAvailable = new MetroFramework.Controls.MetroLabel();
+            this.dataGridViewStepChart = new System.Windows.Forms.DataGridView();
+            this.ColumnStepNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActionDice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewRacialAbilities = new System.Windows.Forms.DataGridView();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numericUpDownCircleCha = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownCircleWil = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownCirclePer = new System.Windows.Forms.NumericUpDown();
@@ -84,7 +91,6 @@
             this.metroLabel64 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelMovementLand = new MetroFramework.Controls.MetroLabel();
             this.metroLabelMovementFlight = new MetroFramework.Controls.MetroLabel();
-            this.metroLabelAttributesPointsAvailable = new MetroFramework.Controls.MetroLabel();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel50 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel46 = new MetroFramework.Controls.MetroLabel();
@@ -133,15 +139,27 @@
             this.metroLabelStr = new MetroFramework.Controls.MetroLabel();
             this.metroLabelDex = new MetroFramework.Controls.MetroLabel();
             this.metroComboBoxRace = new MetroFramework.Controls.MetroComboBox();
-            this.dataGridViewStepChart = new System.Windows.Forms.DataGridView();
-            this.metroPanel8 = new MetroFramework.Controls.MetroPanel();
-            this.ColumnStepNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnActionDice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroTabPageDiscipline = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabelAvailableDisciplines = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel9 = new MetroFramework.Controls.MetroPanel();
+            this.listBoxDisciplines = new System.Windows.Forms.ListBox();
+            this.metroLabelDisciplineCircle = new MetroFramework.Controls.MetroLabel();
+            this.numericUpDownDisciplineCircle = new System.Windows.Forms.NumericUpDown();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel11 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel12 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel13 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel14 = new MetroFramework.Controls.MetroPanel();
             this.metroTabControl.SuspendLayout();
             this.metroTabPageCharacter.SuspendLayout();
             this.metroTabPageAttributes.SuspendLayout();
+            this.metroPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStepChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacialAbilities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleCha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleWil)).BeginInit();
@@ -163,20 +181,22 @@
             this.metroPanel3.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStepChart)).BeginInit();
-            this.metroPanel8.SuspendLayout();
+            this.metroTabPageDiscipline.SuspendLayout();
+            this.metroPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDisciplineCircle)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl
             // 
             this.metroTabControl.Controls.Add(this.metroTabPageCharacter);
             this.metroTabControl.Controls.Add(this.metroTabPageAttributes);
+            this.metroTabControl.Controls.Add(this.metroTabPageDiscipline);
             this.metroTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.metroTabControl.HotTrack = true;
             this.metroTabControl.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl.Name = "metroTabControl";
-            this.metroTabControl.SelectedIndex = 1;
+            this.metroTabControl.SelectedIndex = 2;
             this.metroTabControl.Size = new System.Drawing.Size(748, 653);
             this.metroTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.metroTabControl.TabIndex = 0;
@@ -200,7 +220,7 @@
             this.metroTabPageCharacter.HorizontalScrollbarSize = 10;
             this.metroTabPageCharacter.Location = new System.Drawing.Point(4, 44);
             this.metroTabPageCharacter.Name = "metroTabPageCharacter";
-            this.metroTabPageCharacter.Size = new System.Drawing.Size(740, 340);
+            this.metroTabPageCharacter.Size = new System.Drawing.Size(740, 605);
             this.metroTabPageCharacter.TabIndex = 0;
             this.metroTabPageCharacter.Text = "Character";
             this.metroTabPageCharacter.VerticalScrollbarBarColor = true;
@@ -513,6 +533,84 @@
             this.metroTabPageAttributes.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPageAttributes.VerticalScrollbarSize = 10;
             // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(268, 199);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(98, 19);
+            this.metroLabel4.TabIndex = 113;
+            this.metroLabel4.Text = "Attribute Points";
+            // 
+            // metroPanel8
+            // 
+            this.metroPanel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.metroPanel8.Controls.Add(this.metroLabelAttributesPointsAvailable);
+            this.metroPanel8.HorizontalScrollbarBarColor = true;
+            this.metroPanel8.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel8.HorizontalScrollbarSize = 10;
+            this.metroPanel8.Location = new System.Drawing.Point(260, 209);
+            this.metroPanel8.Name = "metroPanel8";
+            this.metroPanel8.Size = new System.Drawing.Size(122, 51);
+            this.metroPanel8.TabIndex = 83;
+            this.metroPanel8.VerticalScrollbarBarColor = true;
+            this.metroPanel8.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel8.VerticalScrollbarSize = 10;
+            // 
+            // metroLabelAttributesPointsAvailable
+            // 
+            this.metroLabelAttributesPointsAvailable.AutoSize = true;
+            this.metroLabelAttributesPointsAvailable.Location = new System.Drawing.Point(45, 15);
+            this.metroLabelAttributesPointsAvailable.Name = "metroLabelAttributesPointsAvailable";
+            this.metroLabelAttributesPointsAvailable.Size = new System.Drawing.Size(23, 19);
+            this.metroLabelAttributesPointsAvailable.TabIndex = 85;
+            this.metroLabelAttributesPointsAvailable.Text = "25";
+            // 
+            // dataGridViewStepChart
+            // 
+            this.dataGridViewStepChart.AllowUserToAddRows = false;
+            this.dataGridViewStepChart.AllowUserToDeleteRows = false;
+            this.dataGridViewStepChart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewStepChart.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewStepChart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStepChart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnStepNumber,
+            this.ColumnActionDice});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStepChart.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewStepChart.Location = new System.Drawing.Point(388, 207);
+            this.dataGridViewStepChart.MultiSelect = false;
+            this.dataGridViewStepChart.Name = "dataGridViewStepChart";
+            this.dataGridViewStepChart.ReadOnly = true;
+            this.dataGridViewStepChart.RowHeadersVisible = false;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStepChart.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewStepChart.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStepChart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewStepChart.Size = new System.Drawing.Size(349, 390);
+            this.dataGridViewStepChart.TabIndex = 115;
+            // 
+            // ColumnStepNumber
+            // 
+            this.ColumnStepNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnStepNumber.HeaderText = "Step Number";
+            this.ColumnStepNumber.Name = "ColumnStepNumber";
+            this.ColumnStepNumber.ReadOnly = true;
+            this.ColumnStepNumber.Width = 94;
+            // 
+            // ColumnActionDice
+            // 
+            this.ColumnActionDice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnActionDice.HeaderText = "Action Dice";
+            this.ColumnActionDice.Name = "ColumnActionDice";
+            this.ColumnActionDice.ReadOnly = true;
+            // 
             // dataGridViewRacialAbilities
             // 
             this.dataGridViewRacialAbilities.AllowUserToAddRows = false;
@@ -544,14 +642,19 @@
             this.dataGridViewRacialAbilities.Size = new System.Drawing.Size(374, 303);
             this.dataGridViewRacialAbilities.TabIndex = 114;
             // 
-            // metroLabel4
+            // ColumnName
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(268, 199);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(98, 19);
-            this.metroLabel4.TabIndex = 113;
-            this.metroLabel4.Text = "Attribute Points";
+            this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnName.HeaderText = "Name";
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
+            // 
+            // ColumnDescription
+            // 
+            this.ColumnDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnDescription.HeaderText = "Description";
+            this.ColumnDescription.Name = "ColumnDescription";
+            this.ColumnDescription.ReadOnly = true;
             // 
             // numericUpDownCircleCha
             // 
@@ -730,7 +833,7 @@
             // 
             // metroPanel7
             // 
-            this.metroPanel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel7.Controls.Add(this.numericUpDownMaxKarma);
             this.metroPanel7.Controls.Add(this.metroLabel71);
             this.metroPanel7.Controls.Add(this.metroLabel72);
@@ -804,7 +907,7 @@
             // 
             // metroPanel6
             // 
-            this.metroPanel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel6.Controls.Add(this.metroLabel63);
             this.metroPanel6.Controls.Add(this.metroLabel66);
             this.metroPanel6.Controls.Add(this.metroLabelLiftingCapacity);
@@ -871,7 +974,7 @@
             // 
             // metroPanel5
             // 
-            this.metroPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel5.Controls.Add(this.metroLabel8);
             this.metroPanel5.Controls.Add(this.metroLabel7);
             this.metroPanel5.Controls.Add(this.metroLabelFlightCombatMovementRate);
@@ -971,18 +1074,9 @@
             this.metroLabelMovementFlight.TabIndex = 62;
             this.metroLabelMovementFlight.Text = "0";
             // 
-            // metroLabelAttributesPointsAvailable
-            // 
-            this.metroLabelAttributesPointsAvailable.AutoSize = true;
-            this.metroLabelAttributesPointsAvailable.Location = new System.Drawing.Point(45, 15);
-            this.metroLabelAttributesPointsAvailable.Name = "metroLabelAttributesPointsAvailable";
-            this.metroLabelAttributesPointsAvailable.Size = new System.Drawing.Size(23, 19);
-            this.metroLabelAttributesPointsAvailable.TabIndex = 85;
-            this.metroLabelAttributesPointsAvailable.Text = "25";
-            // 
             // metroPanel4
             // 
-            this.metroPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel4.Controls.Add(this.metroLabel50);
             this.metroPanel4.Controls.Add(this.metroLabel46);
             this.metroPanel4.Controls.Add(this.metroLabel48);
@@ -1084,7 +1178,7 @@
             // 
             // metroPanel3
             // 
-            this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel3.Controls.Add(this.metroLabel41);
             this.metroPanel3.Controls.Add(this.metroLabel43);
             this.metroPanel3.Controls.Add(this.metroLabelPhysicalArmor);
@@ -1151,7 +1245,7 @@
             // 
             // metroPanel2
             // 
-            this.metroPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel2.Controls.Add(this.metroLabel34);
             this.metroPanel2.Controls.Add(this.metroLabel35);
             this.metroPanel2.Controls.Add(this.metroLabel36);
@@ -1240,7 +1334,7 @@
             // 
             // metroPanel1
             // 
-            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.metroPanel1.Controls.Add(this.metroLabelInitiativeDice);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
@@ -1490,79 +1584,216 @@
             this.metroComboBoxRace.UseSelectable = true;
             this.metroComboBoxRace.SelectedIndexChanged += new System.EventHandler(this.metroComboBoxRace_SelectedIndexChanged);
             // 
-            // dataGridViewStepChart
+            // metroTabPageDiscipline
             // 
-            this.dataGridViewStepChart.AllowUserToAddRows = false;
-            this.dataGridViewStepChart.AllowUserToDeleteRows = false;
-            this.dataGridViewStepChart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewStepChart.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewStepChart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewStepChart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnStepNumber,
-            this.ColumnActionDice});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStepChart.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewStepChart.Location = new System.Drawing.Point(388, 207);
-            this.dataGridViewStepChart.MultiSelect = false;
-            this.dataGridViewStepChart.Name = "dataGridViewStepChart";
-            this.dataGridViewStepChart.ReadOnly = true;
-            this.dataGridViewStepChart.RowHeadersVisible = false;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStepChart.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewStepChart.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStepChart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStepChart.Size = new System.Drawing.Size(349, 390);
-            this.dataGridViewStepChart.TabIndex = 115;
+            this.metroTabPageDiscipline.Controls.Add(this.metroLabel11);
+            this.metroTabPageDiscipline.Controls.Add(this.metroLabel10);
+            this.metroTabPageDiscipline.Controls.Add(this.metroPanel14);
+            this.metroTabPageDiscipline.Controls.Add(this.metroPanel13);
+            this.metroTabPageDiscipline.Controls.Add(this.metroLabel9);
+            this.metroTabPageDiscipline.Controls.Add(this.metroPanel12);
+            this.metroTabPageDiscipline.Controls.Add(this.metroLabel6);
+            this.metroTabPageDiscipline.Controls.Add(this.metroPanel11);
+            this.metroTabPageDiscipline.Controls.Add(this.metroLabel5);
+            this.metroTabPageDiscipline.Controls.Add(this.metroPanel10);
+            this.metroTabPageDiscipline.Controls.Add(this.numericUpDownDisciplineCircle);
+            this.metroTabPageDiscipline.Controls.Add(this.metroLabelAvailableDisciplines);
+            this.metroTabPageDiscipline.Controls.Add(this.metroLabelDisciplineCircle);
+            this.metroTabPageDiscipline.Controls.Add(this.metroPanel9);
+            this.metroTabPageDiscipline.HorizontalScrollbarBarColor = true;
+            this.metroTabPageDiscipline.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPageDiscipline.HorizontalScrollbarSize = 10;
+            this.metroTabPageDiscipline.Location = new System.Drawing.Point(4, 44);
+            this.metroTabPageDiscipline.Name = "metroTabPageDiscipline";
+            this.metroTabPageDiscipline.Size = new System.Drawing.Size(740, 605);
+            this.metroTabPageDiscipline.TabIndex = 2;
+            this.metroTabPageDiscipline.Text = "Discipline";
+            this.metroTabPageDiscipline.VerticalScrollbarBarColor = true;
+            this.metroTabPageDiscipline.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPageDiscipline.VerticalScrollbarSize = 10;
             // 
-            // metroPanel8
+            // metroLabelAvailableDisciplines
             // 
-            this.metroPanel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel8.Controls.Add(this.metroLabelAttributesPointsAvailable);
-            this.metroPanel8.HorizontalScrollbarBarColor = true;
-            this.metroPanel8.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel8.HorizontalScrollbarSize = 10;
-            this.metroPanel8.Location = new System.Drawing.Point(260, 209);
-            this.metroPanel8.Name = "metroPanel8";
-            this.metroPanel8.Size = new System.Drawing.Size(122, 51);
-            this.metroPanel8.TabIndex = 83;
-            this.metroPanel8.VerticalScrollbarBarColor = true;
-            this.metroPanel8.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel8.VerticalScrollbarSize = 10;
+            this.metroLabelAvailableDisciplines.AutoSize = true;
+            this.metroLabelAvailableDisciplines.Location = new System.Drawing.Point(12, 2);
+            this.metroLabelAvailableDisciplines.Name = "metroLabelAvailableDisciplines";
+            this.metroLabelAvailableDisciplines.Size = new System.Drawing.Size(125, 19);
+            this.metroLabelAvailableDisciplines.TabIndex = 79;
+            this.metroLabelAvailableDisciplines.Text = "Available Disciplines";
             // 
-            // ColumnStepNumber
+            // metroPanel9
             // 
-            this.ColumnStepNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnStepNumber.HeaderText = "Step Number";
-            this.ColumnStepNumber.Name = "ColumnStepNumber";
-            this.ColumnStepNumber.ReadOnly = true;
-            this.ColumnStepNumber.Width = 94;
+            this.metroPanel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.metroPanel9.Controls.Add(this.listBoxDisciplines);
+            this.metroPanel9.HorizontalScrollbarBarColor = true;
+            this.metroPanel9.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel9.HorizontalScrollbarSize = 10;
+            this.metroPanel9.Location = new System.Drawing.Point(3, 12);
+            this.metroPanel9.Name = "metroPanel9";
+            this.metroPanel9.Size = new System.Drawing.Size(146, 213);
+            this.metroPanel9.TabIndex = 80;
+            this.metroPanel9.VerticalScrollbarBarColor = true;
+            this.metroPanel9.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel9.VerticalScrollbarSize = 10;
             // 
-            // ColumnActionDice
+            // listBoxDisciplines
             // 
-            this.ColumnActionDice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnActionDice.HeaderText = "Action Dice";
-            this.ColumnActionDice.Name = "ColumnActionDice";
-            this.ColumnActionDice.ReadOnly = true;
+            this.listBoxDisciplines.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxDisciplines.FormattingEnabled = true;
+            this.listBoxDisciplines.Items.AddRange(new object[] {
+            "Air Sailor",
+            "Archer",
+            "Beastmaster",
+            "Cavalryman",
+            "Elementalist",
+            "Illusionist",
+            "Nethermancer",
+            "Scout",
+            "Sky Raider",
+            "Swordmaster",
+            "Thief",
+            "Troubadour",
+            "Warrior",
+            "Weaponsmith",
+            "Wizard"});
+            this.listBoxDisciplines.Location = new System.Drawing.Point(7, 10);
+            this.listBoxDisciplines.Name = "listBoxDisciplines";
+            this.listBoxDisciplines.Size = new System.Drawing.Size(128, 195);
+            this.listBoxDisciplines.TabIndex = 2;
             // 
-            // ColumnName
+            // metroLabelDisciplineCircle
             // 
-            this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnName.HeaderText = "Name";
-            this.ColumnName.Name = "ColumnName";
-            this.ColumnName.ReadOnly = true;
+            this.metroLabelDisciplineCircle.AutoSize = true;
+            this.metroLabelDisciplineCircle.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabelDisciplineCircle.Location = new System.Drawing.Point(3, 228);
+            this.metroLabelDisciplineCircle.Name = "metroLabelDisciplineCircle";
+            this.metroLabelDisciplineCircle.Size = new System.Drawing.Size(68, 15);
+            this.metroLabelDisciplineCircle.TabIndex = 81;
+            this.metroLabelDisciplineCircle.Text = "Adept Circle";
             // 
-            // ColumnDescription
+            // numericUpDownDisciplineCircle
             // 
-            this.ColumnDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnDescription.HeaderText = "Description";
-            this.ColumnDescription.Name = "ColumnDescription";
-            this.ColumnDescription.ReadOnly = true;
+            this.numericUpDownDisciplineCircle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numericUpDownDisciplineCircle.Location = new System.Drawing.Point(98, 228);
+            this.numericUpDownDisciplineCircle.Name = "numericUpDownDisciplineCircle";
+            this.numericUpDownDisciplineCircle.Size = new System.Drawing.Size(42, 16);
+            this.numericUpDownDisciplineCircle.TabIndex = 102;
+            this.numericUpDownDisciplineCircle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(164, 2);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(54, 19);
+            this.metroLabel5.TabIndex = 81;
+            this.metroLabel5.Text = "Abilities";
+            // 
+            // metroPanel10
+            // 
+            this.metroPanel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.metroPanel10.HorizontalScrollbarBarColor = true;
+            this.metroPanel10.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel10.HorizontalScrollbarSize = 10;
+            this.metroPanel10.Location = new System.Drawing.Point(155, 12);
+            this.metroPanel10.Name = "metroPanel10";
+            this.metroPanel10.Size = new System.Drawing.Size(582, 118);
+            this.metroPanel10.TabIndex = 82;
+            this.metroPanel10.VerticalScrollbarBarColor = true;
+            this.metroPanel10.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel10.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel11
+            // 
+            this.metroPanel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.metroPanel11.HorizontalScrollbarBarColor = true;
+            this.metroPanel11.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel11.HorizontalScrollbarSize = 10;
+            this.metroPanel11.Location = new System.Drawing.Point(3, 258);
+            this.metroPanel11.Name = "metroPanel11";
+            this.metroPanel11.Size = new System.Drawing.Size(734, 140);
+            this.metroPanel11.TabIndex = 83;
+            this.metroPanel11.VerticalScrollbarBarColor = true;
+            this.metroPanel11.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel11.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(15, 249);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(230, 19);
+            this.metroLabel6.TabIndex = 103;
+            this.metroLabel6.Text = "Discipline Talents - Free Talent tooooo";
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.Location = new System.Drawing.Point(15, 401);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(135, 19);
+            this.metroLabel9.TabIndex = 105;
+            this.metroLabel9.Text = "Discipline Information";
+            // 
+            // metroPanel12
+            // 
+            this.metroPanel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.metroPanel12.HorizontalScrollbarBarColor = true;
+            this.metroPanel12.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel12.HorizontalScrollbarSize = 10;
+            this.metroPanel12.Location = new System.Drawing.Point(3, 410);
+            this.metroPanel12.Name = "metroPanel12";
+            this.metroPanel12.Size = new System.Drawing.Size(734, 192);
+            this.metroPanel12.TabIndex = 104;
+            this.metroPanel12.VerticalScrollbarBarColor = true;
+            this.metroPanel12.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel12.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(164, 133);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(136, 19);
+            this.metroLabel10.TabIndex = 106;
+            this.metroLabel10.Text = "Novice Talent Options";
+            // 
+            // metroPanel13
+            // 
+            this.metroPanel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.metroPanel13.HorizontalScrollbarBarColor = true;
+            this.metroPanel13.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel13.HorizontalScrollbarSize = 10;
+            this.metroPanel13.Location = new System.Drawing.Point(155, 143);
+            this.metroPanel13.Name = "metroPanel13";
+            this.metroPanel13.Size = new System.Drawing.Size(285, 109);
+            this.metroPanel13.TabIndex = 107;
+            this.metroPanel13.VerticalScrollbarBarColor = true;
+            this.metroPanel13.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel13.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(462, 133);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(167, 19);
+            this.metroLabel11.TabIndex = 108;
+            this.metroLabel11.Text = "Journeyman Talent Options";
+            // 
+            // metroPanel14
+            // 
+            this.metroPanel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.metroPanel14.HorizontalScrollbarBarColor = true;
+            this.metroPanel14.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel14.HorizontalScrollbarSize = 10;
+            this.metroPanel14.Location = new System.Drawing.Point(452, 143);
+            this.metroPanel14.Name = "metroPanel14";
+            this.metroPanel14.Size = new System.Drawing.Size(285, 109);
+            this.metroPanel14.TabIndex = 109;
+            this.metroPanel14.VerticalScrollbarBarColor = true;
+            this.metroPanel14.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel14.VerticalScrollbarSize = 10;
             // 
             // FormCharacterCreator
             // 
@@ -1578,6 +1809,9 @@
             this.metroTabPageCharacter.PerformLayout();
             this.metroTabPageAttributes.ResumeLayout(false);
             this.metroTabPageAttributes.PerformLayout();
+            this.metroPanel8.ResumeLayout(false);
+            this.metroPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStepChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacialAbilities)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleCha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircleWil)).EndInit();
@@ -1606,9 +1840,10 @@
             this.metroPanel2.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStepChart)).EndInit();
-            this.metroPanel8.ResumeLayout(false);
-            this.metroPanel8.PerformLayout();
+            this.metroTabPageDiscipline.ResumeLayout(false);
+            this.metroTabPageDiscipline.PerformLayout();
+            this.metroPanel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDisciplineCircle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1722,5 +1957,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActionDice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescription;
+        private MetroFramework.Controls.MetroTabPage metroTabPageDiscipline;
+        private MetroFramework.Controls.MetroLabel metroLabelAvailableDisciplines;
+        private MetroFramework.Controls.MetroPanel metroPanel9;
+        private System.Windows.Forms.ListBox listBoxDisciplines;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroPanel metroPanel11;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroPanel metroPanel10;
+        private System.Windows.Forms.NumericUpDown numericUpDownDisciplineCircle;
+        private MetroFramework.Controls.MetroLabel metroLabelDisciplineCircle;
+        private MetroFramework.Controls.MetroLabel metroLabel9;
+        private MetroFramework.Controls.MetroPanel metroPanel12;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
+        private MetroFramework.Controls.MetroPanel metroPanel14;
+        private MetroFramework.Controls.MetroPanel metroPanel13;
     }
 }
