@@ -1,11 +1,6 @@
 ﻿namespace earthdawn_tabletop_player.Talents
 {
-    public enum ActionType
+    public abstract class ActionType
     {
-        Standard,
-        Simple,
-        Free,
-        Sustained,
-        NotApplicable
     }
 }

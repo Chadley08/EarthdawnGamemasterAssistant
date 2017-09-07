@@ -1693,7 +1693,7 @@
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(160, 19);
             this.metroLabel6.TabIndex = 103;
-            this.metroLabel6.Text = "Discipline Talents at Circle:";
+            this.metroLabel6.Text = "Discipline DisciplineTalents at Circle:";
             // 
             // metroLabel5
             // 

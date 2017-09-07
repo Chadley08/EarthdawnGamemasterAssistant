@@ -95,6 +95,7 @@
     <Compile Include="Racial\Tskrang.cs" />
     <Compile Include="Racial\Windling.cs" />
     <Compile Include="Attributes\Strength.cs" />
+    <Compile Include="Talents\FreeAction.cs" />
     <Compile Include="Talents\ActionType.cs" />
     <Compile Include="Talents\Talent.cs" />
     <Compile Include="Attributes\Toughness.cs" />
