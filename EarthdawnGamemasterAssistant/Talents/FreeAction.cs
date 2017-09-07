@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace earthdawn_tabletop_player.Talents
+namespace EarthdawnGamemasterAssistant.Talents
 {
     public class FreeAction : ActionType
     {

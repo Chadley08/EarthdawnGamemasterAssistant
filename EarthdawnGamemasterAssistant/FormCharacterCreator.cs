@@ -1,4 +1,5 @@
 ﻿using EarthdawnGamemasterAssistant.Attributes;
+using EarthdawnGamemasterAssistant.Disciplines;
 using EarthdawnGamemasterAssistant.Racial;
 using System;
 using System.Collections.Generic;
@@ -255,7 +256,7 @@ namespace EarthdawnGamemasterAssistant
             switch (listBoxDisciplines.SelectedItem.ToString())
             {
                 case "Air Sailor":
-                    
+
                     break;
             }
         }

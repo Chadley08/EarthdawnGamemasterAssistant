@@ -1,9 +1,5 @@
-﻿using System;
+﻿using EarthdawnGamemasterAssistant.Talents;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using earthdawn_tabletop_player.Talents;
 
 namespace EarthdawnGamemasterAssistant.Disciplines
 {
@@ -11,7 +7,6 @@ namespace EarthdawnGamemasterAssistant.Disciplines
     {
         protected AirSailor(int durabilityRating, Circle circle) : base(durabilityRating, circle)
         {
-            
         }
 
         public static IReadOnlyList<Talent> DisciplineTalents = new List<Talent>()
@@ -21,12 +16,10 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 
         public static IReadOnlyList<Talent> NoviceTalentOptions = new List<Talent>()
         {
-            
         };
 
         public static IReadOnlyList<Talent> JourneymanTalentOptions = new List<Talent>()
         {
-            
         };
     }
 }

@@ -1,13 +1,9 @@
-﻿using System.Collections.Generic;
-using earthdawn_tabletop_player.Talents;
-
-namespace EarthdawnGamemasterAssistant.Disciplines
+﻿namespace EarthdawnGamemasterAssistant.Disciplines
 {
     public abstract class Discipline
     {
-        protected int DurabilityRating { get; }
-        protected Circle _Circle { get; }
-
+        public int DurabilityRating { get; }
+        public Circle _Circle { get; }
 
         protected Discipline(int durabilityRating, Circle circle)
         {

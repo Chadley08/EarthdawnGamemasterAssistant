@@ -1,4 +1,4 @@
-﻿namespace earthdawn_tabletop_player.Talents
+﻿namespace EarthdawnGamemasterAssistant.Talents
 {
     public abstract class ActionType
     {

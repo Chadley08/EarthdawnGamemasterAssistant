@@ -1,5 +1,6 @@
 ﻿using EarthdawnGamemasterAssistant.Annotations;
 using EarthdawnGamemasterAssistant.Attributes;
+using EarthdawnGamemasterAssistant.Disciplines;
 using EarthdawnGamemasterAssistant.Racial;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace EarthdawnGamemasterAssistant
         private Toughness _tou;
 
         private Willpower _wil;
+
         public CharacterInfo(
             IRace race,
             List<Discipline> disciplines,
@@ -123,6 +125,7 @@ namespace EarthdawnGamemasterAssistant
             CharacteristicTables.GetStepFromValue(Dex.Value - ArmorPenalty));
 
         public int LiftingCapacity => CarryingCapacity * 2;
+
         public int MaxKarma
         {
             get => _maxKarma;
