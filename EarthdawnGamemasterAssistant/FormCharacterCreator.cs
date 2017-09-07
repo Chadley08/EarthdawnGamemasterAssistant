@@ -249,5 +249,15 @@ namespace EarthdawnGamemasterAssistant
         {
             CurrentCharacterInfo.Cha = new Charisma((int)(numericUpDownCha.Value + numericUpDownCircleCha.Value));
         }
+
+        private void listBoxDisciplines_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (listBoxDisciplines.SelectedItem.ToString())
+            {
+                case "Air Sailor":
+                    
+                    break;
+            }
+        }
     }
 }

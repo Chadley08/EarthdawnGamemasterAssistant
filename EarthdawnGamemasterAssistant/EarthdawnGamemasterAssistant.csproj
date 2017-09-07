@@ -64,7 +64,8 @@
     <Compile Include="Dice\Die.cs" />
     <Compile Include="Dice\StaticRandom.cs" />
     <Compile Include="CharacteristicTables.cs" />
-    <Compile Include="Discipline.cs" />
+    <Compile Include="Disciplines\Discipline.cs" />
+    <Compile Include="Disciplines\AirSailor.cs" />
     <Compile Include="FormCharacterCreator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +95,7 @@
     <Compile Include="Racial\Tskrang.cs" />
     <Compile Include="Racial\Windling.cs" />
     <Compile Include="Attributes\Strength.cs" />
+    <Compile Include="Talents\ActionType.cs" />
     <Compile Include="Talents\Talent.cs" />
     <Compile Include="Attributes\Toughness.cs" />
     <Compile Include="Attributes\Willpower.cs" />
