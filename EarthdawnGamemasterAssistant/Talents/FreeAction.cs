@@ -8,5 +8,7 @@ namespace earthdawn_tabletop_player.Talents
         {
             
         }
+
+        protected override ActionName _ActionName => ActionName.Free;
     }
 }

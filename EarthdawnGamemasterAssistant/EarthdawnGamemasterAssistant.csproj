@@ -97,6 +97,7 @@
     <Compile Include="Attributes\Strength.cs" />
     <Compile Include="Talents\FreeAction.cs" />
     <Compile Include="Talents\ActionType.cs" />
+    <Compile Include="Talents\ActionName.cs" />
     <Compile Include="Talents\Talent.cs" />
     <Compile Include="Attributes\Toughness.cs" />
     <Compile Include="Attributes\Willpower.cs" />

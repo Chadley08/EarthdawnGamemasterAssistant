@@ -481,7 +481,7 @@
             this.metroTextBoxName.MaxLength = 32767;
             this.metroTextBoxName.Name = "metroTextBoxName";
             this.metroTextBoxName.PasswordChar = '\0';
-            this.metroTextBoxName.PromptText = "Name";
+            this.metroTextBoxName.PromptText = "ActionName";
             this.metroTextBoxName.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.metroTextBoxName.SelectedText = "";
             this.metroTextBoxName.SelectionLength = 0;
@@ -490,7 +490,7 @@
             this.metroTextBoxName.Size = new System.Drawing.Size(503, 23);
             this.metroTextBoxName.TabIndex = 2;
             this.metroTextBoxName.UseSelectable = true;
-            this.metroTextBoxName.WaterMark = "Name";
+            this.metroTextBoxName.WaterMark = "ActionName";
             this.metroTextBoxName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
@@ -673,7 +673,7 @@
             // ColumnName
             // 
             this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnName.HeaderText = "Name";
+            this.ColumnName.HeaderText = "ActionName";
             this.ColumnName.Name = "ColumnName";
             this.ColumnName.ReadOnly = true;
             // 
@@ -2036,7 +2036,7 @@
             // 
             // ColumnTalentName
             // 
-            this.ColumnTalentName.HeaderText = "Name";
+            this.ColumnTalentName.HeaderText = "ActionName";
             this.ColumnTalentName.Name = "ColumnTalentName";
             this.ColumnTalentName.ReadOnly = true;
             this.ColumnTalentName.Width = 59;

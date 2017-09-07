@@ -16,7 +16,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 
         public static IReadOnlyList<Talent> DisciplineTalents = new List<Talent>()
         {
-            new Talent("Avoid Blow", "", ActionType.Free, 1, true)
+            new Talent("Avoid Blow", "", new FreeAction(), 1, true)
         };
 
         public static IReadOnlyList<Talent> NoviceTalentOptions = new List<Talent>()
