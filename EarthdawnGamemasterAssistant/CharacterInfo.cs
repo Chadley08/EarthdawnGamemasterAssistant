@@ -157,7 +157,17 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int PhysicalDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero));
+            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) + GetPhysicalDefenseBonuses();
+
+        private int GetPhysicalDefenseBonuses()
+        {
+            return (from d in Disciplines
+                    from ability in d.AbilityRules
+                    where ability.BonusType == CharacteristicBonus.PhysicalDefense
+                    where d._Circle.Value >= ability.CircleRequirement
+                    select ability).ToList()
+                .Max(ability => ability?.BonusAmount ?? 0);
+        }
 
         public IRace Race
         {

@@ -64,8 +64,13 @@
     <Compile Include="Dice\Die.cs" />
     <Compile Include="Dice\StaticRandom.cs" />
     <Compile Include="CharacteristicTables.cs" />
+    <Compile Include="Disciplines\AbilityRule.cs" />
+    <Compile Include="Disciplines\CharacteristicBonus.cs" />
     <Compile Include="Disciplines\Discipline.cs" />
     <Compile Include="Disciplines\AirSailor.cs" />
+    <Compile Include="Disciplines\SimpleAction.cs" />
+    <Compile Include="Disciplines\StandardAction.cs" />
+    <Compile Include="Disciplines\SustainedAction.cs" />
     <Compile Include="FormCharacterCreator.cs">
       <SubType>Form</SubType>
     </Compile>

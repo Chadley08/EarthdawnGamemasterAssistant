@@ -5,5 +5,7 @@
         public Perception(int value) : base(value)
         {
         }
+
+        public override string Name => "Perception";
     }
 }

@@ -5,5 +5,7 @@
         public Dexterity(int value) : base(value)
         {
         }
+
+        public override string Name => "Dexterity";
     }
 }

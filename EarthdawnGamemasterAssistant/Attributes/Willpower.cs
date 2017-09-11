@@ -5,5 +5,7 @@
         public Willpower(int value) : base(value)
         {
         }
+
+        public override string Name => "Willpower";
     }
 }

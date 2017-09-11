@@ -1,8 +1,11 @@
-﻿namespace EarthdawnGamemasterAssistant.Attributes
+﻿using System.Collections.Specialized;
+
+namespace EarthdawnGamemasterAssistant.Attributes
 {
-    public class Attribute
+    public abstract class Attribute
     {
         public int Value { get; }
+        public abstract string Name { get; }
 
         public Attribute(int value)
         {

@@ -12,13 +12,12 @@ namespace EarthdawnGamemasterAssistant
     public partial class FormCharacterCreator : Form
     {
         private readonly CharacterInfo CurrentCharacterInfo = new CharacterInfo();
-        private readonly List<Discipline> CurrentDisciplines = new List<Discipline>();
 
         public FormCharacterCreator()
         {
             InitializeComponent();
             CurrentCharacterInfo.PropertyChanged += CurrentCharacterInfoOnPropertyChanged;
-
+            CurrentCharacterInfo.Disciplines = new List<Discipline>();
             CurrentCharacterInfo.Dex = new Dexterity(10);
             CurrentCharacterInfo.Str = new Strength(10);
             CurrentCharacterInfo.Tou = new Toughness(10);
