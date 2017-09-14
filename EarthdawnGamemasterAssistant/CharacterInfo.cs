@@ -5,6 +5,7 @@ using EarthdawnGamemasterAssistant.Racial;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Deployment.Application;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
@@ -157,16 +158,17 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int PhysicalDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) + GetPhysicalDefenseBonuses();
+            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) + ApplyPhysicalDefenseAbilities();
 
-        private int GetPhysicalDefenseBonuses()
+        private int ApplyPhysicalDefenseAbilities()
         {
-            return (from d in Disciplines
-                    from ability in d.AbilityRules
-                    where ability.BonusType == CharacteristicBonus.PhysicalDefense
-                    where d._Circle.Value >= ability.CircleRequirement
-                    select ability).ToList()
-                .Max(ability => ability?.BonusAmount ?? 0);
+            return 0;
+            //var possibleBonus = (from d in Disciplines
+            //    from ability in d.AbilityRules
+            //    where ability is PhysicalDefenseAbilityRule
+            //    where d._Circle.Value >= ability.CircleRequirement
+            //    select ability).ToList();
+            //return possibleBonus.Count > 0 ? possibleBonus.Max(ability => ability?.BonusAmount ?? 0) : 0;
         }
 
         public IRace Race

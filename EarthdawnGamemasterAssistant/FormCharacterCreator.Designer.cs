@@ -48,6 +48,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPageCharacter = new MetroFramework.Controls.MetroTabPage();
             this.metroLabelRequired = new MetroFramework.Controls.MetroLabel();
@@ -188,6 +191,7 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel11 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabelTalentDescription = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
@@ -195,10 +199,9 @@
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.metroLabelAvailableDisciplines = new MetroFramework.Controls.MetroLabel();
             this.metroPanel9 = new MetroFramework.Controls.MetroPanel();
-            this.listBoxDisciplines = new System.Windows.Forms.ListBox();
-            this.metroLabelDisciplineCircle = new MetroFramework.Controls.MetroLabel();
-            this.numericUpDownDisciplineCircle = new System.Windows.Forms.NumericUpDown();
-            this.metroLabelTalentDescription = new MetroFramework.Controls.MetroLabel();
+            this.metroGridDisciplines = new MetroFramework.Controls.MetroGrid();
+            this.ColumnDiscipline = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCircle = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.metroTabControl.SuspendLayout();
             this.metroTabPageCharacter.SuspendLayout();
             this.metroTabPageAttributes.SuspendLayout();
@@ -233,7 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid5)).BeginInit();
             this.metroPanel11.SuspendLayout();
             this.metroPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDisciplineCircle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGridDisciplines)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl
@@ -2133,6 +2136,15 @@
             this.metroPanel11.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel11.VerticalScrollbarSize = 10;
             // 
+            // metroLabelTalentDescription
+            // 
+            this.metroLabelTalentDescription.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabelTalentDescription.Location = new System.Drawing.Point(7, 9);
+            this.metroLabelTalentDescription.Name = "metroLabelTalentDescription";
+            this.metroLabelTalentDescription.Size = new System.Drawing.Size(419, 51);
+            this.metroLabelTalentDescription.TabIndex = 2;
+            this.metroLabelTalentDescription.WrapToLine = true;
+            // 
             // metroLabel12
             // 
             this.metroLabel12.AutoSize = true;
@@ -2200,9 +2212,7 @@
             // metroPanel9
             // 
             this.metroPanel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.metroPanel9.Controls.Add(this.listBoxDisciplines);
-            this.metroPanel9.Controls.Add(this.metroLabelDisciplineCircle);
-            this.metroPanel9.Controls.Add(this.numericUpDownDisciplineCircle);
+            this.metroPanel9.Controls.Add(this.metroGridDisciplines);
             this.metroPanel9.HorizontalScrollbarBarColor = true;
             this.metroPanel9.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel9.HorizontalScrollbarSize = 10;
@@ -2214,64 +2224,85 @@
             this.metroPanel9.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel9.VerticalScrollbarSize = 10;
             // 
-            // listBoxDisciplines
+            // metroGridDisciplines
             // 
-            this.listBoxDisciplines.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxDisciplines.FormattingEnabled = true;
-            this.listBoxDisciplines.Items.AddRange(new object[] {
-            "Air Sailor",
-            "Archer",
-            "Beastmaster",
-            "Cavalryman",
-            "Elementalist",
-            "Illusionist",
-            "Nethermancer",
-            "Scout",
-            "Sky Raider",
-            "Swordmaster",
-            "Thief",
-            "Troubadour",
-            "Warrior",
-            "Weaponsmith",
-            "Wizard"});
-            this.listBoxDisciplines.Location = new System.Drawing.Point(7, 10);
-            this.listBoxDisciplines.Name = "listBoxDisciplines";
-            this.listBoxDisciplines.Size = new System.Drawing.Size(128, 143);
-            this.listBoxDisciplines.TabIndex = 2;
-            this.listBoxDisciplines.SelectedIndexChanged += new System.EventHandler(this.listBoxDisciplines_SelectedIndexChanged);
+            this.metroGridDisciplines.AllowUserToResizeRows = false;
+            this.metroGridDisciplines.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.metroGridDisciplines.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGridDisciplines.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.metroGridDisciplines.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGridDisciplines.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGridDisciplines.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.metroGridDisciplines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.metroGridDisciplines.ColumnHeadersVisible = false;
+            this.metroGridDisciplines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnDiscipline,
+            this.ColumnCircle});
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGridDisciplines.DefaultCellStyle = dataGridViewCellStyle22;
+            this.metroGridDisciplines.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.metroGridDisciplines.EnableHeadersVisualStyles = false;
+            this.metroGridDisciplines.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGridDisciplines.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGridDisciplines.Location = new System.Drawing.Point(-2, 9);
+            this.metroGridDisciplines.MultiSelect = false;
+            this.metroGridDisciplines.Name = "metroGridDisciplines";
+            this.metroGridDisciplines.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGridDisciplines.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            this.metroGridDisciplines.RowHeadersVisible = false;
+            this.metroGridDisciplines.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGridDisciplines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGridDisciplines.ShowEditingIcon = false;
+            this.metroGridDisciplines.Size = new System.Drawing.Size(141, 176);
+            this.metroGridDisciplines.TabIndex = 103;
+            this.metroGridDisciplines.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridDisciplines_RowEnter);
+            this.metroGridDisciplines.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridDisciplines_RowLeave);
             // 
-            // metroLabelDisciplineCircle
+            // ColumnDiscipline
             // 
-            this.metroLabelDisciplineCircle.AutoSize = true;
-            this.metroLabelDisciplineCircle.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelDisciplineCircle.Location = new System.Drawing.Point(7, 169);
-            this.metroLabelDisciplineCircle.Name = "metroLabelDisciplineCircle";
-            this.metroLabelDisciplineCircle.Size = new System.Drawing.Size(68, 15);
-            this.metroLabelDisciplineCircle.TabIndex = 81;
-            this.metroLabelDisciplineCircle.Text = "Adept Circle";
+            this.ColumnDiscipline.HeaderText = "Discipline";
+            this.ColumnDiscipline.Name = "ColumnDiscipline";
+            this.ColumnDiscipline.ReadOnly = true;
+            this.ColumnDiscipline.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnDiscipline.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnDiscipline.Width = 20;
             // 
-            // numericUpDownDisciplineCircle
+            // ColumnCircle
             // 
-            this.numericUpDownDisciplineCircle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDownDisciplineCircle.Location = new System.Drawing.Point(81, 169);
-            this.numericUpDownDisciplineCircle.Maximum = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
-            this.numericUpDownDisciplineCircle.Name = "numericUpDownDisciplineCircle";
-            this.numericUpDownDisciplineCircle.Size = new System.Drawing.Size(42, 16);
-            this.numericUpDownDisciplineCircle.TabIndex = 102;
-            this.numericUpDownDisciplineCircle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // metroLabelTalentDescription
-            // 
-            this.metroLabelTalentDescription.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabelTalentDescription.Location = new System.Drawing.Point(7, 9);
-            this.metroLabelTalentDescription.Name = "metroLabelTalentDescription";
-            this.metroLabelTalentDescription.Size = new System.Drawing.Size(419, 51);
-            this.metroLabelTalentDescription.TabIndex = 2;
-            this.metroLabelTalentDescription.WrapToLine = true;
+            this.ColumnCircle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnCircle.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.ColumnCircle.HeaderText = "Circle";
+            this.ColumnCircle.Items.AddRange(new object[] {
+            " ",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.ColumnCircle.Name = "ColumnCircle";
             // 
             // FormCharacterCreator
             // 
@@ -2327,8 +2358,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid5)).EndInit();
             this.metroPanel11.ResumeLayout(false);
             this.metroPanel9.ResumeLayout(false);
-            this.metroPanel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDisciplineCircle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGridDisciplines)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2445,25 +2475,21 @@
         private MetroFramework.Controls.MetroTabPage metroTabPageDiscipline;
         private MetroFramework.Controls.MetroLabel metroLabelAvailableDisciplines;
         private MetroFramework.Controls.MetroPanel metroPanel9;
-        private System.Windows.Forms.ListBox listBoxDisciplines;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel metroLabel5;
-        private System.Windows.Forms.NumericUpDown numericUpDownDisciplineCircle;
-        private MetroFramework.Controls.MetroLabel metroLabelDisciplineCircle;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroPanel metroPanel12;
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private MetroFramework.Controls.MetroPanel metroPanel10;
-        private MetroFramework.Controls.MetroGrid metroGrid1;
         private MetroFramework.Controls.MetroLabel metroLabel12;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private MetroFramework.Controls.MetroLabel metroLabel14;
         private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroPanel metroPanel15;
         private MetroFramework.Controls.MetroLabel metroLabel11;
-        private MetroFramework.Controls.MetroGrid metroGrid2;
-        private MetroFramework.Controls.MetroGrid metroGrid5;
         private MetroFramework.Controls.MetroPanel metroPanel11;
+        private MetroFramework.Controls.MetroLabel metroLabelTalentDescription;
+        private MetroFramework.Controls.MetroGrid metroGrid1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTalentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisciplineTalentAttribute;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAction;
@@ -2475,16 +2501,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnJourneymanTalentStrain;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private MetroFramework.Controls.MetroGrid metroGrid2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFreeTalentStrain;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private MetroFramework.Controls.MetroGrid metroGrid5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAttribute;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private MetroFramework.Controls.MetroLabel metroLabelTalentDescription;
+        private MetroFramework.Controls.MetroGrid metroGridDisciplines;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDiscipline;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnCircle;
     }
 }

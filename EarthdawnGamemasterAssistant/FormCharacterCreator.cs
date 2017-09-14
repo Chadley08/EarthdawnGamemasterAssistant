@@ -16,8 +16,18 @@ namespace EarthdawnGamemasterAssistant
         public FormCharacterCreator()
         {
             InitializeComponent();
+
             CurrentCharacterInfo.PropertyChanged += CurrentCharacterInfoOnPropertyChanged;
-            CurrentCharacterInfo.Disciplines = new List<Discipline>();
+            metroGridDisciplines.CellValueChanged += metroGridDisciplines_CellValueChanged;
+            metroGridDisciplines.CurrentCellDirtyStateChanged += metroGridDisciplines_CurrentCellDirtyStateChanged;
+
+            CurrentCharacterInfo.Disciplines = new List<Discipline>()
+            {
+                new AirSailor(new Circle(0)),
+                new Archer(new Circle(0))
+            };
+            
+
             CurrentCharacterInfo.Dex = new Dexterity(10);
             CurrentCharacterInfo.Str = new Strength(10);
             CurrentCharacterInfo.Tou = new Toughness(10);
@@ -25,7 +35,48 @@ namespace EarthdawnGamemasterAssistant
             CurrentCharacterInfo.Wil = new Willpower(10);
             CurrentCharacterInfo.Cha = new Charisma(10);
             CurrentCharacterInfo.AvailableAttributePoints = 25;
+            PopulateDisciplinesGrid();
             PopulateStepChart();
+        }
+
+        private void metroGridDisciplines_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (metroGridDisciplines.IsCurrentCellDirty)
+            {
+                // This fires the cell value changed handler below
+                metroGridDisciplines.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void metroGridDisciplines_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            var disciplineName = metroGridDisciplines.SelectedRows[0].Cells[0].Value;
+            var changedCell = (DataGridViewComboBoxCell)metroGridDisciplines.Rows[e.RowIndex].Cells[1];
+            if (changedCell.Value != null)
+            {
+                var selectedDiscipline = CurrentCharacterInfo.Disciplines.First(discipline => discipline.Name == disciplineName.ToString());
+                    selectedDiscipline.AbilityRules.ForEach(abilityRule => abilityRule.Apply());
+                metroGridDisciplines.Invalidate();
+            }
+        }
+
+        private void PopulateDisciplinesGrid()
+        {
+            metroGridDisciplines.Rows.Add("Air Sailor", " ");
+            metroGridDisciplines.Rows.Add("Archer", " ");
+            metroGridDisciplines.Rows.Add("Beastmaster", " ");
+            metroGridDisciplines.Rows.Add("Calvaryman", " ");
+            metroGridDisciplines.Rows.Add("Elementalist", " ");
+            metroGridDisciplines.Rows.Add("Illusionist", " ");
+            metroGridDisciplines.Rows.Add("Nethermancer", " ");
+            metroGridDisciplines.Rows.Add("Scout", " ");
+            metroGridDisciplines.Rows.Add("Sky Raider", " ");
+            metroGridDisciplines.Rows.Add("Sword Master", " ");
+            metroGridDisciplines.Rows.Add("Thief", " ");
+            metroGridDisciplines.Rows.Add("Troubadour", " ");
+            metroGridDisciplines.Rows.Add("Warrior", " ");
+            metroGridDisciplines.Rows.Add("Weaponsmith", " ");
+            metroGridDisciplines.Rows.Add("Wizard", " ");
         }
 
         private void PopulateStepChart()
@@ -250,14 +301,20 @@ namespace EarthdawnGamemasterAssistant
             CurrentCharacterInfo.Cha = new Charisma((int)(numericUpDownCha.Value + numericUpDownCircleCha.Value));
         }
 
-        private void listBoxDisciplines_SelectedIndexChanged(object sender, EventArgs e)
+        private void metroGridDisciplines_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            switch (listBoxDisciplines.SelectedItem.ToString())
+            if (metroGridDisciplines.SelectedRows.Count <= 0)
             {
-                case "Air Sailor":
-
-                    break;
+                return;
             }
+            var cell = (DataGridViewComboBoxCell) metroGridDisciplines.SelectedRows[0].Cells[1];
+            cell.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
+        }
+
+        private void metroGridDisciplines_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            var cell = (DataGridViewComboBoxCell)metroGridDisciplines.SelectedRows[0].Cells[1];
+            cell.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
         }
     }
 }

@@ -8,9 +8,11 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 {
     public class AirSailor : Discipline
     {
-        protected AirSailor(Circle circle) : base(5, circle, Abilities.ToList())
+        public AirSailor(Circle circle) : base(5, circle, Abilities.ToList())
         {
         }
+
+        public override string Name => "Air Sailor";
 
         public static string Description =>
             "Air Sailors are the swashbuckling brotherhood of the sky. Air Sailors never leave their fellows behind and embrace the idea of togetherness, working to protect and spread civilization, rather than preying upon it.";
@@ -52,6 +54,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 
         public static IReadOnlyList<AbilityRule> Abilities = new List<AbilityRule>()
         {
+            new AbilityRule(2, 1, "Character gains +1 to physical defense")
         };
 
         public static IReadOnlyList<string> ImportantAttributes = new List<string>()

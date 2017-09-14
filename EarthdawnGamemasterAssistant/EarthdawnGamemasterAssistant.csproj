@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Disciplines\Archer.cs" />
     <Compile Include="Attributes\Attribute.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Attributes\Charisma.cs" />

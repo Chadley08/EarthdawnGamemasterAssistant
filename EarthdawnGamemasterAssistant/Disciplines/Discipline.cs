@@ -11,6 +11,8 @@ namespace EarthdawnGamemasterAssistant.Disciplines
         public Circle _Circle { get; }
         public List<AbilityRule> AbilityRules { get; }
 
+        public abstract string Name { get; }
+
         protected Discipline(int durabilityRating, Circle circle, List<AbilityRule> abilityRules)
         {
             DurabilityRating = durabilityRating;
