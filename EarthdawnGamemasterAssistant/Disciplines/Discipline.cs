@@ -5,19 +5,39 @@ using EarthdawnGamemasterAssistant.Annotations;
 
 namespace EarthdawnGamemasterAssistant.Disciplines
 {
-    public abstract class Discipline
+    public abstract class Discipline : INotifyPropertyChanged
     {
         public int DurabilityRating { get; }
-        public Circle _Circle { get; }
         public List<AbilityRule> AbilityRules { get; }
+
+        private int _circle;
+
+        public int Circle
+        {
+            get => _circle;
+            set
+            {
+                if (Equals(value, _circle)) return;
+                _circle = value;
+                OnPropertyChanged();
+            }
+        }
 
         public abstract string Name { get; }
 
-        protected Discipline(int durabilityRating, Circle circle, List<AbilityRule> abilityRules)
+        protected Discipline(int durabilityRating, int circle, List<AbilityRule> abilityRules)
         {
             DurabilityRating = durabilityRating;
-            _Circle = circle;
+            Circle = circle;
             AbilityRules = abilityRules;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        public virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -60,7 +60,6 @@
     <Compile Include="Character.cs" />
     <Compile Include="Attributes\Charisma.cs" />
     <Compile Include="CharacterInfo.cs" />
-    <Compile Include="Circle.cs" />
     <Compile Include="Attributes\Dexterity.cs" />
     <Compile Include="Dice\Die.cs" />
     <Compile Include="Dice\StaticRandom.cs" />
@@ -69,6 +68,7 @@
     <Compile Include="Disciplines\CharacteristicBonus.cs" />
     <Compile Include="Disciplines\Discipline.cs" />
     <Compile Include="Disciplines\AirSailor.cs" />
+    <Compile Include="Disciplines\PhysicalDefenseAbilityRule.cs" />
     <Compile Include="Disciplines\SimpleAction.cs" />
     <Compile Include="Disciplines\StandardAction.cs" />
     <Compile Include="Disciplines\SustainedAction.cs" />

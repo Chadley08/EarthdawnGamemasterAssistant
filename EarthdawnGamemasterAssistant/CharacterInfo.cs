@@ -27,56 +27,9 @@ namespace EarthdawnGamemasterAssistant
 
         private Willpower _wil;
 
-        public CharacterInfo(
-            IRace race,
-            List<Discipline> disciplines,
-            int maxKarma,
-            int totalLegend,
-            int availableLegend,
-            string name,
-            string description,
-            int availableAttributePoints,
-            Dexterity dex,
-            Strength str,
-            Toughness tou,
-            Perception per,
-            Willpower wil,
-            Charisma cha)
-        {
-            Race = race;
-            Disciplines = disciplines;
-            MaxKarma = maxKarma;
-            TotalLegend = totalLegend;
-            AvailableLegend = availableLegend;
-            Name = name;
-            Description = description;
-            Dex = dex;
-            Str = str;
-            Tou = tou;
-            Per = per;
-            Wil = wil;
-            Cha = cha;
-            AvailableAttributePoints = availableAttributePoints;
-        }
-
-        public CharacterInfo(
-            Dexterity dex,
-            Strength str,
-            Toughness tou,
-            Perception per,
-            Willpower wil,
-            Charisma cha)
-        {
-            Dex = dex;
-            Str = str;
-            Tou = tou;
-            Per = per;
-            Wil = wil;
-            Cha = cha;
-        }
-
         public CharacterInfo()
         {
+            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -158,18 +111,18 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int PhysicalDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) + ApplyPhysicalDefenseAbilities();
+            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) + GetHighestPhysicalDefenseBonus();
 
-        private int ApplyPhysicalDefenseAbilities()
+        private int GetHighestPhysicalDefenseBonus()
         {
-            return 0;
-            //var possibleBonus = (from d in Disciplines
-            //    from ability in d.AbilityRules
-            //    where ability is PhysicalDefenseAbilityRule
-            //    where d._Circle.Value >= ability.CircleRequirement
-            //    select ability).ToList();
-            //return possibleBonus.Count > 0 ? possibleBonus.Max(ability => ability?.BonusAmount ?? 0) : 0;
+            var possibleBonus = (from d in Disciplines
+                                 from ability in d.AbilityRules
+                                 where ability is PhysicalDefenseAbilityRule
+                                 where d.Circle >= ability.CircleRequirement
+                                 select ability).ToList();
+            return possibleBonus.Count > 0 ? possibleBonus.Max(ability => ability?.BonusAmount ?? 0) : 0;
         }
+
 
         public IRace Race
         {
@@ -238,7 +191,7 @@ namespace EarthdawnGamemasterAssistant
         {
             if (Disciplines != null)
             {
-                return Disciplines.Count > 0 ? Disciplines.Max(discipline => discipline._Circle.Value) : 1;
+                return Disciplines.Count > 0 ? Disciplines.Max(discipline => discipline.Circle) : 1;
             }
             return 0;
         }

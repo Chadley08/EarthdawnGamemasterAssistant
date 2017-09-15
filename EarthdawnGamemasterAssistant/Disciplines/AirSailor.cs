@@ -8,7 +8,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 {
     public class AirSailor : Discipline
     {
-        public AirSailor(Circle circle) : base(5, circle, Abilities.ToList())
+        public AirSailor(int circle) : base(5, circle, Abilities.ToList())
         {
         }
 
@@ -54,7 +54,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 
         public static IReadOnlyList<AbilityRule> Abilities = new List<AbilityRule>()
         {
-            new AbilityRule(2, 1, "Character gains +1 to physical defense")
+            new PhysicalDefenseAbilityRule(2, 1, "Character gains +1 to physical defense")
         };
 
         public static IReadOnlyList<string> ImportantAttributes = new List<string>()

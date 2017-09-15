@@ -17,16 +17,16 @@ namespace EarthdawnGamemasterAssistant
         {
             InitializeComponent();
 
+            CurrentCharacterInfo.Disciplines = new List<Discipline>()
+            {
+                new AirSailor(0),
+                new Archer(0)
+            };
+            CurrentCharacterInfo.Disciplines.ForEach(discipline => discipline.PropertyChanged += DisciplineCircle_PropertyChanged);
+
             CurrentCharacterInfo.PropertyChanged += CurrentCharacterInfoOnPropertyChanged;
             metroGridDisciplines.CellValueChanged += metroGridDisciplines_CellValueChanged;
             metroGridDisciplines.CurrentCellDirtyStateChanged += metroGridDisciplines_CurrentCellDirtyStateChanged;
-
-            CurrentCharacterInfo.Disciplines = new List<Discipline>()
-            {
-                new AirSailor(new Circle(0)),
-                new Archer(new Circle(0))
-            };
-            
 
             CurrentCharacterInfo.Dex = new Dexterity(10);
             CurrentCharacterInfo.Str = new Strength(10);
@@ -37,6 +37,11 @@ namespace EarthdawnGamemasterAssistant
             CurrentCharacterInfo.AvailableAttributePoints = 25;
             PopulateDisciplinesGrid();
             PopulateStepChart();
+        }
+
+        private void DisciplineCircle_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            metroLabelPhysicalDefense.Text = CurrentCharacterInfo.PhysicalDefense.ToString();
         }
 
         private void metroGridDisciplines_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -55,7 +60,11 @@ namespace EarthdawnGamemasterAssistant
             if (changedCell.Value != null)
             {
                 var selectedDiscipline = CurrentCharacterInfo.Disciplines.First(discipline => discipline.Name == disciplineName.ToString());
-                    selectedDiscipline.AbilityRules.ForEach(abilityRule => abilityRule.Apply());
+                if (changedCell.Value.ToString() != "")
+                {
+                    selectedDiscipline.Circle = Convert.ToInt32(changedCell.Value);
+                }
+                //selectedDiscipline.AbilityRules.ForEach(abilityRule => abilityRule.Apply());
                 metroGridDisciplines.Invalidate();
             }
         }
