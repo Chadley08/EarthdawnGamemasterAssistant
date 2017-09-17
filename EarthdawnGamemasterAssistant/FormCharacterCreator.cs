@@ -59,12 +59,23 @@ namespace EarthdawnGamemasterAssistant
             var changedCell = (DataGridViewComboBoxCell)metroGridDisciplines.Rows[e.RowIndex].Cells[1];
             if (changedCell.Value != null)
             {
-                var selectedDiscipline = CurrentCharacterInfo.Disciplines.First(discipline => discipline.Name == disciplineName.ToString());
-                if (changedCell.Value.ToString() != "")
+                var selectedDiscipline =
+                    CurrentCharacterInfo.Disciplines.First(discipline => discipline.Name == disciplineName.ToString());
+                var newCircleValue = 0;
+                if (changedCell.Value.ToString() != " ")
                 {
-                    selectedDiscipline.Circle = Convert.ToInt32(changedCell.Value);
+                    newCircleValue = Convert.ToInt32(changedCell.Value);
                 }
-                //selectedDiscipline.AbilityRules.ForEach(abilityRule => abilityRule.Apply());
+                var circles = new List<Circle>();
+                for (var i = 1; i <= newCircleValue; i++)
+                {
+                    circles.Add(
+                        new Circle(
+                            i,
+                            selectedDiscipline.AllAbilityRules.Where(ability => ability.CircleRequirement == i)
+                                .ToList()));
+                }
+                selectedDiscipline.Circles = circles;
                 metroGridDisciplines.Invalidate();
             }
         }
@@ -316,7 +327,7 @@ namespace EarthdawnGamemasterAssistant
             {
                 return;
             }
-            var cell = (DataGridViewComboBoxCell) metroGridDisciplines.SelectedRows[0].Cells[1];
+            var cell = (DataGridViewComboBoxCell)metroGridDisciplines.SelectedRows[0].Cells[1];
             cell.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
         }
 

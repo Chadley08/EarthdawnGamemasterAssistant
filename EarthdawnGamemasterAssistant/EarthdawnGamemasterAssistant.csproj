@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Disciplines\Archer.cs" />
-    <Compile Include="Attributes\Attribute.cs" />
+    <Compile Include="Attributes\EarthdawnAttribute.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Attributes\Charisma.cs" />
     <Compile Include="CharacterInfo.cs" />
@@ -66,10 +66,17 @@
     <Compile Include="CharacteristicTables.cs" />
     <Compile Include="Disciplines\AbilityRule.cs" />
     <Compile Include="Disciplines\CharacteristicBonus.cs" />
+    <Compile Include="Disciplines\Circle.cs" />
     <Compile Include="Disciplines\Discipline.cs" />
     <Compile Include="Disciplines\AirSailor.cs" />
+    <Compile Include="Disciplines\GeneralAbilityRule.cs" />
+    <Compile Include="Disciplines\InitiativeAbilityRule.cs" />
+    <Compile Include="Disciplines\KarmaAbilityRule.cs" />
+    <Compile Include="Disciplines\MysticDefenseAbilityRule.cs" />
     <Compile Include="Disciplines\PhysicalDefenseAbilityRule.cs" />
+    <Compile Include="Disciplines\RecoveryTestAbilityRule.cs" />
     <Compile Include="Disciplines\SimpleAction.cs" />
+    <Compile Include="Disciplines\SocialDefenseAbilityRule.cs" />
     <Compile Include="Disciplines\StandardAction.cs" />
     <Compile Include="Disciplines\SustainedAction.cs" />
     <Compile Include="FormCharacterCreator.cs">
@@ -86,7 +93,6 @@
     </Compile>
     <Compile Include="Attributes\Perception.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racial\Dwarf.cs" />
     <Compile Include="Racial\Elf.cs" />

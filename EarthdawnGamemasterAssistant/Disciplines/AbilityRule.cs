@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace EarthdawnGamemasterAssistant.Disciplines
+﻿namespace EarthdawnGamemasterAssistant.Disciplines
 {
     public abstract class AbilityRule
     {
@@ -14,7 +12,5 @@ namespace EarthdawnGamemasterAssistant.Disciplines
             BonusAmount = bonusAmount;
             Description = description;
         }
-
-        public abstract void Apply(CharacterInfo characterInfo);
     }
 }

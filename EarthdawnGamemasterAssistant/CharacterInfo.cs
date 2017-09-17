@@ -1,11 +1,9 @@
-﻿using EarthdawnGamemasterAssistant.Annotations;
-using EarthdawnGamemasterAssistant.Attributes;
+﻿using EarthdawnGamemasterAssistant.Attributes;
 using EarthdawnGamemasterAssistant.Disciplines;
 using EarthdawnGamemasterAssistant.Racial;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Deployment.Application;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
@@ -29,7 +27,6 @@ namespace EarthdawnGamemasterAssistant
 
         public CharacterInfo()
         {
-            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -76,13 +73,13 @@ namespace EarthdawnGamemasterAssistant
         public int DurabilityRank { get; set; }
 
         public string InitiativeDice => CharacteristicTables.GetStepDice(
-            CharacteristicTables.GetStepFromValue(Dex.Value - ArmorPenalty));
+            CharacteristicTables.GetStepFromValue(Dex.Value - ArmorPenalty)) + GetHighestInitiativeBonus();
 
         public int LiftingCapacity => CarryingCapacity * 2;
 
         public int MaxKarma
         {
-            get => _maxKarma;
+            get => _maxKarma + GetHighestKarmaBonus();
             set
             {
                 _maxKarma = value;
@@ -95,7 +92,7 @@ namespace EarthdawnGamemasterAssistant
         public int MysticArmor => Convert.ToInt32(Math.Floor(Convert.ToDouble(Wil.Value) / 6));
 
         public int MysticDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Wil.Value) / 2, MidpointRounding.AwayFromZero));
+            Math.Round(Convert.ToDouble(Wil.Value) / 2, MidpointRounding.AwayFromZero)) + GetHighestMysticDefenseBonus();
 
         public string Name { get; set; }
 
@@ -111,18 +108,73 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int PhysicalDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) + GetHighestPhysicalDefenseBonus();
+            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) + GetHighestPerCirclePhysicalDefenseBonus();
 
-        private int GetHighestPhysicalDefenseBonus()
+        private int GetHighestPerCirclePhysicalDefenseBonus()
         {
-            var possibleBonus = (from d in Disciplines
-                                 from ability in d.AbilityRules
-                                 where ability is PhysicalDefenseAbilityRule
-                                 where d.Circle >= ability.CircleRequirement
-                                 select ability).ToList();
-            return possibleBonus.Count > 0 ? possibleBonus.Max(ability => ability?.BonusAmount ?? 0) : 0;
+            var totalBonus = 0;
+            
+            // Get the highest circle from the user selected disciplines
+            var highestCircleValue = 0;
+            Disciplines.ForEach(
+                discipline =>
+                {
+                    var maxCircleValue = discipline.Circles.Count;
+                    if (maxCircleValue >= highestCircleValue)
+                    {
+                        highestCircleValue = maxCircleValue;
+                    }
+                });
+
+            
+            for (var i = 0; i < highestCircleValue; i++)
+            {
+                var maxPerCircleDefenseBonus = 0;
+                foreach (var discipline in Disciplines)
+                {
+                    if (discipline.Circles.Count > 0)
+                    {
+                        if (discipline.Circles.Count > i)
+                        {
+                            var defenseAbility = discipline.Circles[i]
+                                .CircleSpecificAbilities.Where(ability => ability is PhysicalDefenseAbilityRule)
+                                .ToList();
+                            if (defenseAbility.Count == 1)
+                            {
+                                var defenseBonus =
+                                    defenseAbility[0].BonusAmount;
+                                if (defenseBonus >= maxPerCircleDefenseBonus)
+                                {
+                                    maxPerCircleDefenseBonus = defenseBonus;
+                                }
+                            }
+                        }
+                    }
+                }
+                totalBonus += maxPerCircleDefenseBonus;
+            }
+            return totalBonus;
         }
 
+        private int GetHighestMysticDefenseBonus()
+        {
+            return 0;
+        }
+
+        private int GetHighestInitiativeBonus()
+        {
+            return 0;
+        }
+
+        private int GetHighestKarmaBonus()
+        {
+            return 0;
+        }
+
+        private int GetHighestSocialDefenseBonus()
+        {
+            return 0;
+        }
 
         public IRace Race
         {
@@ -136,10 +188,15 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int RecoveryTests => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Tou.Value) / 6, MidpointRounding.AwayFromZero));
+            Math.Round(Convert.ToDouble(Tou.Value) / 6, MidpointRounding.AwayFromZero)) + GetHighestRecoveryTestBonus();
+
+        private int GetHighestRecoveryTestBonus()
+        {
+            return 0;
+        }
 
         public int SocialDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Cha.Value) / 2, MidpointRounding.AwayFromZero));
+            Math.Round(Convert.ToDouble(Cha.Value) / 2, MidpointRounding.AwayFromZero)) + GetHighestSocialDefenseBonus();
 
         public Strength Str
         {
@@ -181,7 +238,6 @@ namespace EarthdawnGamemasterAssistant
         public int WoundThreshold => Convert.ToInt32(
             Math.Round(Convert.ToDouble(Tou.Value) / 2 + 2, MidpointRounding.AwayFromZero));
 
-        [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -191,7 +247,7 @@ namespace EarthdawnGamemasterAssistant
         {
             if (Disciplines != null)
             {
-                return Disciplines.Count > 0 ? Disciplines.Max(discipline => discipline.Circle) : 1;
+                return Disciplines.Count > 0 ? Disciplines.Max(discipline => discipline.Circles.Count) : 1;
             }
             return 0;
         }

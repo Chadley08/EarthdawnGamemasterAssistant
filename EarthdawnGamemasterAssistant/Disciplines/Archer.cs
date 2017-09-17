@@ -11,7 +11,8 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 
         public static IReadOnlyList<AbilityRule> Abilities = new List<AbilityRule>()
         {
-            new PhysicalDefenseAbilityRule(2, 1, "Character gains +1 to physical defense")
+            new PhysicalDefenseAbilityRule(2, 500, "Character gains +1 to physical defense"),
+            new PhysicalDefenseAbilityRule(3, 1, "Character gains +1 to physical defense")
         };
 
         public override string Name => "Archer";

@@ -6,7 +6,7 @@ namespace EarthdawnGamemasterAssistant.Talents
     {
         public string Name { get; }
         public string Description { get; }
-        public Attribute BaseAttribute { get; }
+        public EarthdawnAttribute BaseEarthdawnAttribute { get; }
         public int Rank { get; }
         public ActionType Action { get; }
         public int Strain { get; }
@@ -15,7 +15,7 @@ namespace EarthdawnGamemasterAssistant.Talents
         public Talent(
             string name,
             string description,
-            Attribute baseAttribute,
+            EarthdawnAttribute baseEarthdawnAttribute,
             int rank,
             ActionType action,
             int strain,
@@ -23,7 +23,7 @@ namespace EarthdawnGamemasterAssistant.Talents
         {
             Name = name;
             Description = description;
-            BaseAttribute = baseAttribute;
+            BaseEarthdawnAttribute = baseEarthdawnAttribute;
             Rank = rank;
             Action = action;
             Strain = strain;

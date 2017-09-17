@@ -1,6 +1,6 @@
 ﻿namespace EarthdawnGamemasterAssistant.Attributes
 {
-    public class Charisma : Attribute
+    public class Charisma : EarthdawnAttribute
     {
         public Charisma(int value) : base(value)
         {

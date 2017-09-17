@@ -1,14 +1,13 @@
 ﻿using EarthdawnGamemasterAssistant.Attributes;
 using EarthdawnGamemasterAssistant.Talents;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 
 namespace EarthdawnGamemasterAssistant.Disciplines
 {
     public class AirSailor : Discipline
     {
-        public AirSailor(int circle) : base(5, circle, Abilities.ToList())
+        public AirSailor(int circleValue) : base(5, circleValue, Abilities.ToList())
         {
         }
 
@@ -19,6 +18,11 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 
         public static IReadOnlyList<Talent> DisciplineTalents = new List<Talent>()
         {
+            new Talent("Avoid Blow", "", new Dexterity(0), 0, new FreeAction(), 1, true),
+            new Talent("Climbing", "", new Dexterity(0), 0, new StandardAction(), 0, true),
+            new Talent("Melee Weapons", "", new Dexterity(0), 0, new StandardAction(), 0, true),
+            new Talent("Thread Weaving (Air Weaving)", "", new Perception(0), 0, new StandardAction(), 0, false),
+            new Talent("Wind Catcher", "", new Willpower(0), 0, new StandardAction(), 1, false),
         };
 
         public static IReadOnlyList<Talent> NoviceTalentOptions = new List<Talent>()
@@ -54,7 +58,14 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 
         public static IReadOnlyList<AbilityRule> Abilities = new List<AbilityRule>()
         {
-            new PhysicalDefenseAbilityRule(2, 1, "Character gains +1 to physical defense")
+            new GeneralAbilityRule(1, 0, "The adept may spend Karma once per round on any action taken while on board an airship"),
+            new PhysicalDefenseAbilityRule(2, 1, "The adept adds +1 to their physical defense"),
+            new GeneralAbilityRule(3, 0, "The adept may spend a Karma Point on Initiative tests"),
+            new SocialDefenseAbilityRule(4, 1, "The adept adds +1 to their Social Defense"),
+            new GeneralAbilityRule(5,0, "Once per round as a Simple action, the adept may take 1 Strain to give an ally a +2 bonus to a test towards achieving a common goal. The player should describe how they are assisting their ally"),
+            new GeneralAbilityRule(5, 0, "The adept may spend 1 Karma Point on Interaction tests"),
+            new PhysicalDefenseAbilityRule(6, 2, "The adept adds +2 to their Physical Defense"),
+
         };
 
         public static IReadOnlyList<string> ImportantAttributes = new List<string>()

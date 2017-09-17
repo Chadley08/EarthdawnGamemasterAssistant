@@ -1,6 +1,6 @@
 ﻿namespace EarthdawnGamemasterAssistant.Attributes
 {
-    public class Dexterity : Attribute
+    public class Dexterity : EarthdawnAttribute
     {
         public Dexterity(int value) : base(value)
         {

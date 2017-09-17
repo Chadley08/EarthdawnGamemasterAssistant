@@ -119,10 +119,10 @@ namespace EarthdawnGamemasterAssistant
                     {
                         cost = -2;
                     }
-                    Debug.WriteLine("Attribute is outside expected normal value range.");
+                    Debug.WriteLine("EarthdawnAttribute is outside expected normal value range.");
                     if (difference > 8)
                     {
-                        throw new Exception("Attribute value cannot be more than 8 of the race's base attribute value");
+                        throw new Exception("EarthdawnAttribute value cannot be more than 8 of the race's base attribute value");
                     }
                     break;
             }

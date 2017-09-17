@@ -593,7 +593,7 @@
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(98, 19);
             this.metroLabel4.TabIndex = 113;
-            this.metroLabel4.Text = "Attribute Points";
+            this.metroLabel4.Text = "EarthdawnAttribute Points";
             // 
             // metroPanel8
             // 
@@ -947,7 +947,7 @@
             this.metroLabel75.Name = "metroLabel75";
             this.metroLabel75.Size = new System.Drawing.Size(92, 19);
             this.metroLabel75.TabIndex = 97;
-            this.metroLabel75.Text = "Racial Abilities";
+            this.metroLabel75.Text = "Racial CircleSpecificAbilities";
             // 
             // metroLabel47
             // 
@@ -1546,7 +1546,7 @@
             this.metroLabelCircle.Name = "metroLabelCircle";
             this.metroLabelCircle.Size = new System.Drawing.Size(42, 19);
             this.metroLabelCircle.TabIndex = 28;
-            this.metroLabelCircle.Text = "Circle";
+            this.metroLabelCircle.Text = "Circles";
             // 
             // metroLabelBase
             // 
@@ -1736,7 +1736,7 @@
             // 
             // ColumnDisciplineTalentAttribute
             // 
-            this.ColumnDisciplineTalentAttribute.HeaderText = "Attribute";
+            this.ColumnDisciplineTalentAttribute.HeaderText = "EarthdawnAttribute";
             this.ColumnDisciplineTalentAttribute.Name = "ColumnDisciplineTalentAttribute";
             this.ColumnDisciplineTalentAttribute.ReadOnly = true;
             this.ColumnDisciplineTalentAttribute.Width = 76;
@@ -1851,7 +1851,7 @@
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Attribute";
+            this.dataGridViewTextBoxColumn6.HeaderText = "EarthdawnAttribute";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 76;
@@ -1907,7 +1907,7 @@
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(154, 20);
             this.metroLabel6.TabIndex = 103;
-            this.metroLabel6.Text = "Discipline Talents (Circle)";
+            this.metroLabel6.Text = "Discipline Talents (Circles)";
             this.metroLabel6.WrapToLine = true;
             // 
             // metroLabel11
@@ -1926,7 +1926,7 @@
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(54, 19);
             this.metroLabel5.TabIndex = 81;
-            this.metroLabel5.Text = "Abilities";
+            this.metroLabel5.Text = "CircleSpecificAbilities";
             // 
             // metroGrid2
             // 
@@ -1994,7 +1994,7 @@
             // 
             // dataGridViewTextBoxColumn10
             // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Attribute";
+            this.dataGridViewTextBoxColumn10.HeaderText = "EarthdawnAttribute";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Width = 76;
@@ -2086,7 +2086,7 @@
             // 
             // ColumnAttribute
             // 
-            this.ColumnAttribute.HeaderText = "Attribute";
+            this.ColumnAttribute.HeaderText = "EarthdawnAttribute";
             this.ColumnAttribute.Name = "ColumnAttribute";
             this.ColumnAttribute.ReadOnly = true;
             this.ColumnAttribute.Width = 76;
@@ -2291,7 +2291,7 @@
             // 
             this.ColumnCircle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnCircle.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.ColumnCircle.HeaderText = "Circle";
+            this.ColumnCircle.HeaderText = "Circles";
             this.ColumnCircle.Items.AddRange(new object[] {
             " ",
             "1",
