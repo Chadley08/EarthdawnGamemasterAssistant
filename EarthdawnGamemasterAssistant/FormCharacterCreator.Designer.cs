@@ -176,7 +176,7 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelAbilities = new MetroFramework.Controls.MetroLabel();
             this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -249,7 +249,7 @@
             this.metroTabControl.HotTrack = true;
             this.metroTabControl.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl.Name = "metroTabControl";
-            this.metroTabControl.SelectedIndex = 2;
+            this.metroTabControl.SelectedIndex = 1;
             this.metroTabControl.Size = new System.Drawing.Size(748, 653);
             this.metroTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.metroTabControl.TabIndex = 0;
@@ -593,7 +593,7 @@
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(98, 19);
             this.metroLabel4.TabIndex = 113;
-            this.metroLabel4.Text = "EarthdawnAttribute Points";
+            this.metroLabel4.Text = "Attribute Points";
             // 
             // metroPanel8
             // 
@@ -947,7 +947,7 @@
             this.metroLabel75.Name = "metroLabel75";
             this.metroLabel75.Size = new System.Drawing.Size(92, 19);
             this.metroLabel75.TabIndex = 97;
-            this.metroLabel75.Text = "Racial CircleSpecificAbilities";
+            this.metroLabel75.Text = "Racial Abilities";
             // 
             // metroLabel47
             // 
@@ -1544,7 +1544,7 @@
             this.metroLabelCircle.AutoSize = true;
             this.metroLabelCircle.Location = new System.Drawing.Point(124, 44);
             this.metroLabelCircle.Name = "metroLabelCircle";
-            this.metroLabelCircle.Size = new System.Drawing.Size(42, 19);
+            this.metroLabelCircle.Size = new System.Drawing.Size(47, 19);
             this.metroLabelCircle.TabIndex = 28;
             this.metroLabelCircle.Text = "Circles";
             // 
@@ -1646,7 +1646,7 @@
             this.metroTabPageDiscipline.Controls.Add(this.numericUpDown1);
             this.metroTabPageDiscipline.Controls.Add(this.metroLabel6);
             this.metroTabPageDiscipline.Controls.Add(this.metroLabel11);
-            this.metroTabPageDiscipline.Controls.Add(this.metroLabel5);
+            this.metroTabPageDiscipline.Controls.Add(this.metroLabelAbilities);
             this.metroTabPageDiscipline.Controls.Add(this.metroGrid2);
             this.metroTabPageDiscipline.Controls.Add(this.metroGrid5);
             this.metroTabPageDiscipline.Controls.Add(this.metroLabel14);
@@ -1739,7 +1739,7 @@
             this.ColumnDisciplineTalentAttribute.HeaderText = "EarthdawnAttribute";
             this.ColumnDisciplineTalentAttribute.Name = "ColumnDisciplineTalentAttribute";
             this.ColumnDisciplineTalentAttribute.ReadOnly = true;
-            this.ColumnDisciplineTalentAttribute.Width = 76;
+            this.ColumnDisciplineTalentAttribute.Width = 132;
             // 
             // ColumnAction
             // 
@@ -1854,7 +1854,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "EarthdawnAttribute";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 76;
+            this.dataGridViewTextBoxColumn6.Width = 132;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -1919,14 +1919,14 @@
             this.metroLabel11.TabIndex = 123;
             this.metroLabel11.Text = "Journeyman Talent Options";
             // 
-            // metroLabel5
+            // metroLabelAbilities
             // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(163, 78);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(54, 19);
-            this.metroLabel5.TabIndex = 81;
-            this.metroLabel5.Text = "CircleSpecificAbilities";
+            this.metroLabelAbilities.AutoSize = true;
+            this.metroLabelAbilities.Location = new System.Drawing.Point(163, 78);
+            this.metroLabelAbilities.Name = "metroLabelAbilities";
+            this.metroLabelAbilities.Size = new System.Drawing.Size(54, 19);
+            this.metroLabelAbilities.TabIndex = 81;
+            this.metroLabelAbilities.Text = "Abilities";
             // 
             // metroGrid2
             // 
@@ -1997,7 +1997,7 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "EarthdawnAttribute";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 76;
+            this.dataGridViewTextBoxColumn10.Width = 132;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -2089,7 +2089,7 @@
             this.ColumnAttribute.HeaderText = "EarthdawnAttribute";
             this.ColumnAttribute.Name = "ColumnAttribute";
             this.ColumnAttribute.ReadOnly = true;
-            this.ColumnAttribute.Width = 76;
+            this.ColumnAttribute.Width = 132;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -2476,7 +2476,7 @@
         private MetroFramework.Controls.MetroLabel metroLabelAvailableDisciplines;
         private MetroFramework.Controls.MetroPanel metroPanel9;
         private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabelAbilities;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroPanel metroPanel12;
         private MetroFramework.Controls.MetroLabel metroLabel10;

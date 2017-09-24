@@ -12,17 +12,12 @@ namespace EarthdawnGamemasterAssistant
     public class CharacterInfo : INotifyPropertyChanged
     {
         private Charisma _cha;
-
         private Dexterity _dex;
-
         private int _maxKarma;
         private Perception _per;
-
         private IRace _race;
         private Strength _str;
-
         private Toughness _tou;
-
         private Willpower _wil;
 
         public CharacterInfo()
@@ -73,7 +68,7 @@ namespace EarthdawnGamemasterAssistant
         public int DurabilityRank { get; set; }
 
         public string InitiativeDice => CharacteristicTables.GetStepDice(
-            CharacteristicTables.GetStepFromValue(Dex.Value - ArmorPenalty)) + GetHighestInitiativeBonus();
+            CharacteristicTables.GetStepFromValue(Dex.Value - ArmorPenalty) + GetHighestInitiativeBonus());
 
         public int LiftingCapacity => CarryingCapacity * 2;
 
