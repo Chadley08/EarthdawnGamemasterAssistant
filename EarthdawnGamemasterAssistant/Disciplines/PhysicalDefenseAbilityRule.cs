@@ -1,9 +1,16 @@
-﻿namespace EarthdawnGamemasterAssistant.Disciplines
+﻿using System;
+
+namespace EarthdawnGamemasterAssistant.Disciplines
 {
-    public class PhysicalDefenseAbilityRule : AbilityRule
+    public class PhysicalDefenseAbilityRule
     {
-        public PhysicalDefenseAbilityRule(int circleRequirement, int bonusAmount, string description) : base(circleRequirement, bonusAmount, description)
+        private readonly int BonusAmount;
+        public string Description { get; }
+
+        public PhysicalDefenseAbilityRule(string description, int bonusAmount)
         {
+            BonusAmount = bonusAmount;
+            Description = description;
         }
     }
 }

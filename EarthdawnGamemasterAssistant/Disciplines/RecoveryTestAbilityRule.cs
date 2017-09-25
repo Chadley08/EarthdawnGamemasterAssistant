@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace EarthdawnGamemasterAssistant.Disciplines
 {
-    public class RecoveryTestAbilityRule : AbilityRule
-    {
-        public RecoveryTestAbilityRule(int circleRequirement, int bonusAmount, string description) : base(circleRequirement, bonusAmount, description)
-        {
-        }
-    }
+    //public class RecoveryTestAbilityRule : AbilityRule
+    //{
+    //    public RecoveryTestAbilityRule(int circleRequirement, int bonusAmount, string description) : base(circleRequirement, bonusAmount, description)
+    //    {
+    //    }
+    //}
 }

@@ -20,8 +20,9 @@ namespace EarthdawnGamemasterAssistant
         private Toughness _tou;
         private Willpower _wil;
 
-        public CharacterInfo()
+        public CharacterInfo(DisciplineSet disciplines)
         {
+            Disciplines = disciplines;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -49,7 +50,7 @@ namespace EarthdawnGamemasterAssistant
 
         public int DeathRating => UnconsciousnessRating +
                                   CharacteristicTables.GetStepFromValue(Tou.Value) +
-                                  GetHighestCircle();
+                                  Disciplines.GetHighestCircle();
 
         public string Description { get; set; }
 
@@ -63,7 +64,7 @@ namespace EarthdawnGamemasterAssistant
             }
         }
 
-        public List<Discipline> Disciplines { get; set; }
+        public DisciplineSet Disciplines { get; set; }
 
         public int DurabilityRank { get; set; }
 
@@ -103,53 +104,7 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int PhysicalDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) + GetHighestPerCirclePhysicalDefenseBonus();
-
-        private int GetHighestPerCirclePhysicalDefenseBonus()
-        {
-            var totalBonus = 0;
-            
-            // Get the highest circle from the user selected disciplines
-            var highestCircleValue = 0;
-            Disciplines.ForEach(
-                discipline =>
-                {
-                    var maxCircleValue = discipline.Circles.Count;
-                    if (maxCircleValue >= highestCircleValue)
-                    {
-                        highestCircleValue = maxCircleValue;
-                    }
-                });
-
-            
-            for (var i = 0; i < highestCircleValue; i++)
-            {
-                var maxPerCircleDefenseBonus = 0;
-                foreach (var discipline in Disciplines)
-                {
-                    if (discipline.Circles.Count > 0)
-                    {
-                        if (discipline.Circles.Count > i)
-                        {
-                            var defenseAbility = discipline.Circles[i]
-                                .CircleSpecificAbilities.Where(ability => ability is PhysicalDefenseAbilityRule)
-                                .ToList();
-                            if (defenseAbility.Count == 1)
-                            {
-                                var defenseBonus =
-                                    defenseAbility[0].BonusAmount;
-                                if (defenseBonus >= maxPerCircleDefenseBonus)
-                                {
-                                    maxPerCircleDefenseBonus = defenseBonus;
-                                }
-                            }
-                        }
-                    }
-                }
-                totalBonus += maxPerCircleDefenseBonus;
-            }
-            return totalBonus;
-        }
+            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero));
 
         private int GetHighestMysticDefenseBonus()
         {
@@ -157,11 +112,6 @@ namespace EarthdawnGamemasterAssistant
         }
 
         private int GetHighestInitiativeBonus()
-        {
-            return 0;
-        }
-
-        private int GetHighestKarmaBonus()
         {
             return 0;
         }
@@ -217,7 +167,7 @@ namespace EarthdawnGamemasterAssistant
             }
         }
 
-        public int UnconsciousnessRating => Tou.Value * 2 + GetHighestDurabilityRating() * DurabilityRank;
+        public int UnconsciousnessRating => Tou.Value * 2 + Disciplines.GetHighestDurabilityRating() * DurabilityRank;
 
         public Willpower Wil
         {
@@ -238,21 +188,8 @@ namespace EarthdawnGamemasterAssistant
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private int GetHighestCircle()
+        public int GetHighestKarmaBonus()
         {
-            if (Disciplines != null)
-            {
-                return Disciplines.Count > 0 ? Disciplines.Max(discipline => discipline.Circles.Count) : 1;
-            }
-            return 0;
-        }
-
-        private int GetHighestDurabilityRating()
-        {
-            if (Disciplines != null)
-            {
-                return Disciplines.Count > 0 ? Disciplines.Max(discipline => discipline.DurabilityRating) : 0;
-            }
             return 0;
         }
     }

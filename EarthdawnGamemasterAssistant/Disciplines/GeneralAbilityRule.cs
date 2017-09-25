@@ -8,7 +8,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 {
     public class GeneralAbilityRule : AbilityRule
     {
-        public GeneralAbilityRule(int circleRequirement, int bonusAmount, string description) : base(circleRequirement, bonusAmount, description)
+        public GeneralAbilityRule(string description, int bonusAmount) : base(description, bonusAmount)
         {
         }
     }

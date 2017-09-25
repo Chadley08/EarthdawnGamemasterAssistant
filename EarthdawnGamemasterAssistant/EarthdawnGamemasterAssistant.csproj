@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisciplineSet.cs" />
     <Compile Include="Disciplines\Archer.cs" />
     <Compile Include="Attributes\EarthdawnAttribute.cs" />
     <Compile Include="Character.cs" />
@@ -64,10 +65,9 @@
     <Compile Include="Dice\Die.cs" />
     <Compile Include="Dice\StaticRandom.cs" />
     <Compile Include="CharacteristicTables.cs" />
-    <Compile Include="Disciplines\AbilityRule.cs" />
     <Compile Include="Disciplines\CharacteristicBonus.cs" />
     <Compile Include="Disciplines\Circle.cs" />
-    <Compile Include="Disciplines\Discipline.cs" />
+    <Compile Include="Disciplines\IDiscipline.cs" />
     <Compile Include="Disciplines\AirSailor.cs" />
     <Compile Include="Disciplines\GeneralAbilityRule.cs" />
     <Compile Include="Disciplines\InitiativeAbilityRule.cs" />
@@ -92,7 +92,9 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Attributes\Perception.cs" />
+    <Compile Include="NullCircle.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racial\Dwarf.cs" />
     <Compile Include="Racial\Elf.cs" />

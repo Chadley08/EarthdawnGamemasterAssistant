@@ -11,35 +11,37 @@ namespace EarthdawnGamemasterAssistant
 {
     public partial class FormCharacterCreator : Form
     {
-        private readonly CharacterInfo CurrentCharacterInfo = new CharacterInfo();
+        private readonly CharacterInfo CurrentCharacterInfo = new CharacterInfo(
+            new DisciplineSet(
+                new List<IDiscipline>()
+                {
+                    new AirSailor(new NullCircle()),
+                    new Archer(new NullCircle())
+                }));
 
         public FormCharacterCreator()
         {
             InitializeComponent();
 
-            CurrentCharacterInfo.Disciplines = new List<Discipline>()
-            {
-                new AirSailor(0),
-                new Archer(0)
-            };
-            CurrentCharacterInfo.Disciplines.ForEach(discipline => discipline.PropertyChanged += DisciplineCircle_PropertyChanged);
-
+            CurrentCharacterInfo.Disciplines
             CurrentCharacterInfo.PropertyChanged += CurrentCharacterInfoOnPropertyChanged;
             metroGridDisciplines.CellValueChanged += metroGridDisciplines_CellValueChanged;
             metroGridDisciplines.CurrentCellDirtyStateChanged += metroGridDisciplines_CurrentCellDirtyStateChanged;
 
+            // Load default attribute values into the view.
             CurrentCharacterInfo.Dex = new Dexterity(10);
             CurrentCharacterInfo.Str = new Strength(10);
             CurrentCharacterInfo.Tou = new Toughness(10);
             CurrentCharacterInfo.Per = new Perception(10);
             CurrentCharacterInfo.Wil = new Willpower(10);
             CurrentCharacterInfo.Cha = new Charisma(10);
+
             CurrentCharacterInfo.AvailableAttributePoints = 25;
             PopulateDisciplinesGrid();
             PopulateStepChart();
         }
 
-        private void DisciplineCircle_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void DisciplineCircle_PropertyChanged()
         {
             metroLabelPhysicalDefense.Text = CurrentCharacterInfo.PhysicalDefense.ToString();
         }
@@ -60,22 +62,13 @@ namespace EarthdawnGamemasterAssistant
             if (changedCell.Value != null)
             {
                 var selectedDiscipline =
-                    CurrentCharacterInfo.Disciplines.First(discipline => discipline.Name == disciplineName.ToString());
+                    CurrentCharacterInfo.Disciplines[disciplineName.ToString()];
                 var newCircleValue = 0;
                 if (changedCell.Value.ToString() != " ")
                 {
                     newCircleValue = Convert.ToInt32(changedCell.Value);
                 }
-                var circles = new List<Circle>();
-                for (var i = 1; i <= newCircleValue; i++)
-                {
-                    circles.Add(
-                        new Circle(
-                            i,
-                            selectedDiscipline.AllAbilityRules.Where(ability => ability.CircleRequirement == i)
-                                .ToList()));
-                }
-                selectedDiscipline.Circles = circles;
+                selectedDiscipline.EarthdawnCircle = new Circle(newCircleValue);
                 metroGridDisciplines.Invalidate();
             }
         }
@@ -124,7 +117,7 @@ namespace EarthdawnGamemasterAssistant
                     metroLabelAttributeStepDex.Text = CharacteristicTables
                         .GetStepFromValue(CurrentCharacterInfo.Dex.Value)
                         .ToString();
-                    CalculateAttributePoints();
+
                     break;
 
                 case "Str":
@@ -135,7 +128,7 @@ namespace EarthdawnGamemasterAssistant
                     metroLabelAttributeStepStr.Text = CharacteristicTables
                         .GetStepFromValue(CurrentCharacterInfo.Str.Value)
                         .ToString();
-                    CalculateAttributePoints();
+
                     break;
 
                 case "Tou":
@@ -148,7 +141,7 @@ namespace EarthdawnGamemasterAssistant
                     metroLabelAttributeStepTou.Text = CharacteristicTables
                         .GetStepFromValue(CurrentCharacterInfo.Tou.Value)
                         .ToString();
-                    CalculateAttributePoints();
+
                     break;
 
                 case "Wil":
@@ -158,7 +151,7 @@ namespace EarthdawnGamemasterAssistant
                     metroLabelAttributeStepWil.Text = CharacteristicTables
                         .GetStepFromValue(CurrentCharacterInfo.Wil.Value)
                         .ToString();
-                    CalculateAttributePoints();
+
                     break;
 
                 case "Per":
@@ -167,7 +160,7 @@ namespace EarthdawnGamemasterAssistant
                     metroLabelAttributeStepPer.Text = CharacteristicTables
                         .GetStepFromValue(CurrentCharacterInfo.Per.Value)
                         .ToString();
-                    CalculateAttributePoints();
+
                     break;
 
                 case "Cha":
@@ -177,24 +170,24 @@ namespace EarthdawnGamemasterAssistant
                     metroLabelAttributeStepCha.Text = CharacteristicTables
                         .GetStepFromValue(CurrentCharacterInfo.Cha.Value)
                         .ToString();
-                    CalculateAttributePoints();
+
                     break;
 
                 case "MaxKarma":
-                    CalculateAttributePoints();
                     break;
 
                 case "Race":
                     metroLabelMovementLand.Text = CurrentCharacterInfo.Race?.MovementRate.ToString() ?? "0";
-                    CurrentCharacterInfo.MaxKarma = (int)numericUpDownMaxKarma.Value;
-                    CalculateAttributePoints();
+                    CurrentCharacterInfo.MaxKarma = (int)numericUpDownMaxKarma.Value;                    
                     SetRacialAbilities();
                     break;
             }
+            CalculateAttributePoints();
         }
 
         private void SetRacialAbilities()
         {
+            dataGridViewRacialAbilities.Rows.Clear();
             var racials = CurrentCharacterInfo.Race.GetRacialAbilities().ToList();
             racials.ForEach(
                 racial => dataGridViewRacialAbilities.Rows.Add(
