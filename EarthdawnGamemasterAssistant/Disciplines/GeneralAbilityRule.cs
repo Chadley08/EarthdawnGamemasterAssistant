@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace EarthdawnGamemasterAssistant.Disciplines
 {
-    public class GeneralAbilityRule : AbilityRule
-    {
-        public GeneralAbilityRule(string description, int bonusAmount) : base(description, bonusAmount)
-        {
-        }
-    }
+    //public class GeneralAbilityRule : AbilityRule
+    //{
+    //    public GeneralAbilityRule(string description, int bonusAmount) : base(description, bonusAmount)
+    //    {
+    //    }
+    //}
 }

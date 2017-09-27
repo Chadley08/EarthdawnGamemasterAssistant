@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EarthdawnGamemasterAssistant.Disciplines
 {
-    public class PhysicalDefenseAbilityRule
+    public class PhysicalDefenseAbilityRule : IAbilityRule
     {
-        private readonly int BonusAmount;
-        public string Description { get; }
-
         public PhysicalDefenseAbilityRule(string description, int bonusAmount)
         {
-            BonusAmount = bonusAmount;
             Description = description;
+            BonusAmount = bonusAmount;
         }
+
+        public int BonusAmount { get; }
+        public string Description { get; }
     }
 }

@@ -9,6 +9,8 @@ namespace EarthdawnGamemasterAssistant
     public class DisciplineSet
     {
         private List<IDiscipline> Disciplines { get; }
+        public List<IAbilityRule> Abilities { get; }
+
         public DisciplineSet(List<IDiscipline> disciplines)
         {
             Disciplines = disciplines;

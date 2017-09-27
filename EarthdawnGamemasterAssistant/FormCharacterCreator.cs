@@ -23,7 +23,7 @@ namespace EarthdawnGamemasterAssistant
         {
             InitializeComponent();
 
-            CurrentCharacterInfo.Disciplines
+            //CurrentCharacterInfo.Disciplines
             CurrentCharacterInfo.PropertyChanged += CurrentCharacterInfoOnPropertyChanged;
             metroGridDisciplines.CellValueChanged += metroGridDisciplines_CellValueChanged;
             metroGridDisciplines.CurrentCellDirtyStateChanged += metroGridDisciplines_CurrentCellDirtyStateChanged;
