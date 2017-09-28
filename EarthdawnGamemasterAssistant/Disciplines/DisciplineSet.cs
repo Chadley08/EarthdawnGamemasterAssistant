@@ -42,33 +42,19 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 
         public int GetHighestPhysicalDefenseBonus()
         {
-            var totalBonus = 0;
-            var tuples = new List<Tuple<int, int, int>>();
-            foreach (var discipline in Disciplines)
-            {
-                foreach (var abilityRule in discipline.PhysicalDefenseAbilityRules)
-                {
-                    tuples.Add(new Tuple<int, int, int>(abilityRule.BonusAmount, abilityRule.CircleRequirement, discipline.EarthdawnCircle));
-                }
-            }
-            var grouping = tuples.GroupBy(tuple => tuple.Item2);
-            foreach (var group in grouping)
-            {
-                totalBonus += group.Max(
-                    tuple =>
-                    {
-                        if (tuple.Item3 >= tuple.Item2)
-                        {
-                            return tuple.Item1;
-                        }
-                        else
-                        {
-                            return 0;
-                        }
-                    });
-            }
+            // Tuple is bonus amount, circle requirement, and discipline circle
+            var tuples = (from discipline in Disciplines
+                          from abilityRule in discipline.PhysicalDefenseAbilityRules
+                          select (
+                          BonusAmount: abilityRule.BonusAmount,
+                          CircleRequirement: abilityRule.CircleRequirement,
+                          DisciplineCircle: discipline.EarthdawnCircle)).ToList();
 
-            return totalBonus;
+            var grouping = tuples.GroupBy(tuple => tuple.CircleRequirement);
+
+            return grouping.Sum(
+                @group => @group.Max(
+                    tuple => tuple.DisciplineCircle >= tuple.CircleRequirement ? tuple.BonusAmount : 0));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
