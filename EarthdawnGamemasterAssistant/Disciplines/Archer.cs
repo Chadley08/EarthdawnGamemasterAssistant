@@ -8,21 +8,21 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 {
     internal class Archer : IDiscipline
     {
-        public Archer(Circle earthdawnCircle)
+        public Archer(int earthdawnCircle)
         {
             EarthdawnCircle = earthdawnCircle;
         }
 
-        public static IReadOnlyList<PhysicalDefenseAbilityRule> Abilities = new List<PhysicalDefenseAbilityRule>()
+        public IReadOnlyList<PhysicalDefenseAbilityRule> PhysicalDefenseAbilityRules => new List<PhysicalDefenseAbilityRule>
         {
-            new PhysicalDefenseAbilityRule("Character gains +1 to physical defense", 500),
-            new PhysicalDefenseAbilityRule("Character gains +1 to physical defense", 1)
+            new PhysicalDefenseAbilityRule("Character gains +1 to physical defense", 500, 2),
+            new PhysicalDefenseAbilityRule("Character gains +1 to physical defense", 1, 3)
         };
 
         public  int DurabilityRating => 5;
         public  string Name => "Archer";
-        private Circle _circle;
-        public Circle EarthdawnCircle {
+        private int _circle;
+        public int EarthdawnCircle {
             get => _circle;
             set
             {

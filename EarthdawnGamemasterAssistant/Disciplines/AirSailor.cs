@@ -10,8 +10,8 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 {
     public class AirSailor : IDiscipline
     {
-        private Circle _circle;
-        public Circle EarthdawnCircle {
+        private int _circle;
+        public int EarthdawnCircle {
             get => _circle;
             set
             {
@@ -21,7 +21,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
             }
         }
 
-        public AirSailor(Circle earthdawnCircle)
+        public AirSailor(int earthdawnCircle)
         {
             EarthdawnCircle = earthdawnCircle;
         }
@@ -72,7 +72,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
         public static readonly Talent FreeTalent =
             new Talent("Air Sailing", "", new Willpower(0), 0, new SustainedAction(), 0, true);
 
-        public static readonly List<IAbilityRule> Abilities = new List<IAbilityRule>()
+        public IReadOnlyList<PhysicalDefenseAbilityRule> PhysicalDefenseAbilityRules => new List<PhysicalDefenseAbilityRule>()
         {
             //new GeneralAbilityRule(
             //    1,
@@ -85,8 +85,8 @@ namespace EarthdawnGamemasterAssistant.Disciplines
             //    0,
             //    "Once per round as a Simple action, the adept may take 1 Strain to give an ally a +2 bonus to a test towards achieving a common goal. The player should describe how they are assisting their ally"),
             //new GeneralAbilityRule(5, 0, "The adept may spend 1 Karma Point on Interaction tests"),
-            new PhysicalDefenseAbilityRule("The adept adds +1 to their physical defense", 1),
-            new PhysicalDefenseAbilityRule("The adept adds +2 to their Physical Defense", 2)
+            new PhysicalDefenseAbilityRule("The adept adds +1 to their physical defense", 1, 2),
+            new PhysicalDefenseAbilityRule("The adept adds +2 to their Physical Defense", 2, 6)
         };
 
         public static IReadOnlyList<string> ImportantAttributes = new List<string>()

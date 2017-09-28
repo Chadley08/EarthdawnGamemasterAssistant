@@ -11,6 +11,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
     {
         int DurabilityRating { get; }
         string Name { get; }
-        Circle EarthdawnCircle { get; set; }
+        int EarthdawnCircle { get; set; }
+        IReadOnlyList<PhysicalDefenseAbilityRule> PhysicalDefenseAbilityRules { get; }
     }
 }

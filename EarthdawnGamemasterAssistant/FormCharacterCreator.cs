@@ -15,15 +15,15 @@ namespace EarthdawnGamemasterAssistant
             new DisciplineSet(
                 new List<IDiscipline>()
                 {
-                    new AirSailor(new NullCircle()),
-                    new Archer(new NullCircle())
+                    new AirSailor(0),
+                    new Archer(0)
                 }));
 
         public FormCharacterCreator()
         {
             InitializeComponent();
 
-            //CurrentCharacterInfo.Disciplines
+            CurrentCharacterInfo.Disciplines.PropertyChanged += Disciplines_PropertyChanged;
             CurrentCharacterInfo.PropertyChanged += CurrentCharacterInfoOnPropertyChanged;
             metroGridDisciplines.CellValueChanged += metroGridDisciplines_CellValueChanged;
             metroGridDisciplines.CurrentCellDirtyStateChanged += metroGridDisciplines_CurrentCellDirtyStateChanged;
@@ -41,9 +41,14 @@ namespace EarthdawnGamemasterAssistant
             PopulateStepChart();
         }
 
-        private void DisciplineCircle_PropertyChanged()
+        private void Disciplines_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            metroLabelPhysicalDefense.Text = CurrentCharacterInfo.PhysicalDefense.ToString();
+            switch (e.PropertyName)
+            {
+                case "EarthdawnCircle":
+                    metroLabelPhysicalDefense.Text = CurrentCharacterInfo.PhysicalDefense.ToString();
+                    break;
+            }
         }
 
         private void metroGridDisciplines_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -68,7 +73,7 @@ namespace EarthdawnGamemasterAssistant
                 {
                     newCircleValue = Convert.ToInt32(changedCell.Value);
                 }
-                selectedDiscipline.EarthdawnCircle = new Circle(newCircleValue);
+                selectedDiscipline.EarthdawnCircle = newCircleValue;
                 metroGridDisciplines.Invalidate();
             }
         }

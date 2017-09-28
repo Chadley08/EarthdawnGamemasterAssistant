@@ -104,7 +104,7 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int PhysicalDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero));
+            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) + Disciplines.GetHighestPhysicalDefenseBonus();
 
         private int GetHighestMysticDefenseBonus()
         {
