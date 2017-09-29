@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using EarthdawnGamemasterAssistant.Talents;
 
 namespace EarthdawnGamemasterAssistant
 {
@@ -350,6 +351,59 @@ namespace EarthdawnGamemasterAssistant
             selectedDiscipline?.ImportantAttributes.ToList()
                 .ForEach(attribute => metroLabelImportantAttirbutes.Text += attribute.ToString() + "\r\n");
 
+            metroGridFreeTalent.Rows.Clear();
+            var freeTalent = selectedDiscipline?.FreeTalent;
+            if (freeTalent is NullTalent)
+            {
+                // NO-OP
+            }
+            else
+            {
+                metroGridFreeTalent.Rows.Add(
+                    freeTalent?.Name,
+                    freeTalent?.BaseEarthdawnAttribute.Name,
+                    freeTalent?.Action.ToString(),
+                    freeTalent?.Strain,
+                    freeTalent?.SkillUse.ToString());
+            }
+
+            metroGridNoviceTalents.Rows.Clear();
+            selectedDiscipline?.NoviceTalentOptions?.ToList()
+                .ForEach(
+                    noviceTalent =>
+                        metroGridNoviceTalents.Rows.Add(
+                            noviceTalent?.Name,
+                            noviceTalent?.BaseEarthdawnAttribute.Name,
+                            noviceTalent?.Action.ToString(),
+                            noviceTalent?.Strain,
+                            noviceTalent?.SkillUse.ToString()));
+
+            metroGridJourneymanTalents.Rows.Clear();
+            selectedDiscipline?.JourneymanTalentOptions.ToList()
+                .ForEach(
+                    journeymanTalent => metroGridJourneymanTalents.Rows.Add(
+                        journeymanTalent?.Name,
+                        journeymanTalent?.BaseEarthdawnAttribute.Name,
+                        journeymanTalent?.Action.ToString(),
+                        journeymanTalent?.Strain,
+                        journeymanTalent?.SkillUse.ToString()));
+
+            metroGridDisciplinedTalentsAtCircle.Rows.Clear();
+            if (selectedDiscipline?.TalentsAtCircle != null)
+            {
+                foreach (var key in selectedDiscipline?.TalentsAtCircle.Keys)
+                {
+                    selectedDiscipline.TalentsAtCircle[key]
+                        .ForEach(
+                            talent => metroGridDisciplinedTalentsAtCircle.Rows.Add(
+                                talent.Name,
+                                talent.BaseEarthdawnAttribute.Name,
+                                talent.Action.ToString(),
+                                talent.Strain,
+                                talent.SkillUse.ToString(),
+                                key.ToString()));
+                }
+            }
 
         }
     }

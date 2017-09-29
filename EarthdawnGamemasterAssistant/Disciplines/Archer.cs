@@ -53,14 +53,6 @@ namespace EarthdawnGamemasterAssistant.Disciplines
         public IReadOnlyList<RecoveryTestAbilityRule> RecoveryTestAbilityRules => new List<RecoveryTestAbilityRule>();
         public IReadOnlyList<SocialDefenseAbilityRule> SocialDefenseAbilityRules => new List<SocialDefenseAbilityRule>();
 
-        public IReadOnlyList<Talent> DisciplineTalents => new List<Talent>()
-        {
-            new Talent("Avoid Blow", "", new Dexterity(0), 0, new FreeAction(), 1, true),
-            new Talent("Missile Weapons", "", new Dexterity(0), 0, new StandardAction(), 0, true),
-            new Talent("Mystic Aim", "", new Perception(0), 0, new SimpleAction(), 1, false),
-            new Talent("Thread Weaving (Arrow Weaving)", "", new Perception(0), 0, new StandardAction(), 0, false),
-            new Talent("True Shot", "", new NullAttribute(), 0, new FreeAction(), 2, false)
-        };
         public IReadOnlyList<Talent> NoviceTalentOptions => new List<Talent>()
         {
             new Talent("Awareness", "", new Perception(0), 0, new SimpleAction(), 0, true),

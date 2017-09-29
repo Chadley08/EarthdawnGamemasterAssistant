@@ -2,10 +2,7 @@
 {
     public class FreeAction : ActionType
     {
-        public FreeAction()
-        {
-        }
-
         protected override ActionName _ActionName => ActionName.Free;
+        public override string ToString() => "Free";
     }
 }

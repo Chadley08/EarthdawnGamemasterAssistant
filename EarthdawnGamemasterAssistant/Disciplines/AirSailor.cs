@@ -35,14 +35,6 @@ namespace EarthdawnGamemasterAssistant.Disciplines
         public string Description =>
             "Air Sailors are the swashbuckling brotherhood of the sky. Air Sailors never leave their fellows behind and embrace the idea of togetherness, working to protect and spread civilization, rather than preying upon it.";
 
-        public IReadOnlyList<Talent> DisciplineTalents => new List<Talent>()
-        {
-            new Talent("Avoid Blow", "", new Dexterity(0), 0, new FreeAction(), 1, true),
-            new Talent("Climbing", "", new Dexterity(0), 0, new StandardAction(), 0, true),
-            new Talent("Melee Weapons", "", new Dexterity(0), 0, new StandardAction(), 0, true),
-            new Talent("Thread Weaving (Air Weaving)", "", new Perception(0), 0, new StandardAction(), 0, false),
-            new Talent("Wind Catcher", "", new Willpower(0), 0, new StandardAction(), 1, false),
-        };
         public IReadOnlyList<Talent> NoviceTalentOptions => new List<Talent>()
         {
             new Talent("Acrobatic Defense", "", new Dexterity(0), 0, new SimpleAction(), 1, true),

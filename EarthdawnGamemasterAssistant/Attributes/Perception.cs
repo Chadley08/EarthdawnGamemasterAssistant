@@ -6,6 +6,6 @@
         {
         }
 
-        public override string Name => "Perception";
+        public override string Name => "Per";
     }
 }

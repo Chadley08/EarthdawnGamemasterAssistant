@@ -6,6 +6,6 @@
         {
         }
 
-        public override string Name => "Charisma";
+        public override string Name => "Cha";
     }
 }

@@ -23,7 +23,6 @@ namespace EarthdawnGamemasterAssistant.Disciplines
         IReadOnlyList<RecoveryTestAbilityRule> RecoveryTestAbilityRules { get; }
         IReadOnlyList<SocialDefenseAbilityRule> SocialDefenseAbilityRules { get; }
 
-        IReadOnlyList<Talent> DisciplineTalents { get; }
         IReadOnlyList<Talent> NoviceTalentOptions { get; }
         IReadOnlyList<Talent> JourneymanTalentOptions { get; }
         Talent FreeTalent { get; }

@@ -6,6 +6,6 @@
         {
         }
 
-        public override string Name => "Strength";
+        public override string Name => "Str";
     }
 }

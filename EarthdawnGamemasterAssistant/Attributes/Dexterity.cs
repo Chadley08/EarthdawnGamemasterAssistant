@@ -6,6 +6,6 @@
         {
         }
 
-        public override string Name => "Dexterity";
+        public override string Name => "Dex";
     }
 }

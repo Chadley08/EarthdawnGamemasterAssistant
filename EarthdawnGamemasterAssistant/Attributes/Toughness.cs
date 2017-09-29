@@ -6,6 +6,6 @@
         {
         }
 
-        public override string Name => "Toughness";
+        public override string Name => "Tou";
     }
 }

@@ -6,6 +6,6 @@
         {
         }
 
-        public override string Name => "Willpower";
+        public override string Name => "Wil";
     }
 }
