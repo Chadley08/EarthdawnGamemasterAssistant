@@ -405,6 +405,50 @@ namespace EarthdawnGamemasterAssistant
                 }
             }
 
+            metroGridAbilities.Rows.Clear();
+            selectedDiscipline?.InitiativeAbilityRules?.ToList()
+                .ForEach(
+                    abilityRule => metroGridAbilities.Rows.Add(
+                        abilityRule.Description,
+                        abilityRule.BonusAmount,
+                        abilityRule.CircleRequirement));
+            selectedDiscipline?.PhysicalDefenseAbilityRules.ToList()
+                .ForEach(
+                    abilityRule => metroGridAbilities.Rows.Add(
+                        abilityRule.Description,
+                        abilityRule.BonusAmount,
+                        abilityRule.CircleRequirement));
+            selectedDiscipline?.MysticDefenseAbilityRules?.ToList()
+                .ForEach(
+                    abilityRule => metroGridAbilities.Rows.Add(
+                        abilityRule.Description,
+                        abilityRule.BonusAmount,
+                        abilityRule.CircleRequirement));
+            selectedDiscipline?.SocialDefenseAbilityRules?.ToList()
+                .ForEach(
+                    abilityRule => metroGridAbilities.Rows.Add(
+                        abilityRule.Description,
+                        abilityRule.BonusAmount,
+                        abilityRule.CircleRequirement));
+            selectedDiscipline?.KarmaAbilityRules?.ToList()
+                .ForEach(
+                    abilityRule => metroGridAbilities.Rows.Add(
+                        abilityRule.Description,
+                        abilityRule.BonusAmount,
+                        abilityRule.CircleRequirement));
+            selectedDiscipline?.GeneralAbilityRules?.ToList()
+                .ForEach(
+                    abilityRule => metroGridAbilities.Rows.Add(
+                        abilityRule.Description,
+                        abilityRule.BonusAmount,
+                        abilityRule.CircleRequirement));
+            selectedDiscipline?.RecoveryTestAbilityRules?.ToList()
+                .ForEach(
+                    abilityRule => metroGridAbilities.Rows.Add(
+                        abilityRule.Description,
+                        abilityRule.BonusAmount,
+                        abilityRule.CircleRequirement));
+            metroGridAbilities.Sort(metroGridAbilities.Columns[2], ListSortDirection.Ascending);
         }
     }
 }
