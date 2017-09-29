@@ -25,7 +25,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
 
         private IDiscipline GetValue(string key)
         {
-            return Disciplines.First(discipline => discipline.Name == key);
+            return Disciplines.FirstOrDefault(discipline => discipline.Name == key);
         }
 
         public int GetHighestCircle()

@@ -337,6 +337,19 @@ namespace EarthdawnGamemasterAssistant
 
         private void metroGridDisciplines_SelectionChanged(object sender, EventArgs e)
         {
+            var disciplineName = metroGridDisciplines.SelectedRows[0].Cells[0].Value.ToString();
+            var selectedDiscipline = CurrentCharacterInfo.Disciplines[disciplineName];
+            DisplaySelectedDiscipline(selectedDiscipline);
+        }
+
+        private void DisplaySelectedDiscipline(IDiscipline selectedDiscipline)
+        {
+            metroLabelDisciplineDescription.Text = selectedDiscipline?.Description;
+
+            metroLabelImportantAttirbutes.Text = string.Empty;
+            selectedDiscipline?.ImportantAttributes.ToList()
+                .ForEach(attribute => metroLabelImportantAttirbutes.Text += attribute.ToString() + "\r\n");
+
 
         }
     }
