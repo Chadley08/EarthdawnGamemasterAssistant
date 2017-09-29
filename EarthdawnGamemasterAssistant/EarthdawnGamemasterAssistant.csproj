@@ -60,6 +60,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\NullAction.cs" />
+    <Compile Include="Attributes\NullAttribute.cs" />
     <Compile Include="Disciplines\DisciplineSet.cs" />
     <Compile Include="Disciplines\Archer.cs" />
     <Compile Include="Attributes\EarthdawnAttribute.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Actions\FreeAction.cs" />
     <Compile Include="Actions\ActionType.cs" />
     <Compile Include="Actions\ActionName.cs" />
+    <Compile Include="Talents\NullTalent.cs" />
     <Compile Include="Talents\Talent.cs" />
     <Compile Include="Attributes\Toughness.cs" />
     <Compile Include="Attributes\Willpower.cs" />

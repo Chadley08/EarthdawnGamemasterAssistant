@@ -334,5 +334,10 @@ namespace EarthdawnGamemasterAssistant
             var cell = (DataGridViewComboBoxCell)metroGridDisciplines.SelectedRows[0].Cells[1];
             cell.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
         }
+
+        private void metroGridDisciplines_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
