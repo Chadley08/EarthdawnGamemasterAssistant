@@ -183,7 +183,7 @@ namespace EarthdawnGamemasterAssistant
 
                 case "Race":
                     metroLabelMovementLand.Text = CurrentCharacterInfo.Race?.MovementRate.ToString() ?? "0";
-                    CurrentCharacterInfo.MaxKarma = (int)numericUpDownMaxKarma.Value;                    
+                    CurrentCharacterInfo.MaxKarma = (int)numericUpDownMaxKarma.Value;
                     SetRacialAbilities();
                     break;
             }

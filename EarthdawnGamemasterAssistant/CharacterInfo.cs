@@ -2,9 +2,7 @@
 using EarthdawnGamemasterAssistant.Disciplines;
 using EarthdawnGamemasterAssistant.Racial;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace EarthdawnGamemasterAssistant
@@ -88,7 +86,8 @@ namespace EarthdawnGamemasterAssistant
         public int MysticArmor => Convert.ToInt32(Math.Floor(Convert.ToDouble(Wil.Value) / 6));
 
         public int MysticDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Wil.Value) / 2, MidpointRounding.AwayFromZero)) + GetHighestMysticDefenseBonus();
+                                        Math.Round(Convert.ToDouble(Wil.Value) / 2, MidpointRounding.AwayFromZero)) +
+                                    GetHighestMysticDefenseBonus();
 
         public string Name { get; set; }
 
@@ -104,7 +103,8 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int PhysicalDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) + Disciplines.GetHighestPhysicalDefenseBonus();
+                                          Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) +
+                                      Disciplines.GetHighestPhysicalDefenseBonus();
 
         private int GetHighestMysticDefenseBonus()
         {
@@ -133,7 +133,8 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int RecoveryTests => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Tou.Value) / 6, MidpointRounding.AwayFromZero)) + GetHighestRecoveryTestBonus();
+                                        Math.Round(Convert.ToDouble(Tou.Value) / 6, MidpointRounding.AwayFromZero)) +
+                                    GetHighestRecoveryTestBonus();
 
         private int GetHighestRecoveryTestBonus()
         {
@@ -141,7 +142,8 @@ namespace EarthdawnGamemasterAssistant
         }
 
         public int SocialDefense => Convert.ToInt32(
-            Math.Round(Convert.ToDouble(Cha.Value) / 2, MidpointRounding.AwayFromZero)) + GetHighestSocialDefenseBonus();
+                                        Math.Round(Convert.ToDouble(Cha.Value) / 2, MidpointRounding.AwayFromZero)) +
+                                    GetHighestSocialDefenseBonus();
 
         public Strength Str
         {

@@ -1,4 +1,4 @@
-﻿namespace EarthdawnGamemasterAssistant.Talents
+﻿namespace EarthdawnGamemasterAssistant.Actions
 {
     public class FreeAction : ActionType
     {

@@ -1,6 +1,6 @@
 ﻿using EarthdawnGamemasterAssistant.Talents;
 
-namespace EarthdawnGamemasterAssistant.Disciplines
+namespace EarthdawnGamemasterAssistant.Actions
 {
     internal class SustainedAction : ActionType
     {

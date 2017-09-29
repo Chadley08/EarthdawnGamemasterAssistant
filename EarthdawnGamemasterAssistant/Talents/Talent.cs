@@ -1,4 +1,5 @@
-﻿using EarthdawnGamemasterAssistant.Attributes;
+﻿using EarthdawnGamemasterAssistant.Actions;
+using EarthdawnGamemasterAssistant.Attributes;
 
 namespace EarthdawnGamemasterAssistant.Talents
 {

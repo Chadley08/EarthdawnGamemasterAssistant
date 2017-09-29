@@ -70,19 +70,18 @@
     <Compile Include="Dice\Die.cs" />
     <Compile Include="Dice\StaticRandom.cs" />
     <Compile Include="CharacteristicTables.cs" />
-    <Compile Include="Disciplines\CharacteristicBonus.cs" />
     <Compile Include="Disciplines\IDiscipline.cs" />
     <Compile Include="Disciplines\AirSailor.cs" />
-    <Compile Include="Disciplines\GeneralAbilityRule.cs" />
-    <Compile Include="Disciplines\InitiativeAbilityRule.cs" />
-    <Compile Include="Disciplines\KarmaAbilityRule.cs" />
-    <Compile Include="Disciplines\MysticDefenseAbilityRule.cs" />
-    <Compile Include="Disciplines\PhysicalDefenseAbilityRule.cs" />
-    <Compile Include="Disciplines\RecoveryTestAbilityRule.cs" />
-    <Compile Include="Disciplines\SimpleAction.cs" />
-    <Compile Include="Disciplines\SocialDefenseAbilityRule.cs" />
-    <Compile Include="Disciplines\StandardAction.cs" />
-    <Compile Include="Disciplines\SustainedAction.cs" />
+    <Compile Include="AbilityRules\GeneralAbilityRule.cs" />
+    <Compile Include="AbilityRules\InitiativeAbilityRule.cs" />
+    <Compile Include="AbilityRules\KarmaAbilityRule.cs" />
+    <Compile Include="AbilityRules\MysticDefenseAbilityRule.cs" />
+    <Compile Include="AbilityRules\PhysicalDefenseAbilityRule.cs" />
+    <Compile Include="AbilityRules\RecoveryTestAbilityRule.cs" />
+    <Compile Include="Actions\SimpleAction.cs" />
+    <Compile Include="AbilityRules\SocialDefenseAbilityRule.cs" />
+    <Compile Include="Actions\StandardAction.cs" />
+    <Compile Include="Actions\SustainedAction.cs" />
     <Compile Include="FormCharacterCreator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,9 +111,9 @@
     <Compile Include="Racial\Tskrang.cs" />
     <Compile Include="Racial\Windling.cs" />
     <Compile Include="Attributes\Strength.cs" />
-    <Compile Include="Talents\FreeAction.cs" />
-    <Compile Include="Talents\ActionType.cs" />
-    <Compile Include="Talents\ActionName.cs" />
+    <Compile Include="Actions\FreeAction.cs" />
+    <Compile Include="Actions\ActionType.cs" />
+    <Compile Include="Actions\ActionName.cs" />
     <Compile Include="Talents\Talent.cs" />
     <Compile Include="Attributes\Toughness.cs" />
     <Compile Include="Attributes\Willpower.cs" />
@@ -148,5 +147,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
