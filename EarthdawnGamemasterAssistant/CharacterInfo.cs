@@ -1,11 +1,11 @@
-﻿using EarthdawnGamemasterAssistant.Attributes;
-using EarthdawnGamemasterAssistant.Disciplines;
-using EarthdawnGamemasterAssistant.Racial;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Racial;
 
-namespace EarthdawnGamemasterAssistant
+namespace EarthdawnGamemasterAssistant.CharacterGenerator
 {
     public class CharacterInfo : INotifyPropertyChanged
     {

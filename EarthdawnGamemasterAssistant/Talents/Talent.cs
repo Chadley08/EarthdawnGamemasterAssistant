@@ -1,7 +1,7 @@
-﻿using EarthdawnGamemasterAssistant.Actions;
-using EarthdawnGamemasterAssistant.Attributes;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
 
-namespace EarthdawnGamemasterAssistant.Talents
+namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
 {
     public class Talent
     {

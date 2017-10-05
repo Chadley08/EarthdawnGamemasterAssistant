@@ -57,9 +57,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EarthdawnGamemasterAssistant\EarthdawnGamemasterAssistant.csproj">
+    <ProjectReference Include="..\EarthdawnGamemasterAssistant\EarthdawnGamemasterAssistant.CharacterGenerator.csproj">
       <Project>{50F63D8B-05C5-4CB5-AC40-BBFA2CC81BE5}</Project>
-      <Name>EarthdawnGamemasterAssistant</Name>
+      <Name>EarthdawnGamemasterAssistant.CharacterGenerator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

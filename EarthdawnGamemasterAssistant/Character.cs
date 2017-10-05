@@ -1,4 +1,4 @@
-﻿namespace EarthdawnGamemasterAssistant
+﻿namespace EarthdawnGamemasterAssistant.CharacterGenerator
 {
     public class Character
     {

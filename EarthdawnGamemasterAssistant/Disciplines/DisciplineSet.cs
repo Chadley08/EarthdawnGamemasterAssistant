@@ -1,10 +1,10 @@
-﻿using EarthdawnGamemasterAssistant.Annotations;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Properties;
 
-namespace EarthdawnGamemasterAssistant.Disciplines
+namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 {
     public class DisciplineSet : INotifyPropertyChanged
     {

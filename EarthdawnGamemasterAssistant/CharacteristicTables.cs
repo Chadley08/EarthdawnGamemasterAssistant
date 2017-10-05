@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace EarthdawnGamemasterAssistant
+namespace EarthdawnGamemasterAssistant.CharacterGenerator
 {
     public static class CharacteristicTables
     {
@@ -116,15 +116,11 @@ namespace EarthdawnGamemasterAssistant
 
                 default:
                     if (difference < -2)
-                    {
                         cost = -2;
-                    }
                     Debug.WriteLine("EarthdawnAttribute is outside expected normal value range.");
                     if (difference > 8)
-                    {
                         throw new Exception(
                             "EarthdawnAttribute value cannot be more than 8 of the race's base attribute value");
-                    }
                     break;
             }
             return cost;
@@ -186,9 +182,7 @@ namespace EarthdawnGamemasterAssistant
                 var count = Convert.ToInt32(actualDie[0]);
                 var value = Convert.ToInt32(actualDie[1]);
                 for (var i = 0; i < count; i++)
-                {
                     actionDice.Add(value);
-                }
             }
             return actionDice;
         }
@@ -201,18 +195,14 @@ namespace EarthdawnGamemasterAssistant
         public static int GetStepFromValue(int baseValue)
         {
             if (baseValue >= 0 && baseValue <= 40)
-            {
                 return Convert.ToInt32(Math.Round(Convert.ToDouble(baseValue) / 3 + 1, MidpointRounding.AwayFromZero));
-            }
             throw new ArgumentException("Step values must be between 0 and 40.");
         }
 
         public static int GetCarryingCapacityFromAttributeValue(int baseValue)
         {
             if (baseValue >= 1 && baseValue <= 25)
-            {
                 return CarryingCapacity[baseValue];
-            }
             throw new ArgumentException("BaseValue is outside attribute range.");
         }
     }

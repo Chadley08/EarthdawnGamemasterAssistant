@@ -1,7 +1,7 @@
-﻿using EarthdawnGamemasterAssistant.Attributes;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
 
-namespace EarthdawnGamemasterAssistant.Racial
+namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
 {
     public class Dwarf : IRace
     {

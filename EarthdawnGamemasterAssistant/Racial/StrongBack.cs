@@ -1,4 +1,6 @@
-﻿namespace EarthdawnGamemasterAssistant.Racial
+﻿using System;
+
+namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
 {
     public class StrongBack : RacialAbility
     {
@@ -10,7 +12,7 @@
 
         protected override void Apply()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

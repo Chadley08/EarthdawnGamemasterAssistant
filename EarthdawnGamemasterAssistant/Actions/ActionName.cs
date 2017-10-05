@@ -1,4 +1,4 @@
-﻿namespace EarthdawnGamemasterAssistant.Actions
+﻿namespace EarthdawnGamemasterAssistant.CharacterGenerator.Actions
 {
     public enum ActionName
     {

@@ -1,14 +1,15 @@
-﻿using EarthdawnGamemasterAssistant.Attributes;
-using EarthdawnGamemasterAssistant.Disciplines;
-using EarthdawnGamemasterAssistant.Racial;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Racial;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using EarthdawnGamemasterAssistant.Talents;
 
-namespace EarthdawnGamemasterAssistant
+namespace EarthdawnGamemasterAssistant.UI
 {
     public partial class FormCharacterCreator : Form
     {
@@ -64,7 +65,7 @@ namespace EarthdawnGamemasterAssistant
         private void metroGridDisciplines_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             var disciplineName = metroGridDisciplines.SelectedRows[0].Cells[0].Value;
-            var changedCell = (DataGridViewComboBoxCell)metroGridDisciplines.Rows[e.RowIndex].Cells[1];
+            var changedCell = (DataGridViewComboBoxCell) metroGridDisciplines.Rows[e.RowIndex].Cells[1];
             if (changedCell.Value != null)
             {
                 var selectedDiscipline =
@@ -184,7 +185,7 @@ namespace EarthdawnGamemasterAssistant
 
                 case "Race":
                     metroLabelMovementLand.Text = CurrentCharacterInfo.Race?.MovementRate.ToString() ?? "0";
-                    CurrentCharacterInfo.MaxKarma = (int)numericUpDownMaxKarma.Value;
+                    CurrentCharacterInfo.MaxKarma = (int) numericUpDownMaxKarma.Value;
                     SetRacialAbilities();
                     break;
             }
@@ -232,7 +233,7 @@ namespace EarthdawnGamemasterAssistant
                 var totalCost = 0;
                 if (diff > 0)
                 {
-                    totalCost = dexCost + strCost + touCost + perCost + wilCost + chaCost + (int)diff;
+                    totalCost = dexCost + strCost + touCost + perCost + wilCost + chaCost + (int) diff;
                 }
                 else
                 {
@@ -240,38 +241,38 @@ namespace EarthdawnGamemasterAssistant
                 }
 
                 metroLabelAttributesPointsAvailable.Text = (25 - totalCost).ToString();
-                CurrentCharacterInfo.AvailableAttributePoints = 25 - (int)totalCost;
+                CurrentCharacterInfo.AvailableAttributePoints = 25 - (int) totalCost;
             }
         }
 
         private void numericUpDownStr_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Str = new Strength((int)numericUpDownStr.Value);
+            CurrentCharacterInfo.Str = new Strength((int) numericUpDownStr.Value);
         }
 
         private void numericUpDownDex_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Dex = new Dexterity((int)numericUpDownDex.Value);
+            CurrentCharacterInfo.Dex = new Dexterity((int) numericUpDownDex.Value);
         }
 
         private void numericUpDownTou_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Tou = new Toughness((int)numericUpDownTou.Value);
+            CurrentCharacterInfo.Tou = new Toughness((int) numericUpDownTou.Value);
         }
 
         private void numericUpDownPer_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Per = new Perception((int)numericUpDownPer.Value);
+            CurrentCharacterInfo.Per = new Perception((int) numericUpDownPer.Value);
         }
 
         private void numericUpDownWil_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Wil = new Willpower((int)numericUpDownWil.Value);
+            CurrentCharacterInfo.Wil = new Willpower((int) numericUpDownWil.Value);
         }
 
         private void numericUpDownCha_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Cha = new Charisma((int)numericUpDownCha.Value);
+            CurrentCharacterInfo.Cha = new Charisma((int) numericUpDownCha.Value);
         }
 
         private void metroComboBoxRace_SelectedIndexChanged(object sender, EventArgs e)
@@ -287,37 +288,37 @@ namespace EarthdawnGamemasterAssistant
 
         private void numericUpDownMaxKarma_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.MaxKarma = (int)numericUpDownMaxKarma.Value;
+            CurrentCharacterInfo.MaxKarma = (int) numericUpDownMaxKarma.Value;
         }
 
         private void numericUpDownCircleDex_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Dex = new Dexterity((int)(numericUpDownDex.Value + numericUpDownCircleDex.Value));
+            CurrentCharacterInfo.Dex = new Dexterity((int) (numericUpDownDex.Value + numericUpDownCircleDex.Value));
         }
 
         private void numericUpDownCircleStr_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Str = new Strength((int)(numericUpDownStr.Value + numericUpDownCircleStr.Value));
+            CurrentCharacterInfo.Str = new Strength((int) (numericUpDownStr.Value + numericUpDownCircleStr.Value));
         }
 
         private void numericUpDownCircleTou_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Tou = new Toughness((int)(numericUpDownTou.Value + numericUpDownCircleTou.Value));
+            CurrentCharacterInfo.Tou = new Toughness((int) (numericUpDownTou.Value + numericUpDownCircleTou.Value));
         }
 
         private void numericUpDownCirclePer_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Per = new Perception((int)(numericUpDownPer.Value + numericUpDownCirclePer.Value));
+            CurrentCharacterInfo.Per = new Perception((int) (numericUpDownPer.Value + numericUpDownCirclePer.Value));
         }
 
         private void numericUpDownCircleWil_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Wil = new Willpower((int)(numericUpDownWil.Value + numericUpDownCircleWil.Value));
+            CurrentCharacterInfo.Wil = new Willpower((int) (numericUpDownWil.Value + numericUpDownCircleWil.Value));
         }
 
         private void numericUpDownCircleCha_ValueChanged(object sender, EventArgs e)
         {
-            CurrentCharacterInfo.Cha = new Charisma((int)(numericUpDownCha.Value + numericUpDownCircleCha.Value));
+            CurrentCharacterInfo.Cha = new Charisma((int) (numericUpDownCha.Value + numericUpDownCircleCha.Value));
         }
 
         private void metroGridDisciplines_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -326,13 +327,13 @@ namespace EarthdawnGamemasterAssistant
             {
                 return;
             }
-            var cell = (DataGridViewComboBoxCell)metroGridDisciplines.SelectedRows[0].Cells[1];
+            var cell = (DataGridViewComboBoxCell) metroGridDisciplines.SelectedRows[0].Cells[1];
             cell.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
         }
 
         private void metroGridDisciplines_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
-            var cell = (DataGridViewComboBoxCell)metroGridDisciplines.SelectedRows[0].Cells[1];
+            var cell = (DataGridViewComboBoxCell) metroGridDisciplines.SelectedRows[0].Cells[1];
             cell.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
         }
 

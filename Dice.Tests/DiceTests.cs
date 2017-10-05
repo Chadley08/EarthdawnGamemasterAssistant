@@ -1,5 +1,5 @@
-﻿using EarthdawnGamemasterAssistant;
-using EarthdawnGamemasterAssistant.Dice;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Dice;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 

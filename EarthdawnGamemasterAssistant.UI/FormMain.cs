@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace EarthdawnGamemasterAssistant
+namespace EarthdawnGamemasterAssistant.UI
 {
     public partial class FormMain : Form
     {

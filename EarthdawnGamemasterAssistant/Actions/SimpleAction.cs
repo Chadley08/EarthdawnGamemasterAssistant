@@ -1,10 +1,9 @@
-﻿using EarthdawnGamemasterAssistant.Talents;
-
-namespace EarthdawnGamemasterAssistant.Actions
+﻿namespace EarthdawnGamemasterAssistant.CharacterGenerator.Actions
 {
     internal class SimpleAction : ActionType
     {
         protected override ActionName _ActionName => ActionName.Simple;
+
         public override string ToString() => "Simple";
     }
 }

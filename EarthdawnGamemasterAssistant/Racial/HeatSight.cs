@@ -1,4 +1,4 @@
-﻿namespace EarthdawnGamemasterAssistant.Racial
+﻿namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
 {
     public class HeatSight : RacialAbility
     {

@@ -1,4 +1,4 @@
-﻿namespace EarthdawnGamemasterAssistant.AbilityRules
+﻿namespace EarthdawnGamemasterAssistant.CharacterGenerator.AbilityRules
 {
     public class KarmaAbilityRule
     {

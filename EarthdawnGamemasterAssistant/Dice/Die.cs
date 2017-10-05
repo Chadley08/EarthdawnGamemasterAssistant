@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace EarthdawnGamemasterAssistant.Dice
+namespace EarthdawnGamemasterAssistant.CharacterGenerator.Dice
 {
     public class Die
     {
@@ -10,9 +10,7 @@ namespace EarthdawnGamemasterAssistant.Dice
         public Die(int sides)
         {
             if (sides == 0)
-            {
                 throw new ArgumentException("Die cannot have zero sides.");
-            }
             Sides = sides;
         }
 
@@ -23,12 +21,8 @@ namespace EarthdawnGamemasterAssistant.Dice
 
             // The steps associated with these "sides" of "dice" cannot explode.
             if (Sides != 2 && Sides != 3)
-            {
                 if (toCheck == Sides)
-                {
                     total = RollAgain(total);
-                }
-            }
             Debug.WriteLine(total);
             return total;
         }
@@ -37,13 +31,9 @@ namespace EarthdawnGamemasterAssistant.Dice
         {
             var toCheck = StaticRandom.Instance.Next(Sides) + 1;
             if (toCheck == Sides)
-            {
                 total += RollAgain(total);
-            }
             else
-            {
                 total += toCheck;
-            }
             return total;
         }
 

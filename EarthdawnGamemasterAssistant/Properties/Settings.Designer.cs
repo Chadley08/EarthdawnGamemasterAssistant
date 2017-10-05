@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EarthdawnGamemasterAssistant.Properties {
+namespace EarthdawnGamemasterAssistant.CharacterGenerator.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

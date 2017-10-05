@@ -1,13 +1,13 @@
-﻿using EarthdawnGamemasterAssistant.AbilityRules;
-using EarthdawnGamemasterAssistant.Actions;
-using EarthdawnGamemasterAssistant.Annotations;
-using EarthdawnGamemasterAssistant.Attributes;
-using EarthdawnGamemasterAssistant.Talents;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using EarthdawnGamemasterAssistant.CharacterGenerator.AbilityRules;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Properties;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
 
-namespace EarthdawnGamemasterAssistant.Disciplines
+namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 {
     public class AirSailor : IDiscipline
     {
@@ -48,6 +48,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
             new Talent("Taunt", "", new Charisma(0), 0, new SimpleAction(), 1, true),
             new Talent("Throwing Weapons", "", new Dexterity(0), 0, new StandardAction(), 0, true)
         };
+
         public IReadOnlyList<Talent> JourneymanTalentOptions => new List<Talent>()
         {
             new Talent("Air Speaking", "", new Perception(0), 0, new SimpleAction(), 1, false),
@@ -61,10 +62,12 @@ namespace EarthdawnGamemasterAssistant.Disciplines
             new Talent("Second Weapon", "", new Dexterity(0), 0, new SimpleAction(), 1, true),
             new Talent("Surprise Strike", "", new Strength(0), 0, new FreeAction(), 1, true)
         };
+
         public Talent FreeTalent =>
             new Talent("Air Sailing", "", new Willpower(0), 0, new SustainedAction(), 0, true);
 
         public IReadOnlyList<InitiativeAbilityRule> InitiativeAbilityRules { get; }
+
         public IReadOnlyList<GeneralAbilityRule> GeneralAbilityRules => new List<GeneralAbilityRule>()
         {
             new GeneralAbilityRule(
@@ -73,14 +76,17 @@ namespace EarthdawnGamemasterAssistant.Disciplines
                 5
             )
         };
+
         public IReadOnlyList<RecoveryTestAbilityRule> RecoveryTestAbilityRules => new List<RecoveryTestAbilityRule>()
         {
             new RecoveryTestAbilityRule("The adept gains an additional Recovery test", 0, 7)
         };
+
         public IReadOnlyList<SocialDefenseAbilityRule> SocialDefenseAbilityRules => new List<SocialDefenseAbilityRule>()
         {
             new SocialDefenseAbilityRule("The adept adds +1 to their Social Defense", 1, 4)
         };
+
         public IReadOnlyList<PhysicalDefenseAbilityRule> PhysicalDefenseAbilityRules => new
             List<PhysicalDefenseAbilityRule>()
             {
@@ -88,7 +94,9 @@ namespace EarthdawnGamemasterAssistant.Disciplines
                 new PhysicalDefenseAbilityRule("The adept adds +2 to their Physical Defense", 2, 6),
                 new PhysicalDefenseAbilityRule("The adept adds +3 to their Physical Defense", 3, 8)
             };
+
         public IReadOnlyList<MysticDefenseAbilityRule> MysticDefenseAbilityRules { get; }
+
         public IReadOnlyList<KarmaAbilityRule> KarmaAbilityRules => new List<KarmaAbilityRule>()
         {
             new KarmaAbilityRule(

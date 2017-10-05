@@ -1,4 +1,4 @@
-﻿namespace EarthdawnGamemasterAssistant
+﻿namespace EarthdawnGamemasterAssistant.UI
 {
     partial class FormCharacterCreator
     {

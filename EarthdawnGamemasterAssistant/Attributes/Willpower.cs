@@ -1,4 +1,4 @@
-﻿namespace EarthdawnGamemasterAssistant.Attributes
+﻿namespace EarthdawnGamemasterAssistant.CharacterGenerator.Attributes
 {
     public class Willpower : EarthdawnAttribute
     {

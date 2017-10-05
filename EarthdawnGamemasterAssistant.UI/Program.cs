@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace EarthdawnGamemasterAssistant
+namespace EarthdawnGamemasterAssistant.UI
 {
     internal static class Program
     {

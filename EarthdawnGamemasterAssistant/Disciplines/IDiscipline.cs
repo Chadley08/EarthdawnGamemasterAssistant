@@ -1,9 +1,9 @@
-﻿using EarthdawnGamemasterAssistant.AbilityRules;
-using EarthdawnGamemasterAssistant.Talents;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
+using EarthdawnGamemasterAssistant.CharacterGenerator.AbilityRules;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
 
-namespace EarthdawnGamemasterAssistant.Disciplines
+namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 {
     public interface IDiscipline : INotifyPropertyChanged
     {
@@ -13,7 +13,7 @@ namespace EarthdawnGamemasterAssistant.Disciplines
         string Description { get; }
 
         IReadOnlyList<string> ImportantAttributes { get; }
-        
+
         IReadOnlyList<PhysicalDefenseAbilityRule> PhysicalDefenseAbilityRules { get; }
 
         IReadOnlyList<MysticDefenseAbilityRule> MysticDefenseAbilityRules { get; }
