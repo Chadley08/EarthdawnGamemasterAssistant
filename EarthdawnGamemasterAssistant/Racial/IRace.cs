@@ -7,6 +7,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
     {
         int KarmaModifier { get; }
         int MovementRate { get; }
+        int CarryingCapacityModifer { get; }
 
         IReadOnlyList<RacialAbility> GetRacialAbilities();
 

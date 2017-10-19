@@ -48,10 +48,17 @@ namespace EarthdawnGamemasterAssistant.UI
             switch (e.PropertyName)
             {
                 case "EarthdawnCircle":
+                    UpdateTalentGrid();
                     metroLabelPhysicalDefense.Text = CurrentCharacterInfo.PhysicalDefense.ToString();
                     break;
             }
         }
+
+        private void UpdateTalentGrid()
+        {
+            throw new NotImplementedException();
+        }
+
 
         private void metroGridDisciplines_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
@@ -186,6 +193,7 @@ namespace EarthdawnGamemasterAssistant.UI
                 case "Race":
                     metroLabelMovementLand.Text = CurrentCharacterInfo.Race?.MovementRate.ToString() ?? "0";
                     CurrentCharacterInfo.MaxKarma = (int) numericUpDownMaxKarma.Value;
+                    metroLabelCarryingCapacity.Text = CurrentCharacterInfo.CarryingCapacity.ToString();
                     SetRacialAbilities();
                     break;
             }
@@ -281,7 +289,6 @@ namespace EarthdawnGamemasterAssistant.UI
             {
                 case "Dwarf":
                     CurrentCharacterInfo.Race = new Dwarf(CurrentCharacterInfo);
-
                     break;
             }
         }
@@ -450,6 +457,24 @@ namespace EarthdawnGamemasterAssistant.UI
                         abilityRule.BonusAmount,
                         abilityRule.CircleRequirement));
             metroGridAbilities.Sort(metroGridAbilities.Columns[2], ListSortDirection.Ascending);
+        }
+
+        private void metroGridTalents_EditingControlShowing(object sender,
+            DataGridViewEditingControlShowingEventArgs e)
+        {
+            var cb = e.Control as ComboBox;
+            if (cb == null) return;
+
+            // First remove event handler to keep from attaching multiple times
+            cb.SelectedIndexChanged -= ComboBoxTalent_SelectedIndexChanged;
+
+            // Now attach the event handler
+            cb.SelectedIndexChanged += ComboBoxTalent_SelectedIndexChanged;
+        }
+
+        private void ComboBoxTalent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

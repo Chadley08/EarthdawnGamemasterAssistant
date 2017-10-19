@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines;
@@ -31,7 +32,8 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
 
         public int AvailableLegend { get; set; }
 
-        public int CarryingCapacity => CharacteristicTables.GetCarryingCapacityFromAttributeValue(Str.Value);
+        public int CarryingCapacity => CharacteristicTables.GetCarryingCapacityFromAttributeValue(
+            Str.Value + (Race?.CarryingCapacityModifer ?? 0));
 
         public Charisma Cha
         {
@@ -67,13 +69,13 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
         public int DurabilityRank { get; set; }
 
         public string InitiativeDice => CharacteristicTables.GetStepDice(
-            CharacteristicTables.GetStepFromValue(Dex.Value - ArmorPenalty) + GetHighestInitiativeBonus());
+            CharacteristicTables.GetStepFromValue(Dex.Value - ArmorPenalty) + Disciplines.InitiativeBonus());
 
         public int LiftingCapacity => CarryingCapacity * 2;
 
         public int MaxKarma
         {
-            get => _maxKarma + GetHighestKarmaBonus();
+            get => _maxKarma + Disciplines.KarmaBonus();
             set
             {
                 _maxKarma = value;
@@ -87,7 +89,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
 
         public int MysticDefense => Convert.ToInt32(
                                         Math.Round(Convert.ToDouble(Wil.Value) / 2, MidpointRounding.AwayFromZero)) +
-                                    GetHighestMysticDefenseBonus();
+                                    Disciplines.MysticDefenseBonus();
 
         public string Name { get; set; }
 
@@ -104,22 +106,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
 
         public int PhysicalDefense => Convert.ToInt32(
                                           Math.Round(Convert.ToDouble(Dex.Value) / 2, MidpointRounding.AwayFromZero)) +
-                                      Disciplines.GetHighestPhysicalDefenseBonus();
-
-        private int GetHighestMysticDefenseBonus()
-        {
-            return 0;
-        }
-
-        private int GetHighestInitiativeBonus()
-        {
-            return 0;
-        }
-
-        private int GetHighestSocialDefenseBonus()
-        {
-            return 0;
-        }
+                                      Disciplines.PhysicalDefenseBonus();
 
         public IRace Race
         {
@@ -134,16 +121,11 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
 
         public int RecoveryTests => Convert.ToInt32(
                                         Math.Round(Convert.ToDouble(Tou.Value) / 6, MidpointRounding.AwayFromZero)) +
-                                    GetHighestRecoveryTestBonus();
-
-        private int GetHighestRecoveryTestBonus()
-        {
-            return 0;
-        }
+                                    Disciplines.RecoveryTestBonus();
 
         public int SocialDefense => Convert.ToInt32(
                                         Math.Round(Convert.ToDouble(Cha.Value) / 2, MidpointRounding.AwayFromZero)) +
-                                    GetHighestSocialDefenseBonus();
+                                    Disciplines.SocialDefenseBonus();
 
         public Strength Str
         {
@@ -169,7 +151,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
             }
         }
 
-        public int UnconsciousnessRating => Tou.Value * 2 + Disciplines.GetHighestDurabilityRating() * DurabilityRank;
+        public int UnconsciousnessRating => Tou.Value * 2 + Disciplines.DurabilityRatingBonus() * DurabilityRank;
 
         public Willpower Wil
         {
@@ -188,11 +170,6 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public int GetHighestKarmaBonus()
-        {
-            return 0;
         }
     }
 }

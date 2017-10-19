@@ -1,4 +1,5 @@
 ﻿using System;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
 {
@@ -8,11 +9,6 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
             "Strong Back",
             "Dwarf charaters have a +2 bonus to their Strength for the purposes of determining carrying capacity. (Note that this is already accounted for on your character sheet.)")
         {
-        }
-
-        protected override void Apply()
-        {
-            throw new NotImplementedException();
         }
     }
 }

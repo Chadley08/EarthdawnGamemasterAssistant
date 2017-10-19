@@ -8,7 +8,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
         public string Name { get; }
         public string Description { get; }
         public EarthdawnAttribute BaseEarthdawnAttribute { get; }
-        public int Rank { get; }
+        public int Rank { get; private set; }
         public ActionType Action { get; }
         public int Strain { get; }
         public bool SkillUse { get; }

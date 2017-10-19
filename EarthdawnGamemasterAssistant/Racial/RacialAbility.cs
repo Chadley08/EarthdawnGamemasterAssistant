@@ -10,7 +10,5 @@
             Name = name;
             Description = description;
         }
-
-        protected abstract void Apply();
     }
 }

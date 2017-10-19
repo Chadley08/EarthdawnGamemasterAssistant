@@ -12,6 +12,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
         public Willpower BaseWil => new Willpower(11);
         public Charisma BaseCha => new Charisma(10);
         public int MovementRate => 10;
+        public int CarryingCapacityModifer => 2;
         public int KarmaModifier => 4;
 
         public CharacterInfo _CharacterInfo { get; }
