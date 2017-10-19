@@ -165,7 +165,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
                 5,
                 new List<Talent>()
                 {
-                    new Talent("Hearteniing Laugh", "", new Charisma(0), 0, new SimpleAction(), 1, true)
+                    new Talent("Heartening Laugh", "", new Charisma(0), 0, new SimpleAction(), 1, true)
                 }
             },
             {

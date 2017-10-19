@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Properties;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 {
@@ -152,6 +153,27 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
             return grouping.Sum(
                 @group => @group.Max(
                     tuple => tuple.DisciplineCircle >= tuple.CircleRequirement ? tuple.BonusAmount : 0));
+        }
+
+        public List<Talent> AvailableTalents()
+        {
+            var toReturn = new List<Talent>();
+            Disciplines.ForEach(
+                discipline =>
+                {
+                    if (discipline.EarthdawnCircle > 0)
+                    {
+                        toReturn.Add(discipline.FreeTalent);
+                        toReturn.AddRange(discipline.NoviceTalentOptions);
+                    }
+                    if (discipline.EarthdawnCircle > 3)
+                    {
+                        toReturn.AddRange(discipline.JourneymanTalentOptions);
+                    }
+                    var talentsAtCircle = discipline.TalentsAtCircle.Where(talentCircle => talentCircle.Key == discipline.EarthdawnCircle).ToList();
+                    talentsAtCircle.ForEach(talent => toReturn.AddRange(talent.Value));
+                });
+            return toReturn;
         }
     }
 }

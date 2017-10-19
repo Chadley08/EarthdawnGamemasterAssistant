@@ -45,18 +45,52 @@ namespace EarthdawnGamemasterAssistant.UI
 
         private void Disciplines_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+            var discipline = (IDiscipline) sender;
             switch (e.PropertyName)
             {
                 case "EarthdawnCircle":
-                    UpdateTalentGrid();
+                    UpdateTalentGrid(discipline);
+
+                    // The circle changed, so we have to update the PhysicalDefense rating.
                     metroLabelPhysicalDefense.Text = CurrentCharacterInfo.PhysicalDefense.ToString();
                     break;
             }
         }
 
-        private void UpdateTalentGrid()
+        private void UpdateTalentGrid(IDiscipline discipline)
         {
-            throw new NotImplementedException();
+            // compile a list of current attributes
+            var attributes = new List<EarthdawnAttribute>
+            {
+                CurrentCharacterInfo.Str,
+                CurrentCharacterInfo.Cha,
+                CurrentCharacterInfo.Dex,
+                CurrentCharacterInfo.Per,
+                CurrentCharacterInfo.Tou,
+                CurrentCharacterInfo.Wil
+            };
+
+            // Clear the current grid
+            metroGridTalents.Rows.Clear();
+
+            // Get all the talents available for each selected discipline
+            CurrentCharacterInfo.Disciplines.AvailableTalents()
+                .ForEach(
+                    talent =>
+                    {
+                        // TODO: Bug here with multiple disciplines.
+                        var matchingAttribute =
+                            attributes.First(attribute => attribute.Name == talent.BaseEarthdawnAttribute.Name);
+                        var step = CharacteristicTables.GetStepFromValue(matchingAttribute.Value + talent.Rank);
+                        var actionDice = CharacteristicTables.GetStepDice(step);
+                        metroGridTalents.Rows.Add(
+                            talent.Name,
+                            talent.BaseEarthdawnAttribute.Name,
+                            talent.Rank,
+                            discipline.Name,
+                            step,
+                            actionDice);
+                    });
         }
 
 
@@ -475,6 +509,11 @@ namespace EarthdawnGamemasterAssistant.UI
         private void ComboBoxTalent_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void metroGridTalents_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
         }
     }
 }

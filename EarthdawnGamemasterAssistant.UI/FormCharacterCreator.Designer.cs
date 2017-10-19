@@ -2454,7 +2454,6 @@
             this.metroGridTalents.Location = new System.Drawing.Point(0, 3);
             this.metroGridTalents.MultiSelect = false;
             this.metroGridTalents.Name = "metroGridTalents";
-            this.metroGridTalents.ReadOnly = true;
             this.metroGridTalents.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -2473,6 +2472,7 @@
             this.metroGridTalents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.metroGridTalents.Size = new System.Drawing.Size(740, 599);
             this.metroGridTalents.TabIndex = 119;
+            this.metroGridTalents.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.metroGridTalents_DataError);
             this.metroGridTalents.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.metroGridTalents_EditingControlShowing);
             // 
             // dataGridViewTextBoxColumn12
@@ -2491,6 +2491,7 @@
             // 
             this.ColumnRank.HeaderText = "Rank";
             this.ColumnRank.Items.AddRange(new object[] {
+            "0",
             "1",
             "2",
             "3",
@@ -2507,7 +2508,6 @@
             "14",
             "15"});
             this.ColumnRank.Name = "ColumnRank";
-            this.ColumnRank.ReadOnly = true;
             this.ColumnRank.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColumnRank.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
