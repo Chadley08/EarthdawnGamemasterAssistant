@@ -60,33 +60,33 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 
         public IReadOnlyList<Talent> NoviceTalentOptions => new List<Talent>()
         {
-            new Talent("Awareness", "", new Perception(0), 0, new SimpleAction(), 0, true),
-            new Talent("Climbing", "", new Dexterity(0), 0, new StandardAction(), 0, true),
-            new Talent("Creature Analysis", "", new Perception(0), 0, new SimpleAction(), 1, false),
-            new Talent("First Impression", "", new Charisma(0), 0, new StandardAction(), 0, true),
-            new Talent("Impressive Display", "", new NullAttribute(), 0, new SimpleAction(), 1, true),
-            new Talent("Navigation", "", new Perception(0), 0, new SustainedAction(), 0, true),
-            new Talent("Stealthy Stride", "", new Dexterity(0), 0, new SimpleAction(), 0, true),
-            new Talent("Throwing Weapons", "", new Perception(0), 0, new StandardAction(), 0, true),
-            new Talent("Tracking", "", new Perception(0), 0, new StandardAction(), 0, true),
-            new Talent("Wilderness Survival", "", new Perception(0), 0, new SustainedAction(), 0, true),
+            new Talent("Awareness", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 0, true),
+            new Talent("Climbing", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true),
+            new Talent("Creature Analysis", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, false),
+            new Talent("First Impression", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true),
+            new Talent("Impressive Display", "", new NullAttribute(), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, true),
+            new Talent("Navigation", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SustainedAction(), 0, true),
+            new Talent("Stealthy Stride", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 0, true),
+            new Talent("Throwing Weapons", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true),
+            new Talent("Tracking", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true),
+            new Talent("Wilderness Survival", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SustainedAction(), 0, true),
         };
 
         public IReadOnlyList<Talent> JourneymanTalentOptions => new List<Talent>()
         {
-            new Talent("Conversation", "", new Charisma(0), 0, new SustainedAction(), 0, true),
-            new Talent("Danger Sense", "", new Dexterity(0), 0, new FreeAction(), 1, true),
-            new Talent("Distract", "", new Charisma(0), 0, new SimpleAction(), 1, true),
-            new Talent("Etiquette", "", new Charisma(0), 0, new SustainedAction(), 0, true),
-            new Talent("Evidence Analysis", "", new Perception(0), 0, new SustainedAction(), 1, true),
-            new Talent("Resist Taunt", "", new Willpower(0), 0, new FreeAction(), 1, true),
-            new Talent("Speak Language", "", new Perception(0), 0, new StandardAction(), 1, false),
-            new Talent("Steel Thought", "", new Willpower(0), 0, new FreeAction(), 1, false),
-            new Talent("Stopping Aim", "", new Charisma(0), 0, new StandardAction(), 1, false),
-            new Talent("Tiger Spring", "", new NullAttribute(), 0, new FreeAction(), 1, false),
+            new Talent("Conversation", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new SustainedAction(), 0, true),
+            new Talent("Danger Sense", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, true),
+            new Talent("Distract", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, true),
+            new Talent("Etiquette", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new SustainedAction(), 0, true),
+            new Talent("Evidence Analysis", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SustainedAction(), 1, true),
+            new Talent("Resist Taunt", "", new Willpower(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, true),
+            new Talent("Speak Language", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 1, false),
+            new Talent("Steel Thought", "", new Willpower(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, false),
+            new Talent("Stopping Aim", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 1, false),
+            new Talent("Tiger Spring", "", new NullAttribute(), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, false),
         };
 
-        public Talent FreeTalent => new Talent("Call Missile", "", new Perception(0), 0, new SimpleAction(), 1, false);
+        public Talent FreeTalent => new Talent("Call Missile", "", new Perception(0), 0, new RankPlusAttributeStepRule(), new SimpleAction(), 1, false);
 
         public IReadOnlyDictionary<int, List<Talent>> TalentsAtCircle => new Dictionary<int, List<Talent>>()
         {
@@ -94,60 +94,60 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
                 1,
                 new List<Talent>()
                 {
-                    new Talent("Avoid Blow", "", new Dexterity(0), 0, new FreeAction(), 1, true),
-                    new Talent("Missile Weapons", "", new Dexterity(0), 0, new StandardAction(), 0, true),
-                    new Talent("Mystic Aim", "", new Perception(0), 0, new SimpleAction(), 1, false),
-                    new Talent("Thread Weaving (Arrow Weaving)", "", new Perception(0), 0, new StandardAction(), 0, false),
-                    new Talent("True Shot", "", new NullAttribute(), 0, new FreeAction(), 2, false)
+                    new Talent("Avoid Blow", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, true),
+                    new Talent("Missile Weapons", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true),
+                    new Talent("Mystic Aim", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, false),
+                    new Talent("Thread Weaving (Arrow Weaving)", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, false),
+                    new Talent("True Shot", "", new NullAttribute(), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 2, false)
                 }
             },
             {
                 2,
                 new List<Talent>()
                 {
-                    new Talent("Mystic Pursuit", "", new Perception(0), 0, new StandardAction(), 2, false)
+                    new Talent("Mystic Pursuit", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 2, false)
                 }
             },
             {
                 3,
                 new List<Talent>()
                 {
-                    new Talent("Anticipate Blow", "", new Perception(0), 0, new SimpleAction(), 1, true)
+                    new Talent("Anticipate Blow", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, true)
                 }
             },
             {
                 4,
                 new List<Talent>()
                 {
-                    new Talent("Long Shot", "", new NullAttribute(), 0, new SimpleAction(), 1, false)
+                    new Talent("Long Shot", "", new NullAttribute(), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, false)
                 }
             },
             {
                 5,
                 new List<Talent>()
                 {
-                    new Talent("Spot Armor Flaw", "", new Perception(0), 0, new SimpleAction(), 1, false)
+                    new Talent("Spot Armor Flaw", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, false)
                 }
             },
             {
                 6,
                 new List<Talent>()
                 {
-                    new Talent("Bank Shot", "", new Dexterity(0), 0, new SimpleAction(), 1, false)
+                    new Talent("Bank Shot", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, false)
                 }
             },
             {
                 7,
                 new List<Talent>()
                 {
-                    new Talent("Flame Arrow", "", new Willpower(0), 0, new FreeAction(), 1, false)
+                    new Talent("Flame Arrow", "", new Willpower(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, false)
                 }
             },
             {
                 8,
                 new List<Talent>()
                 {
-                    new Talent("Second Shot", "", new Dexterity(0), 0, new SimpleAction(), 2, true)
+                    new Talent("Second Shot", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 2, true)
                 }
             }
         };

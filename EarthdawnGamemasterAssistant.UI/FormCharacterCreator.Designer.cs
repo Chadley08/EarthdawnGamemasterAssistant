@@ -2374,7 +2374,7 @@
             // 
             // ColumnDiscipline
             // 
-            this.ColumnDiscipline.HeaderText = "IDiscipline";
+            this.ColumnDiscipline.HeaderText = "Discipline";
             this.ColumnDiscipline.Name = "ColumnDiscipline";
             this.ColumnDiscipline.ReadOnly = true;
             this.ColumnDiscipline.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -2472,6 +2472,8 @@
             this.metroGridTalents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.metroGridTalents.Size = new System.Drawing.Size(740, 599);
             this.metroGridTalents.TabIndex = 119;
+            this.metroGridTalents.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridTalents_CellEnter);
+            this.metroGridTalents.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridTalents_CellValueChanged);
             this.metroGridTalents.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.metroGridTalents_DataError);
             this.metroGridTalents.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.metroGridTalents_EditingControlShowing);
             // 
@@ -2717,8 +2719,6 @@
         private MetroFramework.Controls.MetroPanel metroPanel11;
         private MetroFramework.Controls.MetroLabel metroLabelDisciplineDescription;
         private MetroFramework.Controls.MetroGrid metroGridDisciplines;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDiscipline;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnCircle;
         private MetroFramework.Controls.MetroLabel metroLabelImportantAttirbutes;
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
@@ -2762,5 +2762,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTalentDiscipline;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStep;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTalentActionDice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDiscipline;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnCircle;
     }
 }

@@ -80,6 +80,7 @@
     <Compile Include="Actions\SustainedAction.cs" />
     <Compile Include="Attributes\Perception.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racial\Dwarf.cs" />
     <Compile Include="Racial\Elf.cs" />
@@ -97,7 +98,12 @@
     <Compile Include="Actions\FreeAction.cs" />
     <Compile Include="Actions\ActionType.cs" />
     <Compile Include="Actions\ActionName.cs" />
+    <Compile Include="Talents\IStepRule.cs" />
+    <Compile Include="Talents\NullStepRule.cs" />
     <Compile Include="Talents\NullTalent.cs" />
+    <Compile Include="Talents\RankPlusAttributeStepRule.cs" />
+    <Compile Include="Talents\RankPlusStepPlusOtherStepRule.cs" />
+    <Compile Include="Talents\RankStepRule.cs" />
     <Compile Include="Talents\Talent.cs" />
     <Compile Include="Attributes\Toughness.cs" />
     <Compile Include="Attributes\Willpower.cs" />

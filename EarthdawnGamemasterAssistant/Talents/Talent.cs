@@ -1,14 +1,28 @@
-﻿using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Annotations;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
 {
-    public class Talent
+    public class Talent : INotifyPropertyChanged
     {
         public string Name { get; }
         public string Description { get; }
         public EarthdawnAttribute BaseEarthdawnAttribute { get; }
-        public int Rank { get; private set; }
+        private int _rank;
+        public int Rank {
+            get => _rank;
+            set
+            {
+                if (Equals(value, _rank)) return;
+                _rank = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private IStepRule StepRule { get; }
         public ActionType Action { get; }
         public int Strain { get; }
         public bool SkillUse { get; }
@@ -18,6 +32,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
             string description,
             EarthdawnAttribute baseEarthdawnAttribute,
             int rank,
+            IStepRule stepRule,
             ActionType action,
             int strain,
             bool skillUse)
@@ -26,9 +41,23 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
             Description = description;
             BaseEarthdawnAttribute = baseEarthdawnAttribute;
             Rank = rank;
+            StepRule = stepRule;
             Action = action;
             Strain = strain;
             SkillUse = skillUse;
+        }
+
+        public int CalculateStep()
+        {
+            return StepRule.CalculateStep();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

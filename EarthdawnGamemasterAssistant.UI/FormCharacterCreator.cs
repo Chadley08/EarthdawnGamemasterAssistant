@@ -26,6 +26,7 @@ namespace EarthdawnGamemasterAssistant.UI
             InitializeComponent();
 
             CurrentCharacterInfo.Disciplines.PropertyChanged += Disciplines_PropertyChanged;
+            CurrentCharacterInfo.Disciplines.TalentRankChanged += Disciplines_TalentRankChanged;
             CurrentCharacterInfo.PropertyChanged += CurrentCharacterInfoOnPropertyChanged;
             metroGridDisciplines.CellValueChanged += metroGridDisciplines_CellValueChanged;
             metroGridDisciplines.CurrentCellDirtyStateChanged += metroGridDisciplines_CurrentCellDirtyStateChanged;
@@ -41,6 +42,15 @@ namespace EarthdawnGamemasterAssistant.UI
             CurrentCharacterInfo.AvailableAttributePoints = 25;
             PopulateDisciplinesGrid();
             PopulateStepChart();
+        }
+
+        private void Disciplines_TalentRankChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var talent = (Talent) sender;
+
+            // TODO: The selected row event is firing after the user moves away from the changed rank
+            // you'll need to fix this before moving forward with testing.
+            metroGridTalents.SelectedRows[0].Cells["Step"].Value = talent.CalculateStep();
         }
 
         private void Disciplines_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -73,14 +83,14 @@ namespace EarthdawnGamemasterAssistant.UI
             // Clear the current grid
             metroGridTalents.Rows.Clear();
 
-            // Get all the talents available for each selected discipline
+            // Get all the talents available for each discipline with a cirlce higher than 0
             CurrentCharacterInfo.Disciplines.AvailableTalents()
                 .ForEach(
                     talent =>
                     {
                         // TODO: Bug here with multiple disciplines.
                         var matchingAttribute =
-                            attributes.First(attribute => attribute.Name == talent.BaseEarthdawnAttribute.Name);
+                            attributes.FirstOrDefault(attribute => attribute.Name == talent.BaseEarthdawnAttribute.Name) ?? new NullAttribute();
                         var step = CharacteristicTables.GetStepFromValue(matchingAttribute.Value + talent.Rank);
                         var actionDice = CharacteristicTables.GetStepDice(step);
                         metroGridTalents.Rows.Add(
@@ -92,7 +102,6 @@ namespace EarthdawnGamemasterAssistant.UI
                             actionDice);
                     });
         }
-
 
         private void metroGridDisciplines_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
@@ -508,12 +517,37 @@ namespace EarthdawnGamemasterAssistant.UI
 
         private void ComboBoxTalent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            // No-op. Do not delete, used to display the combobox on click correctly.
+        }
+
+        private void metroGridTalents_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            var validClick = (e.RowIndex != -1 && e.ColumnIndex != -1); //Make sure the clicked row/column is valid.
+            var datagridview = sender as DataGridView;
+
+            // Check to make sure the cell clicked is the cell containing the combobox 
+            if (datagridview?.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn && validClick)
+            {
+                datagridview.BeginEdit(true);
+                ((ComboBox)datagridview.EditingControl).DroppedDown = true;
+            }
         }
 
         private void metroGridTalents_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
 
+        }
+
+        private void metroGridTalents_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (metroGridTalents.SelectedCells.Count > 0)
+            {
+                var talentRowIndex = metroGridTalents.SelectedCells[0].RowIndex;
+                var talentName = metroGridTalents.Rows[talentRowIndex].Cells[0].Value.ToString();
+                var selectedTalent = CurrentCharacterInfo.Disciplines.AvailableTalents()
+                    .First(talent => talent.Name == talentName);
+                selectedTalent.Rank = Convert.ToInt32(metroGridTalents.SelectedCells[0].Value.ToString());
+            }
         }
     }
 }

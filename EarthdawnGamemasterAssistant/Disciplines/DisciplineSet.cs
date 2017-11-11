@@ -22,6 +22,11 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
             PropertyChanged?.Invoke(sender, e);
         }
 
+        private void Talent_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            TalentRankChanged?.Invoke(sender, e);
+        }
+
         public IDiscipline this[string key] => GetValue(key);
 
         private IDiscipline GetValue(string key)
@@ -94,6 +99,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler TalentRankChanged;
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -173,6 +179,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
                     var talentsAtCircle = discipline.TalentsAtCircle.Where(talentCircle => talentCircle.Key == discipline.EarthdawnCircle).ToList();
                     talentsAtCircle.ForEach(talent => toReturn.AddRange(talent.Value));
                 });
+            toReturn.ForEach(talent => talent.PropertyChanged += Talent_PropertyChanged);
             return toReturn;
         }
     }
