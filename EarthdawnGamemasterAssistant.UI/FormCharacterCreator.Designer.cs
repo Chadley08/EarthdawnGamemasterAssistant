@@ -2473,7 +2473,6 @@
             this.metroGridTalents.Size = new System.Drawing.Size(740, 599);
             this.metroGridTalents.TabIndex = 119;
             this.metroGridTalents.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridTalents_CellEnter);
-            this.metroGridTalents.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridTalents_CellValueChanged);
             this.metroGridTalents.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.metroGridTalents_DataError);
             this.metroGridTalents.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.metroGridTalents_EditingControlShowing);
             // 

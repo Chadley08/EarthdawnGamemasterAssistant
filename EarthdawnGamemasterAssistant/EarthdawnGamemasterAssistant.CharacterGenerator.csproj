@@ -102,7 +102,7 @@
     <Compile Include="Talents\NullStepRule.cs" />
     <Compile Include="Talents\NullTalent.cs" />
     <Compile Include="Talents\RankPlusAttributeStepRule.cs" />
-    <Compile Include="Talents\RankPlusStepPlusOtherStepRule.cs" />
+    <Compile Include="Talents\RankPlusStepPlusBonusStepRule.cs" />
     <Compile Include="Talents\RankStepRule.cs" />
     <Compile Include="Talents\Talent.cs" />
     <Compile Include="Attributes\Toughness.cs" />

@@ -161,25 +161,32 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
                     tuple => tuple.DisciplineCircle >= tuple.CircleRequirement ? tuple.BonusAmount : 0));
         }
 
-        public List<Talent> AvailableTalents()
+        public List<(Talent talent, string disciplineName)> AvailableTalents()
         {
-            var toReturn = new List<Talent>();
+            var toReturn = new List<(Talent talent, string disciplineName)>();
             Disciplines.ForEach(
                 discipline =>
                 {
                     if (discipline.EarthdawnCircle > 0)
                     {
-                        toReturn.Add(discipline.FreeTalent);
-                        toReturn.AddRange(discipline.NoviceTalentOptions);
+                        toReturn.Add((discipline.FreeTalent, discipline.Name));
+                        discipline.NoviceTalentOptions.ToList()
+                            .ForEach(noviceTalent => toReturn.Add((noviceTalent, discipline.Name)));
                     }
                     if (discipline.EarthdawnCircle > 3)
                     {
-                        toReturn.AddRange(discipline.JourneymanTalentOptions);
+                        discipline.JourneymanTalentOptions.ToList()
+                            .ForEach(journeymanTalent => toReturn.Add((journeymanTalent, discipline.Name)));
                     }
-                    var talentsAtCircle = discipline.TalentsAtCircle.Where(talentCircle => talentCircle.Key == discipline.EarthdawnCircle).ToList();
-                    talentsAtCircle.ForEach(talent => toReturn.AddRange(talent.Value));
+                    discipline.TalentsAtCircle
+                        .Where(talentCircle => talentCircle.Key == discipline.EarthdawnCircle)
+                        .ToList()
+                        .ForEach(
+                            talentsAtCircle => talentsAtCircle.Value.ForEach(
+                                talentAtCircle => toReturn.Add((talentAtCircle, discipline.Name))));
+
                 });
-            toReturn.ForEach(talent => talent.PropertyChanged += Talent_PropertyChanged);
+            toReturn.ForEach(tuple => tuple.talent.PropertyChanged += Talent_PropertyChanged);
             return toReturn;
         }
     }

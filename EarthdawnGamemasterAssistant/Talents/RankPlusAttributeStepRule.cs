@@ -8,9 +8,9 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
 {
     public class RankPlusAttributeStepRule : IStepRule
     {
-        public int CalculateStep()
+        public int CalculateStep(int talentRank, int attributeStep)
         {
-            throw new NotImplementedException();
+            return talentRank + attributeStep;
         }
     }
 }

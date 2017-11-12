@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
 {
-    public class RankPlusStepPlusOtherStepRule : IStepRule
+    public class RankPlusStepPlusBonusStepRule : IStepRule
     {
-        public int CalculateStep()
+        private int Bonus { get; }
+        public RankPlusStepPlusBonusStepRule(int bonus)
+        {
+            Bonus = bonus;
+        }
+
+        public int CalculateStep(int talentRank, int attributeStep)
         {
             throw new NotImplementedException();
         }

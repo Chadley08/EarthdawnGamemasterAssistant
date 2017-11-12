@@ -16,7 +16,6 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
             get => _rank;
             set
             {
-                if (Equals(value, _rank)) return;
                 _rank = value;
                 OnPropertyChanged();
             }
@@ -47,9 +46,10 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
             SkillUse = skillUse;
         }
 
-        public int CalculateStep()
+        public int GetStep(int attributeValue)
         {
-            return StepRule.CalculateStep();
+            var attributeStep = CharacteristicTables.GetStepFromValue(attributeValue);
+            return StepRule.CalculateStep(Rank, attributeStep);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

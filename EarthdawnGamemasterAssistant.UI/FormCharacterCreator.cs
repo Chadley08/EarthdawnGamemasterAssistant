@@ -47,7 +47,11 @@ namespace EarthdawnGamemasterAssistant.UI
         private void Disciplines_TalentRankChanged(object sender, PropertyChangedEventArgs e)
         {
             var talent = (Talent) sender;
-            metroGridTalents.SelectedRows[0].Cells["Step"].Value = talent.CalculateStep();
+            var attributeValue = CurrentCharacterInfo.GetMatchingAttribute(talent.BaseEarthdawnAttribute).Value;
+            var talentStep = talent.GetStep(attributeValue);
+            var actionDice = CharacteristicTables.GetStepDice(talentStep);
+            metroGridTalents.SelectedCells[0].OwningRow.Cells["ColumnStep"].Value = talentStep;
+            metroGridTalents.SelectedCells[0].OwningRow.Cells["ColumnTalentActionDice"].Value = actionDice;
         }
 
         private void Disciplines_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -83,18 +87,17 @@ namespace EarthdawnGamemasterAssistant.UI
             // Get all the talents available for each discipline with a cirlce higher than 0
             CurrentCharacterInfo.Disciplines.AvailableTalents()
                 .ForEach(
-                    talent =>
+                    tuple =>
                     {
-                        // TODO: Bug here with multiple disciplines.
-                        var matchingAttribute =
-                            attributes.FirstOrDefault(attribute => attribute.Name == talent.BaseEarthdawnAttribute.Name) ?? new NullAttribute();
-                        var step = CharacteristicTables.GetStepFromValue(matchingAttribute.Value + talent.Rank);
+                        var attributeValue = CurrentCharacterInfo.GetMatchingAttribute(tuple.talent.BaseEarthdawnAttribute)
+                            .Value;
+                        var step = tuple.talent.GetStep(attributeValue);
                         var actionDice = CharacteristicTables.GetStepDice(step);
                         metroGridTalents.Rows.Add(
-                            talent.Name,
-                            talent.BaseEarthdawnAttribute.Name,
-                            talent.Rank,
-                            discipline.Name,
+                            tuple.talent.Name,
+                            tuple.talent.BaseEarthdawnAttribute.Name,
+                            tuple.talent.Rank,
+                            tuple.disciplineName,
                             step,
                             actionDice);
                     });
@@ -520,7 +523,7 @@ namespace EarthdawnGamemasterAssistant.UI
                 var talentRowIndex = metroGridTalents.SelectedCells[0].RowIndex;
                 var talentName = metroGridTalents.Rows[talentRowIndex].Cells[0].Value.ToString();
                 var selectedTalent = CurrentCharacterInfo.Disciplines.AvailableTalents()
-                    .First(talent => talent.Name == talentName);
+                    .First(tuple => tuple.talent.Name == talentName).talent;
                 selectedTalent.Rank = Convert.ToInt32(((DataGridViewComboBoxEditingControl)sender).SelectedItem);
             }
         }
@@ -541,18 +544,6 @@ namespace EarthdawnGamemasterAssistant.UI
         private void metroGridTalents_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
 
-        }
-
-        private void metroGridTalents_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (metroGridTalents.SelectedCells.Count > 0)
-            //{
-            //    var talentRowIndex = metroGridTalents.SelectedCells[0].RowIndex;
-            //    var talentName = metroGridTalents.Rows[talentRowIndex].Cells[0].Value.ToString();
-            //    var selectedTalent = CurrentCharacterInfo.Disciplines.AvailableTalents()
-            //        .First(talent => talent.Name == talentName);
-            //    selectedTalent.Rank = Convert.ToInt32(metroGridTalents.SelectedCells[0].Value.ToString());
-            //}
         }
     }
 }

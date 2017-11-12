@@ -10,7 +10,6 @@ C:\Users\cbecker.ARA-US\Source\Repos\EarthdawnGamemasterAssistant\EarthdawnGamem
 C:\Users\cbecker.ARA-US\Source\Repos\EarthdawnGamemasterAssistant\EarthdawnGamemasterAssistant.UI\bin\Debug\MetroFramework.Design.dll
 C:\Users\cbecker.ARA-US\Source\Repos\EarthdawnGamemasterAssistant\EarthdawnGamemasterAssistant.UI\bin\Debug\MetroFramework.dll
 C:\Users\cbecker.ARA-US\Source\Repos\EarthdawnGamemasterAssistant\EarthdawnGamemasterAssistant.UI\bin\Debug\MetroFramework.Fonts.dll
-C:\Users\cbecker.ARA-US\Source\Repos\EarthdawnGamemasterAssistant\EarthdawnGamemasterAssistant.UI\bin\Debug\System.ValueTuple.dll
 C:\Users\cbecker.ARA-US\Source\Repos\EarthdawnGamemasterAssistant\EarthdawnGamemasterAssistant.UI\bin\Debug\System.ValueTuple.xml
 C:\Users\cbecker.ARA-US\Source\Repos\EarthdawnGamemasterAssistant\EarthdawnGamemasterAssistant.UI\obj\Debug\EarthdawnGamemasterAssistant.UI.exe
 C:\Users\cbecker.ARA-US\Source\Repos\EarthdawnGamemasterAssistant\EarthdawnGamemasterAssistant.UI\obj\Debug\EarthdawnGamemasterAssistant.UI.pdb

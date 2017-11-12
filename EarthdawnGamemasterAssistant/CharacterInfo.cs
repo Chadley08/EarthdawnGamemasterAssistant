@@ -25,6 +25,30 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
             Disciplines = disciplines;
         }
 
+        public EarthdawnAttribute GetMatchingAttribute(EarthdawnAttribute toMatch)
+        {
+            switch (toMatch.Name)
+            {
+                case "Str":
+                    return Str;
+                case "Dex":
+                    return Dex;
+                case "Per":
+                    return Per;
+                case "Cha":
+                    return Cha;
+                case "Tou":
+                    return Tou;
+                case "Wil":
+                    return Wil;
+                case "":
+                    return new NullAttribute();
+                default:
+                    throw new InvalidOperationException("No matching attribute named" + toMatch.Name);
+            }
+
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public int ArmorPenalty => 0;
