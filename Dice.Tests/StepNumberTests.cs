@@ -1,7 +1,6 @@
-﻿using EarthdawnGamemasterAssistant;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using EarthdawnGamemasterAssistant.CharacterGenerator;
 
 namespace Dice.Tests
 {

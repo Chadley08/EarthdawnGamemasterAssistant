@@ -86,6 +86,7 @@
     <Compile Include="Racial\Elf.cs" />
     <Compile Include="Racial\HeatSight.cs" />
     <Compile Include="Racial\Human.cs" />
+    <Compile Include="Racial\LowLightVision.cs" />
     <Compile Include="Racial\Obsidiman.cs" />
     <Compile Include="Racial\Ork.cs" />
     <Compile Include="Racial\IRace.cs" />

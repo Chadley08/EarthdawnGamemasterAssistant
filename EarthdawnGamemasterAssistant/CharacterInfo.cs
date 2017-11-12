@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Racial;
+using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator
 {
@@ -31,22 +29,28 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
             {
                 case "Str":
                     return Str;
+
                 case "Dex":
                     return Dex;
+
                 case "Per":
                     return Per;
+
                 case "Cha":
                     return Cha;
+
                 case "Tou":
                     return Tou;
+
                 case "Wil":
                     return Wil;
+
                 case "":
                     return new NullAttribute();
+
                 default:
                     throw new InvalidOperationException("No matching attribute named" + toMatch.Name);
             }
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -57,8 +61,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
 
         public int AvailableLegend { get; set; }
 
-        public int CarryingCapacity => CharacteristicTables.GetCarryingCapacityFromAttributeValue(
-            Str.Value + (Race?.CarryingCapacityModifer ?? 0));
+        public int CarryingCapacity => Race?.GetCarryingCapacity() ?? Str.Value;
 
         public Charisma Cha
         {

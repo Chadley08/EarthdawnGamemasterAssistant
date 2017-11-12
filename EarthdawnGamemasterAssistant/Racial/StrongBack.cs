@@ -1,7 +1,4 @@
-﻿using System;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
-
-namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
+﻿namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
 {
     public class StrongBack : RacialAbility
     {

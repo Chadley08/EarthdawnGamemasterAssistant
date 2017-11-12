@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+using System.Collections.Generic;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
 {
@@ -7,9 +7,10 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
     {
         int KarmaModifier { get; }
         int MovementRate { get; }
-        int CarryingCapacityModifer { get; }
 
         IReadOnlyList<RacialAbility> GetRacialAbilities();
+
+        int GetCarryingCapacity();
 
         Dexterity BaseDex { get; }
         Strength BaseStr { get; }

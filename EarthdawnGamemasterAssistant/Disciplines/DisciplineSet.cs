@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator.Properties;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Properties;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 {
@@ -99,6 +99,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         public event PropertyChangedEventHandler TalentRankChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -184,7 +185,6 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
                         .ForEach(
                             talentsAtCircle => talentsAtCircle.Value.ForEach(
                                 talentAtCircle => toReturn.Add((talentAtCircle, discipline.Name))));
-
                 });
             toReturn.ForEach(tuple => tuple.talent.PropertyChanged += Talent_PropertyChanged);
             return toReturn;

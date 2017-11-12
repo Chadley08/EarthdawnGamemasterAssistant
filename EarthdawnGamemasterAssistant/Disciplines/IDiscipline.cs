@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using EarthdawnGamemasterAssistant.CharacterGenerator.AbilityRules;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator.AbilityRules;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 {

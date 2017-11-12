@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+using System.Collections.Generic;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
 {
@@ -32,5 +32,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
         {
             return RacialAbilities;
         }
+
+        public int GetCarryingCapacity() => CharacteristicTables.GetCarryingCapacityFromAttributeValue(_CharacterInfo.Str.Value + 2);
     }
 }

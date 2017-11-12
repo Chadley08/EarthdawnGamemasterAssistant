@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using EarthdawnGamemasterAssistant.CharacterGenerator.AbilityRules;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator.AbilityRules;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Properties;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 {

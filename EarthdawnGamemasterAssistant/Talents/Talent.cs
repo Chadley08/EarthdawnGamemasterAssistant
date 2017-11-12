@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Annotations;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
 {
@@ -12,7 +12,9 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
         public string Description { get; }
         public EarthdawnAttribute BaseEarthdawnAttribute { get; }
         private int _rank;
-        public int Rank {
+
+        public int Rank
+        {
             get => _rank;
             set
             {
