@@ -47,9 +47,6 @@ namespace EarthdawnGamemasterAssistant.UI
         private void Disciplines_TalentRankChanged(object sender, PropertyChangedEventArgs e)
         {
             var talent = (Talent) sender;
-
-            // TODO: The selected row event is firing after the user moves away from the changed rank
-            // you'll need to fix this before moving forward with testing.
             metroGridTalents.SelectedRows[0].Cells["Step"].Value = talent.CalculateStep();
         }
 
@@ -518,6 +515,14 @@ namespace EarthdawnGamemasterAssistant.UI
         private void ComboBoxTalent_SelectedIndexChanged(object sender, EventArgs e)
         {
             // No-op. Do not delete, used to display the combobox on click correctly.
+            if (metroGridTalents.SelectedCells.Count > 0)
+            {
+                var talentRowIndex = metroGridTalents.SelectedCells[0].RowIndex;
+                var talentName = metroGridTalents.Rows[talentRowIndex].Cells[0].Value.ToString();
+                var selectedTalent = CurrentCharacterInfo.Disciplines.AvailableTalents()
+                    .First(talent => talent.Name == talentName);
+                selectedTalent.Rank = Convert.ToInt32(((DataGridViewComboBoxEditingControl)sender).SelectedItem);
+            }
         }
 
         private void metroGridTalents_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -540,14 +545,14 @@ namespace EarthdawnGamemasterAssistant.UI
 
         private void metroGridTalents_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (metroGridTalents.SelectedCells.Count > 0)
-            {
-                var talentRowIndex = metroGridTalents.SelectedCells[0].RowIndex;
-                var talentName = metroGridTalents.Rows[talentRowIndex].Cells[0].Value.ToString();
-                var selectedTalent = CurrentCharacterInfo.Disciplines.AvailableTalents()
-                    .First(talent => talent.Name == talentName);
-                selectedTalent.Rank = Convert.ToInt32(metroGridTalents.SelectedCells[0].Value.ToString());
-            }
+            //if (metroGridTalents.SelectedCells.Count > 0)
+            //{
+            //    var talentRowIndex = metroGridTalents.SelectedCells[0].RowIndex;
+            //    var talentName = metroGridTalents.Rows[talentRowIndex].Cells[0].Value.ToString();
+            //    var selectedTalent = CurrentCharacterInfo.Disciplines.AvailableTalents()
+            //        .First(talent => talent.Name == talentName);
+            //    selectedTalent.Rank = Convert.ToInt32(metroGridTalents.SelectedCells[0].Value.ToString());
+            //}
         }
     }
 }
