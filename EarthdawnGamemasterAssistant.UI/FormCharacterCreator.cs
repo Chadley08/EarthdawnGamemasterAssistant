@@ -56,11 +56,10 @@ namespace EarthdawnGamemasterAssistant.UI
 
         private void Disciplines_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            var discipline = (IDiscipline) sender;
             switch (e.PropertyName)
             {
                 case "EarthdawnCircle":
-                    UpdateTalentGrid(discipline);
+                    UpdateTalentGrid();
 
                     // The circle changed, so we have to update the PhysicalDefense rating.
                     metroLabelPhysicalDefense.Text = CurrentCharacterInfo.PhysicalDefense.ToString();
@@ -68,19 +67,8 @@ namespace EarthdawnGamemasterAssistant.UI
             }
         }
 
-        private void UpdateTalentGrid(IDiscipline discipline)
+        private void UpdateTalentGrid()
         {
-            // compile a list of current attributes
-            var attributes = new List<EarthdawnAttribute>
-            {
-                CurrentCharacterInfo.Str,
-                CurrentCharacterInfo.Cha,
-                CurrentCharacterInfo.Dex,
-                CurrentCharacterInfo.Per,
-                CurrentCharacterInfo.Tou,
-                CurrentCharacterInfo.Wil
-            };
-
             // Clear the current grid
             metroGridTalents.Rows.Clear();
 
@@ -240,6 +228,7 @@ namespace EarthdawnGamemasterAssistant.UI
                     SetRacialAbilities();
                     break;
             }
+            UpdateTalentGrid();
             CalculateAttributePoints();
         }
 
@@ -517,7 +506,6 @@ namespace EarthdawnGamemasterAssistant.UI
 
         private void ComboBoxTalent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // No-op. Do not delete, used to display the combobox on click correctly.
             if (metroGridTalents.SelectedCells.Count > 0)
             {
                 var talentRowIndex = metroGridTalents.SelectedCells[0].RowIndex;
