@@ -75,6 +75,7 @@ namespace EarthdawnGamemasterAssistant.UI
 
             // Get all the talents available for each discipline with a cirlce
             // higher than 0
+
             CurrentCharacterInfo.Disciplines.AvailableTalents()
                 .ForEach(
                     tuple =>
