@@ -223,6 +223,7 @@
             this.ColumnTalentDiscipline = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTalentActionDice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroTabControl.SuspendLayout();
             this.metroTabPageCharacter.SuspendLayout();
             this.metroTabPageAttributes.SuspendLayout();
@@ -2400,6 +2401,7 @@
             // 
             // metroTabPageTalents
             // 
+            this.metroTabPageTalents.Controls.Add(this.metroLabel5);
             this.metroTabPageTalents.Controls.Add(this.metroGridTalents);
             this.metroTabPageTalents.HorizontalScrollbarBarColor = true;
             this.metroTabPageTalents.HorizontalScrollbarHighlightOnWheel = false;
@@ -2470,7 +2472,7 @@
             dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.metroGridTalents.RowsDefaultCellStyle = dataGridViewCellStyle31;
             this.metroGridTalents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.metroGridTalents.Size = new System.Drawing.Size(740, 599);
+            this.metroGridTalents.Size = new System.Drawing.Size(740, 479);
             this.metroGridTalents.TabIndex = 119;
             this.metroGridTalents.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridTalents_CellEnter);
             this.metroGridTalents.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.metroGridTalents_DataError);
@@ -2529,6 +2531,15 @@
             this.ColumnTalentActionDice.HeaderText = "Action Dice";
             this.ColumnTalentActionDice.Name = "ColumnTalentActionDice";
             this.ColumnTalentActionDice.ReadOnly = true;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(0, 485);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(83, 19);
+            this.metroLabel5.TabIndex = 120;
+            this.metroLabel5.Text = "metroLabel5";
             // 
             // FormCharacterCreator
             // 
@@ -2592,6 +2603,7 @@
             this.metroPanel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroGridDisciplines)).EndInit();
             this.metroTabPageTalents.ResumeLayout(false);
+            this.metroTabPageTalents.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridTalents)).EndInit();
             this.ResumeLayout(false);
 
@@ -2763,5 +2775,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTalentActionDice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDiscipline;
         private System.Windows.Forms.DataGridViewComboBoxColumn ColumnCircle;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
     }
 }
