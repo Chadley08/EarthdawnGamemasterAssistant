@@ -1,6 +1,6 @@
-﻿using System;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Properties;
+﻿using EarthdawnGamemasterAssistant.CharacterGenerator.Properties;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -237,6 +237,18 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 
             talents.ForEach(tuple => tuple.talent.PropertyChanged += Talent_PropertyChanged);
             return talents;
+        }
+
+        public IEnumerable<string> GetCircleAdvancementRuleViolations()
+        {
+            return (from discipline in Disciplines
+                    from tuple in AvailableTalents()
+                    select "Must have all " +
+                           discipline.Name +
+                           " talents at rank (" +
+                           discipline.EarthdawnCircle +
+                           ") or higher to be circle (" +
+                           discipline.EarthdawnCircle).Distinct();
         }
     }
 }

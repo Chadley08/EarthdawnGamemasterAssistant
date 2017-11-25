@@ -106,5 +106,8 @@
       <Name>EarthdawnGamemasterAssistant.CharacterGenerator</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_0V8_icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

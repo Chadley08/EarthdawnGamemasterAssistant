@@ -74,8 +74,7 @@ namespace EarthdawnGamemasterAssistant.UI
             metroGridTalents.Rows.Clear();
 
             // Get all the talents available for each discipline with a cirlce
-            // higher than 0
-
+            // higher than 0 and add them to the talent grid.
             CurrentCharacterInfo.Disciplines.AvailableTalents()
                 .ForEach(
                     tuple =>
@@ -517,6 +516,30 @@ namespace EarthdawnGamemasterAssistant.UI
                 var selectedTalent = CurrentCharacterInfo.Disciplines.AvailableTalents()
                     .First(tuple => tuple.talent.Name == talentName).talent;
                 selectedTalent.Rank = Convert.ToInt32(((DataGridViewComboBoxEditingControl)sender).SelectedItem);
+
+                var circleWarnings = CurrentCharacterInfo.Disciplines.GetCircleAdvancementRuleViolations().ToList();
+                foreach (var circleWarning in circleWarnings)
+                {
+                    var warningIcon = new PictureBox
+                    {
+                        Image = global::EarthdawnGamemasterAssistant.UI.Properties.Resources.warning_0V8_icon,
+                        Location = new System.Drawing.Point(3, 3),
+                        Size = new System.Drawing.Size(24, 24),
+                        TabIndex = 1,
+                        TabStop = false
+                    };
+
+                    var warningLabel = new Label
+                    {
+                        AutoSize = true,
+                        Location = new System.Drawing.Point(33, 7),
+                        Margin = new System.Windows.Forms.Padding(3, 7, 3, 0),
+                        Name = "metroLabel5",
+                        Size = new System.Drawing.Size(83, 19),
+                        TabIndex = 0,
+                        Text = "metroLabel5"
+                    };
+                }
             }
         }
 

@@ -59,5 +59,15 @@ namespace EarthdawnGamemasterAssistant.UI.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap warning_0V8_icon {
+            get {
+                object obj = ResourceManager.GetObject("warning_0V8_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dice.Tests", "Dice.Tests\Dice.Tests.csproj", "{8250C269-07B8-4C32-B460-34A083D4FE31}"
 EndProject
@@ -10,6 +10,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthdawnGamemasterAssistant.CharacterGenerator", "EarthdawnGamemasterAssistant\EarthdawnGamemasterAssistant.CharacterGenerator.csproj", "{50F63D8B-05C5-4CB5-AC40-BBFA2CC81BE5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthdawnGamemasterAssistant.UI", "EarthdawnGamemasterAssistant.UI\EarthdawnGamemasterAssistant.UI.csproj", "{3E5E5720-2E1B-47C8-894B-150850A60290}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6D8B0CE0-F91D-4906-A9FB-4268E4E13D20}"
+	ProjectSection(SolutionItems) = preProject
+		credits.txt = credits.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
