@@ -181,13 +181,15 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
                                     {
                                         talents.Add(
                                             (noviceTalent, discipline.Name +
-                                                             " (1)"));
+                                                           " (1)"));
                                     }
                                     else
                                     {
                                         var index = talents.FindIndex(f => f.talent.Name == noviceTalent.Name);
                                         var foundTalent = talents.Find(f => f.talent.Name == noviceTalent.Name);
-                                        talents[index] = ValueTuple.Create(foundTalent.talent, foundTalent.disciplineName + "; " + discipline.Name + " (1)");
+                                        talents[index] = ValueTuple.Create(
+                                            foundTalent.talent,
+                                            foundTalent.disciplineName + "; " + discipline.Name + " (1)");
                                     }
                                 });
                     }
@@ -201,13 +203,15 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
                                     {
                                         talents.Add(
                                             (journeymanTalent, discipline.Name +
-                                                             " (4)"));
+                                                               " (4)"));
                                     }
                                     else
                                     {
                                         var index = talents.FindIndex(f => f.talent.Name == journeymanTalent.Name);
                                         var foundTalent = talents.Find(f => f.talent.Name == journeymanTalent.Name);
-                                        talents[index] = ValueTuple.Create(foundTalent.talent, foundTalent.disciplineName + "; " + discipline.Name + " (4)");
+                                        talents[index] = ValueTuple.Create(
+                                            foundTalent.talent,
+                                            foundTalent.disciplineName + "; " + discipline.Name + " (4)");
                                     }
                                 });
                     }
@@ -230,7 +234,14 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
                                     {
                                         var index = talents.FindIndex(f => f.talent.Name == talentAtCircle.Name);
                                         var foundTalent = talents.Find(f => f.talent.Name == talentAtCircle.Name);
-                                        talents[index] = ValueTuple.Create(foundTalent.talent, foundTalent.disciplineName + "; " + discipline.Name + " (" + talentsAtCircle.Key + ")");
+                                        talents[index] = ValueTuple.Create(
+                                            foundTalent.talent,
+                                            foundTalent.disciplineName +
+                                            "; " +
+                                            discipline.Name +
+                                            " (" +
+                                            talentsAtCircle.Key +
+                                            ")");
                                     }
                                 }));
                 });
@@ -239,16 +250,27 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
             return talents;
         }
 
-        public IEnumerable<string> GetCircleAdvancementRuleViolations()
+        public List<(string disciplineName, int disciplineCircle)> GetCircleAdvancementRuleViolations(List<(string talentName, int talentRank)> talentNameAndRanks)
         {
-            return (from discipline in Disciplines
-                    from tuple in AvailableTalents()
-                    select "Must have all " +
-                           discipline.Name +
-                           " talents at rank (" +
-                           discipline.EarthdawnCircle +
-                           ") or higher to be circle (" +
-                           discipline.EarthdawnCircle).Distinct();
+            var toReturn = new List<(string disciplineName, int disciplineCircle)>();
+            foreach (var discipline in Disciplines.Where(discipline => discipline.EarthdawnCircle > 0))
+            {
+                var disciplinedTalentsList =
+                    discipline.TalentsAtCircle.Where(kvp => kvp.Key <= discipline.EarthdawnCircle).Select(talents => talents.Value);
+                foreach (var disciplinedTalent in disciplinedTalentsList)
+                {
+                    foreach (var talent in disciplinedTalent)
+                    {
+                        if (talentNameAndRanks.Exists(tuple => tuple.talentName == talent.Name && tuple.talentRank < discipline.EarthdawnCircle))
+                        {
+                            toReturn.Add(ValueTuple.Create(discipline.Name, discipline.EarthdawnCircle));
+                        }
+                    }
+                }
+
+            }
+
+            return toReturn.Distinct().ToList();
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
 
 namespace EarthdawnGamemasterAssistant.UI
 {
@@ -52,6 +53,7 @@ namespace EarthdawnGamemasterAssistant.UI
             var actionDice = CharacteristicTables.GetStepDice(talentStep);
             metroGridTalents.SelectedCells[0].OwningRow.Cells["ColumnStep"].Value = talentStep;
             metroGridTalents.SelectedCells[0].OwningRow.Cells["ColumnTalentActionDice"].Value = actionDice;
+            UpdateWarningControlsOnTalentsTab();
         }
 
         private void Disciplines_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -60,9 +62,9 @@ namespace EarthdawnGamemasterAssistant.UI
             {
                 case "EarthdawnCircle":
                     UpdateTalentGrid();
+                    UpdateWarningControlsOnTalentsTab();
 
-                    // The circle changed, so we have to update the
-                    // PhysicalDefense rating.
+                    // [REVIEW]: Why just physical defense updates? Aren't there going to be others?
                     metroLabelPhysicalDefense.Text = CurrentCharacterInfo.PhysicalDefense.ToString();
                     break;
             }
@@ -517,29 +519,49 @@ namespace EarthdawnGamemasterAssistant.UI
                     .First(tuple => tuple.talent.Name == talentName).talent;
                 selectedTalent.Rank = Convert.ToInt32(((DataGridViewComboBoxEditingControl)sender).SelectedItem);
 
-                var circleWarnings = CurrentCharacterInfo.Disciplines.GetCircleAdvancementRuleViolations().ToList();
-                foreach (var circleWarning in circleWarnings)
-                {
-                    var warningIcon = new PictureBox
-                    {
-                        Image = global::EarthdawnGamemasterAssistant.UI.Properties.Resources.warning_0V8_icon,
-                        Location = new System.Drawing.Point(3, 3),
-                        Size = new System.Drawing.Size(24, 24),
-                        TabIndex = 1,
-                        TabStop = false
-                    };
+                UpdateWarningControlsOnTalentsTab();
+            }
+        }
 
-                    var warningLabel = new Label
-                    {
-                        AutoSize = true,
-                        Location = new System.Drawing.Point(33, 7),
-                        Margin = new System.Windows.Forms.Padding(3, 7, 3, 0),
-                        Name = "metroLabel5",
-                        Size = new System.Drawing.Size(83, 19),
-                        TabIndex = 0,
-                        Text = "metroLabel5"
-                    };
-                }
+        private List<(string talentName, int talentRank)> GetCurrentTalents()
+        {
+            var currentTalentTuples = new List<(string talentName, int talentRank)>();
+            foreach (DataGridViewRow talentRow in metroGridTalents.Rows)
+            {
+                var name = talentRow.Cells[0].Value.ToString();
+                var rank = Convert.ToInt32(talentRow.Cells[2].Value);
+                currentTalentTuples.Add(
+                    ValueTuple.Create(name, rank));
+            }
+            return currentTalentTuples;
+        }
+
+        private void UpdateWarningControlsOnTalentsTab()
+        {
+            flowLayoutPanelTalents.Controls.Clear();
+            var circleWarningTuples = CurrentCharacterInfo.Disciplines.GetCircleAdvancementRuleViolations(GetCurrentTalents());
+            foreach (var circleWarningTuple in circleWarningTuples)
+            {
+                var warningIcon = new PictureBox
+                {
+                    Image = global::EarthdawnGamemasterAssistant.UI.Properties.Resources.warning_0V8_icon,
+                    Size = new System.Drawing.Size(24, 24),
+                    TabIndex = 1,
+                    TabStop = false
+                };
+
+                var warningLabel = new Label
+                {
+                    AutoSize = true,
+                    Margin = new System.Windows.Forms.Padding(3, 7, 3, 0),
+                    Size = new System.Drawing.Size(83, 19),
+                    TabIndex = 0,
+                    Text = circleWarningTuple.disciplineName +
+                           @": Must have all disciplined talents at rank " +
+                           circleWarningTuple.disciplineCircle
+                };
+                flowLayoutPanelTalents.Controls.Add(warningIcon);
+                flowLayoutPanelTalents.Controls.Add(warningLabel);
             }
         }
 
