@@ -6,9 +6,9 @@ using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
 
 namespace EarthdawnGamemasterAssistant.UI
 {
@@ -53,7 +53,6 @@ namespace EarthdawnGamemasterAssistant.UI
             var actionDice = CharacteristicTables.GetStepDice(talentStep);
             metroGridTalents.SelectedCells[0].OwningRow.Cells["ColumnStep"].Value = talentStep;
             metroGridTalents.SelectedCells[0].OwningRow.Cells["ColumnTalentActionDice"].Value = actionDice;
-            UpdateWarningControlsOnTalentsTab();
         }
 
         private void Disciplines_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -77,6 +76,7 @@ namespace EarthdawnGamemasterAssistant.UI
 
             // Get all the talents available for each discipline with a cirlce
             // higher than 0 and add them to the talent grid.
+            var disciplinedTalents = CurrentCharacterInfo.Disciplines.GetDisciplinedTalents();
             CurrentCharacterInfo.Disciplines.AvailableTalents()
                 .ForEach(
                     tuple =>
@@ -89,6 +89,7 @@ namespace EarthdawnGamemasterAssistant.UI
                             tuple.talent.Name,
                             tuple.talent.BaseEarthdawnAttribute.Name,
                             tuple.talent.Rank,
+                            disciplinedTalents.Exists(talent => talent.Name == tuple.talent.Name) ? "Y" : "N",
                             tuple.disciplineName,
                             step,
                             actionDice);
@@ -503,13 +504,19 @@ namespace EarthdawnGamemasterAssistant.UI
             if (cb == null) return;
 
             // First remove event handler to keep from attaching multiple times
-            cb.SelectedIndexChanged -= ComboBoxTalent_SelectedIndexChanged;
-
+            cb.SelectedValueChanged -= Cb_SelectedValueChanged;
+            cb.DropDown -= Cb_DropDown;
             // Now attach the event handler
-            cb.SelectedIndexChanged += ComboBoxTalent_SelectedIndexChanged;
+            cb.SelectedValueChanged += Cb_SelectedValueChanged;
+            cb.DropDown += Cb_DropDown;
         }
 
-        private void ComboBoxTalent_SelectedIndexChanged(object sender, EventArgs e)
+        private void Cb_DropDown(object sender, EventArgs e)
+        {
+            ((ComboBox)sender).BackColor = Color.White;
+        }
+
+        private void Cb_SelectedValueChanged(object sender, EventArgs e)
         {
             if (metroGridTalents.SelectedCells.Count > 0)
             {
@@ -518,7 +525,6 @@ namespace EarthdawnGamemasterAssistant.UI
                 var selectedTalent = CurrentCharacterInfo.Disciplines.AvailableTalents()
                     .First(tuple => tuple.talent.Name == talentName).talent;
                 selectedTalent.Rank = Convert.ToInt32(((DataGridViewComboBoxEditingControl)sender).SelectedItem);
-
                 UpdateWarningControlsOnTalentsTab();
             }
         }
@@ -529,7 +535,7 @@ namespace EarthdawnGamemasterAssistant.UI
             foreach (DataGridViewRow talentRow in metroGridTalents.Rows)
             {
                 var name = talentRow.Cells[0].Value.ToString();
-                var rank = Convert.ToInt32(talentRow.Cells[2].Value);
+                var rank = Convert.ToInt32(talentRow.Cells[2].EditedFormattedValue);
                 currentTalentTuples.Add(
                     ValueTuple.Create(name, rank));
             }
@@ -539,12 +545,13 @@ namespace EarthdawnGamemasterAssistant.UI
         private void UpdateWarningControlsOnTalentsTab()
         {
             flowLayoutPanelTalents.Controls.Clear();
-            var circleWarningTuples = CurrentCharacterInfo.Disciplines.GetCircleAdvancementRuleViolations(GetCurrentTalents());
+            var currentTalents = GetCurrentTalents();
+            var circleWarningTuples = CurrentCharacterInfo.Disciplines.GetCircleAdvancementRuleViolations(currentTalents);
             foreach (var circleWarningTuple in circleWarningTuples)
             {
                 var warningIcon = new PictureBox
                 {
-                    Image = global::EarthdawnGamemasterAssistant.UI.Properties.Resources.warning_0V8_icon,
+                    Image = Properties.Resources.warning_0V8_icon,
                     Size = new System.Drawing.Size(24, 24),
                     TabIndex = 1,
                     TabStop = false
@@ -553,7 +560,7 @@ namespace EarthdawnGamemasterAssistant.UI
                 var warningLabel = new Label
                 {
                     AutoSize = true,
-                    Margin = new System.Windows.Forms.Padding(3, 7, 3, 0),
+                    Margin = new Padding(3, 7, 3, 0),
                     Size = new System.Drawing.Size(83, 19),
                     TabIndex = 0,
                     Text = circleWarningTuple.disciplineName +

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.ExceptionServices;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 {
@@ -250,27 +251,35 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
             return talents;
         }
 
-        public List<(string disciplineName, int disciplineCircle)> GetCircleAdvancementRuleViolations(List<(string talentName, int talentRank)> talentNameAndRanks)
+        public List<(string disciplineName, int disciplineCircle)> GetCircleAdvancementRuleViolations(
+            List<(string talentName, int talentRank)> talentNameAndRanks)
         {
-            var toReturn = new List<(string disciplineName, int disciplineCircle)>();
-            foreach (var discipline in Disciplines.Where(discipline => discipline.EarthdawnCircle > 0))
+            return (from discipline in Disciplines
+                        .Where(discipline => discipline.EarthdawnCircle > 0)
+                    let disciplinedTalents = discipline.TalentsAtCircle
+                        .Where(kvp => kvp.Key <= discipline.EarthdawnCircle)
+                        .SelectMany(talents => talents.Value)
+                    from talent in disciplinedTalents
+                    where talentNameAndRanks.Exists(
+                        tuple => tuple.talentName == talent.Name &&
+                                 tuple.talentRank < discipline.EarthdawnCircle)
+                    select ValueTuple.Create(discipline.Name, discipline.EarthdawnCircle)).Distinct()
+                .ToList();
+        }
+
+        public List<Talent> GetDisciplinedTalents()
+        {
+            var disciplinedTalents = new List<Talent>();
+            foreach (var discipline in Disciplines)
             {
-                var disciplinedTalentsList =
-                    discipline.TalentsAtCircle.Where(kvp => kvp.Key <= discipline.EarthdawnCircle).Select(talents => talents.Value);
-                foreach (var disciplinedTalent in disciplinedTalentsList)
+                if (discipline.EarthdawnCircle > 0)
                 {
-                    foreach (var talent in disciplinedTalent)
-                    {
-                        if (talentNameAndRanks.Exists(tuple => tuple.talentName == talent.Name && tuple.talentRank < discipline.EarthdawnCircle))
-                        {
-                            toReturn.Add(ValueTuple.Create(discipline.Name, discipline.EarthdawnCircle));
-                        }
-                    }
+                    disciplinedTalents.AddRange(
+                        discipline.TalentsAtCircle.Where(kvp => kvp.Key <= discipline.EarthdawnCircle)
+                            .SelectMany(talents => talents.Value).ToList());
                 }
-
             }
-
-            return toReturn.Distinct().ToList();
+            return disciplinedTalents;
         }
     }
 }
