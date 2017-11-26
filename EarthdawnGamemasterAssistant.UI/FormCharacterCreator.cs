@@ -9,7 +9,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using MetroFramework.Controls;
 
 namespace EarthdawnGamemasterAssistant.UI
 {
@@ -67,7 +66,8 @@ namespace EarthdawnGamemasterAssistant.UI
                     UpdateTalentGrid();
                     UpdateWarningControlsOnTalentsTab();
 
-                    // [REVIEW]: Why just physical defense updates? Aren't there going to be others?
+                    // [REVIEW]: Why just physical defense updates? Aren't there
+                    // going to be others?
                     metroLabelPhysicalDefense.Text = CurrentCharacterInfo.PhysicalDefense.ToString();
                     break;
             }
@@ -77,22 +77,14 @@ namespace EarthdawnGamemasterAssistant.UI
         {
             // Remove talents from circle 0 disciplines
             var disciplineNames = CurrentCharacterInfo.Disciplines.GetCircleZeroDisciplineNames();
-            var toRemove = new List<int>();
-            foreach (DataGridViewRow row in metroGridTalents.Rows)
-            {
-                //var parsedDisciplineNames = new List<string>();
-                var disciplineString = row.Cells["ColumnTalentDiscipline"].Value.ToString();
-                var disciplineList = disciplineString.Split(';');
-                foreach (var disciplineName in disciplineList)
-                {
-                    var index = disciplineName.IndexOf('(');
-                    var toCompare = disciplineName.Substring(0, index).Trim();
-                    if (disciplineNames.Exists(_ => _.Contains(toCompare)))
-                    {
-                        toRemove.Add(row.Index);
-                    }
-                }
-            }
+            var toRemove = (from DataGridViewRow row in metroGridTalents.Rows
+                            let disciplineString = row.Cells["ColumnTalentDiscipline"].Value.ToString()
+                            let disciplineList = disciplineString.Split(';')
+                            from disciplineName in disciplineList
+                            let index = disciplineName.IndexOf('(')
+                            let toCompare = disciplineName.Substring(0, index).Trim()
+                            where disciplineNames.Exists(_ => _.Contains(toCompare))
+                            select row.Index).ToList();
             if (metroGridTalents.Rows.Count > 0)
             {
                 for (var i = toRemove.Count - 1; i >= 0; i--)
@@ -122,7 +114,7 @@ namespace EarthdawnGamemasterAssistant.UI
                         tuple.talent.Action,
                         tuple.talent.Strain,
                         tuple.talent.SkillUse);
-                    
+
                     var step = talent.GetStep(matchingAttribute.Value);
 
                     // Update the current talent row.
@@ -149,7 +141,6 @@ namespace EarthdawnGamemasterAssistant.UI
                         actionDice);
                 }
             }
-            
         }
 
         private DataGridViewRow GetRowByTalentName(string talentName)
@@ -643,7 +634,8 @@ namespace EarthdawnGamemasterAssistant.UI
                            circleWarningTuple.disciplineCircle
                 };
 
-                // [TODO]: Add an onclick event which auto completes requirements not met.
+                // [TODO]: Add an onclick event which auto completes requirements
+                // not met.
                 flowLayoutPanelTalents.Controls.Add(warningIcon);
                 flowLayoutPanelTalents.Controls.Add(warningLabel);
             }

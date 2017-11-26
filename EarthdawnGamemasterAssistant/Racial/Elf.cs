@@ -32,7 +32,5 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Racial
         {
             return RacialAbilities;
         }
-
-        
     }
 }
