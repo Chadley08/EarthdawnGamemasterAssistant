@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using MetroFramework.Controls;
 
 namespace EarthdawnGamemasterAssistant.UI
 {
@@ -48,11 +49,14 @@ namespace EarthdawnGamemasterAssistant.UI
         private void Disciplines_TalentRankChanged(object sender, PropertyChangedEventArgs e)
         {
             var talent = (Talent)sender;
-            var attributeValue = CurrentCharacterInfo.GetMatchingAttribute(talent.BaseEarthdawnAttribute).Value;
+            var attributeValue = CurrentCharacterInfo.GetMatchingAttribute(talent.BaseEarthdawnAttribute.Name).Value;
             var talentStep = talent.GetStep(attributeValue);
             var actionDice = CharacteristicTables.GetStepDice(talentStep);
-            metroGridTalents.SelectedCells[0].OwningRow.Cells["ColumnStep"].Value = talentStep;
-            metroGridTalents.SelectedCells[0].OwningRow.Cells["ColumnTalentActionDice"].Value = actionDice;
+            if (metroGridTalents.SelectedCells.Count > 0)
+            {
+                metroGridTalents.SelectedCells[0].OwningRow.Cells["ColumnStep"].Value = talentStep;
+                metroGridTalents.SelectedCells[0].OwningRow.Cells["ColumnTalentActionDice"].Value = actionDice;
+            }
         }
 
         private void Disciplines_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -71,29 +75,99 @@ namespace EarthdawnGamemasterAssistant.UI
 
         private void UpdateTalentGrid()
         {
-            // Clear the current grid
-            metroGridTalents.Rows.Clear();
-
-            // Get all the talents available for each discipline with a cirlce
-            // higher than 0 and add them to the talent grid.
-            var disciplinedTalents = CurrentCharacterInfo.Disciplines.GetDisciplinedTalents();
-            CurrentCharacterInfo.Disciplines.AvailableTalents()
-                .ForEach(
-                    tuple =>
+            // Remove talents from circle 0 disciplines
+            var disciplineNames = CurrentCharacterInfo.Disciplines.GetCircleZeroDisciplineNames();
+            var toRemove = new List<int>();
+            foreach (DataGridViewRow row in metroGridTalents.Rows)
+            {
+                //var parsedDisciplineNames = new List<string>();
+                var disciplineString = row.Cells["ColumnTalentDiscipline"].Value.ToString();
+                var disciplineList = disciplineString.Split(';');
+                foreach (var disciplineName in disciplineList)
+                {
+                    var index = disciplineName.IndexOf('(');
+                    var toCompare = disciplineName.Substring(0, index).Trim();
+                    if (disciplineNames.Exists(_ => _.Contains(toCompare)))
                     {
-                        var attributeValue = CurrentCharacterInfo.GetMatchingAttribute(tuple.talent.BaseEarthdawnAttribute)
+                        toRemove.Add(row.Index);
+                    }
+                }
+            }
+            if (metroGridTalents.Rows.Count > 0)
+            {
+                for (var i = toRemove.Count - 1; i >= 0; i--)
+                {
+                    metroGridTalents.Rows.RemoveAt(i);
+                }
+            }
+
+            // Add talents which currently do not exist in the grid to the grid.
+            var disciplinedTalents = CurrentCharacterInfo.Disciplines.GetDisciplinedTalents();
+            var availableTalents = CurrentCharacterInfo.Disciplines.AvailableTalents();
+            foreach (var tuple in availableTalents)
+            {
+                if (TalentExistsInGrid(tuple.talent.Name))
+                {
+                    var row = GetRowByTalentName(tuple.talent.Name);
+                    var talentName = tuple.talent.Name;
+                    var talentAttribute = row.Cells["dataGridViewTextBoxColumnAttribute"].Value.ToString();
+                    var matchingAttribute = CurrentCharacterInfo.GetMatchingAttribute(talentAttribute);
+                    var talentRank = Convert.ToInt32(row.Cells["ColumnRank"].Value.ToString());
+                    var talent = new Talent(
+                        talentName,
+                        "",
+                        matchingAttribute,
+                        talentRank,
+                        tuple.talent.StepRule,
+                        tuple.talent.Action,
+                        tuple.talent.Strain,
+                        tuple.talent.SkillUse);
+                    
+                    var step = talent.GetStep(matchingAttribute.Value);
+
+                    // Update the current talent row.
+                    row.Cells["ColumnStep"].Value = talent.GetStep(matchingAttribute.Value);
+                    row.Cells["ColumnTalentActionDice"].Value = CharacteristicTables.GetStepDice(step);
+                    row.Cells["ColumnTalentDiscipline"].Value = tuple.disciplineName;
+                }
+                else
+                {
+                    // Create a new talent row from scratch.
+                    var attributeValue =
+                        CurrentCharacterInfo
+                            .GetMatchingAttribute(tuple.talent.BaseEarthdawnAttribute.Name)
                             .Value;
-                        var step = tuple.talent.GetStep(attributeValue);
-                        var actionDice = CharacteristicTables.GetStepDice(step);
-                        metroGridTalents.Rows.Add(
-                            tuple.talent.Name,
-                            tuple.talent.BaseEarthdawnAttribute.Name,
-                            tuple.talent.Rank,
-                            disciplinedTalents.Exists(talent => talent.Name == tuple.talent.Name) ? "Y" : "N",
-                            tuple.disciplineName,
-                            step,
-                            actionDice);
-                    });
+                    var step = tuple.talent.GetStep(attributeValue);
+                    var actionDice = CharacteristicTables.GetStepDice(step);
+                    metroGridTalents.Rows.Add(
+                        tuple.talent.Name,
+                        tuple.talent.BaseEarthdawnAttribute.Name,
+                        tuple.talent.Rank,
+                        disciplinedTalents.Exists(talent => talent.Name == tuple.talent.Name) ? "Y" : "N",
+                        tuple.disciplineName,
+                        step,
+                        actionDice);
+                }
+            }
+            
+        }
+
+        private DataGridViewRow GetRowByTalentName(string talentName)
+        {
+            foreach (DataGridViewRow row in metroGridTalents.Rows)
+            {
+                if (row.Cells["dataGridViewTextBoxColumnName"].Value.ToString() == talentName)
+                {
+                    return row;
+                }
+            }
+            throw new Exception("Row not found, but it should have been.");
+        }
+
+        private bool TalentExistsInGrid(string talentName)
+        {
+            return metroGridTalents.Rows.Cast<DataGridViewRow>()
+                .Any(row => row.Cells["dataGridViewTextBoxColumnName"].Value.ToString() == talentName);
         }
 
         private void metroGridDisciplines_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -506,6 +580,7 @@ namespace EarthdawnGamemasterAssistant.UI
             // First remove event handler to keep from attaching multiple times
             cb.SelectedValueChanged -= Cb_SelectedValueChanged;
             cb.DropDown -= Cb_DropDown;
+
             // Now attach the event handler
             cb.SelectedValueChanged += Cb_SelectedValueChanged;
             cb.DropDown += Cb_DropDown;
@@ -567,6 +642,8 @@ namespace EarthdawnGamemasterAssistant.UI
                            @": Must have all disciplined talents at rank " +
                            circleWarningTuple.disciplineCircle
                 };
+
+                // [TODO]: Add an onclick event which auto completes requirements not met.
                 flowLayoutPanelTalents.Controls.Add(warningIcon);
                 flowLayoutPanelTalents.Controls.Add(warningLabel);
             }

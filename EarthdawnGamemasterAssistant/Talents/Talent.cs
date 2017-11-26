@@ -23,7 +23,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
             }
         }
 
-        private IStepRule StepRule { get; }
+        public IStepRule StepRule { get; }
         public ActionType Action { get; }
         public int Strain { get; }
         public bool SkillUse { get; }

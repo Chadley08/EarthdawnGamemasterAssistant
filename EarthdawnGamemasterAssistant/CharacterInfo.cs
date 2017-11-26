@@ -23,9 +23,9 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
             Disciplines = disciplines;
         }
 
-        public EarthdawnAttribute GetMatchingAttribute(EarthdawnAttribute toMatch)
+        public EarthdawnAttribute GetMatchingAttribute(string toMatch)
         {
-            switch (toMatch.Name)
+            switch (toMatch)
             {
                 case "Str":
                     return Str;
@@ -49,7 +49,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
                     return new NullAttribute();
 
                 default:
-                    throw new InvalidOperationException("No matching attribute named" + toMatch.Name);
+                    throw new InvalidOperationException("No matching attribute named" + toMatch);
             }
         }
 
