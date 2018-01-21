@@ -1,15 +1,17 @@
-﻿using System.Collections.Specialized;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Annotations;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using EarthdawnGamemasterAssistant.CharacterGenerator.Skills;
+using System.Text;
+using System.Threading.Tasks;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Actions;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Attributes;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
 
-namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
+namespace EarthdawnGamemasterAssistant.CharacterGenerator.Skills
 {
-    public class Talent : INotifyPropertyChanged
+    public class Skill : INotifyPropertyChanged
     {
         public string Name { get; }
         public string Description { get; }
@@ -25,12 +27,12 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
                 OnPropertyChanged();
             }
         }
-
         public IStepRule StepRule { get; }
         public ActionType Action { get; }
         public int Strain { get; }
+        public SkillCategory Category { get; }
 
-        public Talent(
+        public Skill(
             string name,
             string description,
             EarthdawnAttribute baseEarthdawnAttribute,
@@ -38,8 +40,7 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
             IStepRule stepRule,
             ActionType action,
             int strain,
-            bool skillUse,
-            string skillDescription)
+            SkillCategory category)
         {
             Name = name;
             Description = description;
@@ -48,22 +49,11 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Talents
             StepRule = stepRule;
             Action = action;
             Strain = strain;
-            SkillUse = skillUse;
-            SkillDescription = skillDescription;
-        }
-
-        public bool SkillUse { get; }
-        public string SkillDescription { get; }
-
-        public int GetStep(int attributeValue)
-        {
-            var attributeStep = CharacteristicTables.GetStepFromValue(attributeValue);
-            return StepRule.CalculateStep(Rank, attributeStep);
+            Category = category;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

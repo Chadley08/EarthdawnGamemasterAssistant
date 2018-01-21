@@ -6,6 +6,7 @@ using EarthdawnGamemasterAssistant.CharacterGenerator.Talents;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Skills;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
 {
@@ -35,36 +36,38 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
         public string Description =>
             "Air Sailors are the swashbuckling brotherhood of the sky. Air Sailors never leave their fellows behind and embrace the idea of togetherness, working to protect and spread civilization, rather than preying upon it.";
 
-        public IReadOnlyList<Talent> NoviceTalentOptions => new List<Talent>()
-        {
-            new Talent("Acrobatic Defense", "", new Dexterity(0), 0, new RankPlusAttributeStepRule(),  new SimpleAction(), 1, true),
-            new Talent("Distract", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, true),
-            new Talent("First Impression", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true),
-            new Talent("Great Leap", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, true),
-            new Talent("Haggle", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new SustainedAction(), 0, true),
-            new Talent("Maneuver", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, true),
-            new Talent("Navigation", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SustainedAction(), 0, true),
-            new Talent("Speak Language", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 1, false),
-            new Talent("Taunt", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, true),
-            new Talent("Throwing Weapons", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true)
-        };
+        public IReadOnlyList<Talent> NoviceTalentOptions => TalentTable.CreateTalentsByName(
+            new List<string>
+            {
+                "Acrobatic Defense",
+                "Distract",
+                "First Impression",
+                "Great Leap",
+                "Haggle",
+                "Maneuver",
+                "Navigation",
+                "Speak Language",
+                "Taunt",
+                "Throwing Weapons"
+            });
 
-        public IReadOnlyList<Talent> JourneymanTalentOptions => new List<Talent>()
-        {
-            new Talent("Air Speaking", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, false),
-            new Talent("Battle Bellow", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, true),
-            new Talent("Conceal Object", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 1, true),
-            new Talent("Engaging Banter", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true),
-            new Talent("Etiquette", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new SustainedAction(), 0, true),
-            new Talent("Graceful Exit", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true),
-            new Talent("Leadership", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new SustainedAction(), 0, true),
-            new Talent("Resist Taunt", "", new Willpower(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, true),
-            new Talent("Second Weapon", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, true),
-            new Talent("Surprise Strike", "", new Strength(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, true)
-        };
+        public IReadOnlyList<Talent> JourneymanTalentOptions => TalentTable.CreateTalentsByName(
+            new List<string>
+            {
+                "Air Speaking",
+                "Battle Below",
+                "Conceal Object",
+                "Engaging Banter",
+                "Etiquette",
+                "Graceful Exit",
+                "Leadership",
+                "Resist Taunt",
+                "Second Weapon",
+                "Surprise Strike"
+            });
 
         public Talent FreeTalent =>
-            new Talent("Air Sailing", "", new Willpower(0), 0, new RankPlusAttributeStepRule(), new SustainedAction(), 0, true);
+            new Talent("Air Sailing", "", new Willpower(0), 0, new RankPlusAttributeStepRule(), new SustainedAction(), 0, true, "");
 
         public IReadOnlyList<InitiativeAbilityRule> InitiativeAbilityRules { get; }
 
@@ -124,70 +127,63 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines
         {
             {
                 1,
-                new List<Talent>()
+                TalentTable.CreateTalentsByName(new List<string>
                 {
-                    new Talent("Avoid Blow", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, true),
-                    new Talent("Climbing", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true),
-                    new Talent("Melee Weapons", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, true),
-                    new Talent(
-                        "Thread Weaving (Air Weaving)",
-                        "",
-                        new Perception(0),
-                        0,new RankPlusAttributeStepRule(),
-                        new StandardAction(),
-                        0,
-                        false),
-                    new Talent("Wind Catcher", "", new Willpower(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 1, false)
-                }
+                    "Avoid Blow",
+                    "Climbing",
+                    "Melee Weapons",
+                    "Thread Weaving (Air Weaving)",
+                    "Wind Catcher"
+                })
             },
             {
                 2,
-                new List<Talent>()
+                TalentTable.CreateTalentsByName(new List<string>
                 {
-                    new Talent("Awareness", "", new Perception(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 0, true)
-                }
+                    "Awareness"
+                })
             },
             {
                 3,
-                new List<Talent>()
+                TalentTable.CreateTalentsByName(new List<string>
                 {
-                    new Talent("Empathic Sense", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, true)
-                }
+                    "Empathic Sense"
+                })
             },
             {
                 4,
-                new List<Talent>()
+                TalentTable.CreateTalentsByName(new List<string>
                 {
-                    new Talent("Wound Balance", "", new Strength(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 0, true)
-                }
+                    "Wound Balance"
+                })
             },
             {
                 5,
-                new List<Talent>()
+                TalentTable.CreateTalentsByName(new List<string>
                 {
-                    new Talent("Heartening Laugh", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new SimpleAction(), 1, true)
-                }
+                    "Heartening Laugh"
+                })
             },
             {
                 6,
-                new List<Talent>()
+                TalentTable.CreateTalentsByName(new List<string>
                 {
-                    new Talent("Air Dance", "", new Dexterity(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 2, false)
-                }
+                    "Air Dance"
+                })
             },
             {
                 7,
-                new List<Talent>()
+                TalentTable.CreateTalentsByName(new List<string>
                 {
-                    new Talent("Inspire Others", "", new Charisma(0), 0,new RankPlusAttributeStepRule(),  new StandardAction(), 0, false)
-                }
+                    "Inspire Others"
+                })
             },
             {
                 8,
-                new List<Talent>()
+                TalentTable.CreateTalentsByName(new List<string>
                 {
-                    new Talent("Lion Heart", "", new Willpower(0), 0,new RankPlusAttributeStepRule(),  new FreeAction(), 1, false)
-                }
+                    "Lion Heart"
+                })
             }
         };
 

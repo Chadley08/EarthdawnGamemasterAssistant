@@ -2,8 +2,10 @@
 using EarthdawnGamemasterAssistant.CharacterGenerator.Disciplines;
 using EarthdawnGamemasterAssistant.CharacterGenerator.Racial;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using EarthdawnGamemasterAssistant.CharacterGenerator.Skills;
 
 namespace EarthdawnGamemasterAssistant.CharacterGenerator
 {
@@ -81,6 +83,8 @@ namespace EarthdawnGamemasterAssistant.CharacterGenerator
                                   Disciplines.GetHighestCircle();
 
         public string Description { get; set; }
+
+        public List<Skill> CharacterSkills { get; set; }
 
         public Dexterity Dex
         {

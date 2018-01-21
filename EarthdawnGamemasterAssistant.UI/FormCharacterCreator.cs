@@ -113,7 +113,8 @@ namespace EarthdawnGamemasterAssistant.UI
                         tuple.talent.StepRule,
                         tuple.talent.Action,
                         tuple.talent.Strain,
-                        tuple.talent.SkillUse);
+                        tuple.talent.SkillUse,
+                        tuple.talent.SkillDescription);
 
                     var step = talent.GetStep(matchingAttribute.Value);
 

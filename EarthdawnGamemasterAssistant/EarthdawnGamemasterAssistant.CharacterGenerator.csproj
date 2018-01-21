@@ -99,6 +99,9 @@
     <Compile Include="Actions\FreeAction.cs" />
     <Compile Include="Actions\ActionType.cs" />
     <Compile Include="Actions\ActionName.cs" />
+    <Compile Include="Skills\Skill.cs" />
+    <Compile Include="Skills\SkillCategory.cs" />
+    <Compile Include="Skills\SkillTable.cs" />
     <Compile Include="Talents\IStepRule.cs" />
     <Compile Include="Talents\NullStepRule.cs" />
     <Compile Include="Talents\NullTalent.cs" />
@@ -108,6 +111,7 @@
     <Compile Include="Talents\Talent.cs" />
     <Compile Include="Attributes\Toughness.cs" />
     <Compile Include="Attributes\Willpower.cs" />
+    <Compile Include="Talents\TalentTable.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
